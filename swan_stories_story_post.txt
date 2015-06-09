@@ -1,0 +1,24 @@
+{
+  "createdAt": "2015-02-27T14:20:13+00:00",
+  "updatedAt": "2015-03-04T18:46:41+00:00",
+  "id": "e81cb763-bd87-4400-bba6-eefef6c189d6",
+  "ownerId": 2,
+  "description": "this is my story",
+  "origin": "custom",
+  "customStoryId": "537d0107-a7ef-4cb2-a343-0c8832cb2323",
+  "commentsIds": null,
+  "favoritesIds": null,
+  "likes": 0,
+  "custom": {
+    "storyType": "image",
+    "image": {
+      "url": "https://s3.amazonaws.com/swan-public/uploads/swan/custom_story/image/537d0107-a7ef-4cb2-a343-0c8832cb2323/8992974f-787b-4fed-878e-56e9b8493c91.jpeg",
+      "collapsed": {
+        "url": "https://s3.amazonaws.com/swan-public/uploads/swan/custom_story/image/537d0107-a7ef-4cb2-a343-0c8832cb2323/collapsed_8992974f-787b-4fed-878e-56e9b8493c91.jpeg"
+      },
+      "expanded": {
+        "url": "https://s3.amazonaws.com/swan-public/uploads/swan/custom_story/image/537d0107-a7ef-4cb2-a343-0c8832cb2323/expanded_8992974f-787b-4fed-878e-56e9b8493c91.jpeg"
+      }
+    }
+  }
+}

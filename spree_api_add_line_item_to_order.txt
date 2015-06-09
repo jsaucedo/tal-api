@@ -1,0 +1,31 @@
+{
+  "id": 8,
+  "quantity": 1,
+  "price": "250.0",
+  "variant_id": 25,
+  "single_display_amount": "$250.00",
+  "display_amount": "$250.00",
+  "total": "250.0",
+  "variant": {
+    "id": 25,
+    "name": "DEFAULT PRODUCT FOR COUTURE",
+    "sku": "C15-05-19-12-DESIGN",
+    "price": "250.0",
+    "weight": "0.0",
+    "height": null,
+    "width": null,
+    "depth": null,
+    "is_master": false,
+    "slug": "default-product-for-couture",
+    "description": null,
+    "track_inventory": true,
+    "cost_price": null,
+    "display_price": "$250.00",
+    "options_text": "",
+    "in_stock": true,
+    "option_values": [],
+    "images": [],
+    "product_id": 12
+  },
+  "adjustments": []
+}

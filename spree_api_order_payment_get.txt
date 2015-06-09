@@ -1,0 +1,20 @@
+{
+  "count": 1,
+  "current_page": 1,
+  "pages": 1,
+  "payments": [
+    {
+      "id": 7,
+      "source_type": "Spree::CreditCard",
+      "source_id": 7,
+      "amount": "250.0",
+      "display_amount": "$250.00",
+      "payment_method_id": 1,
+      "response_code": null,
+      "state": "checkout",
+      "avs_response": null,
+      "created_at": "2015-05-19T20:40:03.000Z",
+      "updated_at": "2015-05-19T20:40:03.000Z"
+    }
+  ]
+}

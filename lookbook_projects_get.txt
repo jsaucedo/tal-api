@@ -1,0 +1,36 @@
+[
+	{
+		"id":"7905a369-4102-41fd-ab4e-b854773fa527",
+		"projectTitle":null,
+		"thumbsUp":null,
+		"privacy":"everyone",
+		"origin":"bespoke",
+		"eventDate":null,
+		"eventType":”wedding”,
+		"silhouette":"silhouette-a-line",
+		"neckline":null,
+		"sleeve":"sleeve-short",
+		"backgroundImage":null,
+		"state":"design",
+		"commentsCount":0,
+		“unseenCommentsCount”: 0, 
+		“productImage”: “https://cdn.thirdandloom.com/assets/static/images/lookbook/lookbook-pattern.png"
+	},
+	{
+		"id":"55942850-6512-4879-a311-31cc983d6d18",
+		"projectTitle":null,
+		"thumbsUp":null,
+		"privacy":"everyone",
+		"origin":null,
+		"eventDate":null,
+		"eventType":null,
+		"silhouette":"silhouette-a-line",
+		"neckline":"neckline-dipped",
+		"sleeve":"sleeve-short",
+		"backgroundImage":null,
+		"state":"design",
+		"commentsCount":0, 
+		“unseenCommentsCount”: 0,
+		“productImage”:”https://cdn.thirdandloom.com/uploads/swan/visual/image/8e593950-373c-4bb9-b3f1-e433ee6193e9/small_fc9fc186-07d6-4055-a0bd-23c1964ba38e.jpg" 
+	}
+]

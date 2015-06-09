@@ -1,0 +1,14 @@
+{
+	"id":2,
+	"firstName":"usuario",
+	"lastName":null,
+	"profileImage":"https://s3.amazonaws.com/swan-public/uploads/swan_user/profile_image/2/e2575ed3-5040-428e-b52d-00a528a70710.jpeg",
+	"location":null,
+	"coverImage":"https://s3.amazonaws.com/swan-public/uploads/swan_user/cover_image/2/e08b617b-3bbc-49ba-84ca-4116a30298bf.jpeg",
+	"coverBackgroundColor":null,
+	"confirmed":false,
+	"stories":0,
+	"projects":7,
+	"favorites":4,
+	"instants":0
+}

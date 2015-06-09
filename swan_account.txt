@@ -1,0 +1,144 @@
+{
+  "id": 1,
+  "email": "admin@swan.com",
+  "lastRequestAt": null,
+  "login": "admin@swan.com",
+  "shipAddressId": 617,
+  "billAddressId": 618,
+  "createdAt": "2014-10-27 20:10:30 UTC",
+  "updatedAt": "2015-05-19 18:48:03 UTC",
+  "spreeApiKey": "d6b136f33489662e88807a6c21688300356cd9bc0a40a2f2",
+  "firstName": "Emma",
+  "lastName": "Cooper",
+  "defaultMeasurementsId": "4b166ec7-330b-43c9-9206-996c14c53bdb",
+  "continueRegistrationToken": false,
+  "prefs": {
+    "questions": {
+      "questionCategory": {
+        "key": "question-category",
+        "attrKey": "category",
+        "textDescription": "What occasion are you excited about?",
+        "index": 0,
+        "$$hashKey": "0TP",
+        "answer": "category-bridal"
+      },
+      "questionStyle": {
+        "key": "question-style",
+        "attrKey": "style",
+        "textDescription": "...and how do you want your dress to look?",
+        "index": 1,
+        "$$hashKey": "0TQ",
+        "answer": "style-classic-and-traditional"
+      },
+      "questionConstruction": {
+        "key": "question-construction",
+        "attrKey": "construction",
+        "textDescription": "What about its construction?",
+        "index": 2,
+        "$$hashKey": "0TR",
+        "answer": "construction-complex"
+      }
+    }
+  },
+  "uid": "aa5579ef-7c57-4307-b4a5-36b30884c067",
+  "identityId": null,
+  "location": "Seattle",
+  "profileImage": {
+    "url": "https://s3.amazonaws.com/swan-public/uploads/swan_user/profile_image/1/f9e2c4d5-7ea5-4b36-90f3-f1000431a8c9.jpeg"
+  },
+  "onlineImage": {
+    "url": null,
+    "xxlarge": {
+      "url": null
+    },
+    "xlarge": {
+      "url": null
+    },
+    "xxxlarge": {
+      "url": null
+    },
+    "large": {
+      "url": null
+    },
+    "medium": {
+      "url": null
+    },
+    "small": {
+      "url": null
+    },
+    "thumb": {
+      "url": null
+    }
+  },
+  "coverImage": {
+    "url": "https://s3.amazonaws.com/swan-public/uploads/swan_user/cover_image/1/6c8953d2-35e3-4c7c-b8d9-9c81063b5f52.jpeg"
+  },
+  "chatImage": {
+    "url": null,
+    "xxlarge": {
+      "url": null
+    },
+    "xlarge": {
+      "url": null
+    },
+    "xxxlarge": {
+      "url": null
+    },
+    "large": {
+      "url": null
+    },
+    "medium": {
+      "url": null
+    },
+    "small": {
+      "url": null
+    },
+    "thumb": {
+      "url": null
+    }
+  },
+  "personalQuote": "There is no quote",
+  "username": "emma",
+  "confirmed": null,
+  "lastSignOut": "2015-05-18 12:27:29 UTC",
+  "coverBackgroundColor": "#25221B",
+  "billAddress": {
+    "id": 618,
+    "firstname": "Chris12",
+    "lastname": "Hassonzz12",
+    "address1": "6900 E Green Lake Way N",
+    "address2": null,
+    "city": "Seattlew123",
+    "zipcode": "98115",
+    "phone": "1234567890",
+    "stateName": null,
+    "alternativePhone": null,
+    "company": null,
+    "stateId": 54,
+    "countryId": 1,
+    "createdAt": "2015-05-18 23:01:54 UTC",
+    "updatedAt": "2015-05-18 23:01:54 UTC"
+  },
+  "shipAddress": {
+    "id": 617,
+    "firstname": "Chris123",
+    "lastname": "Hasson23",
+    "address1": "6900 E Green Lake Way N123",
+    "address2": null,
+    "city": "Bethesda",
+    "zipcode": "98115",
+    "phone": "3014445002",
+    "stateName": null,
+    "alternativePhone": null,
+    "company": null,
+    "stateId": 54,
+    "countryId": 1,
+    "createdAt": "2015-05-18 23:01:54 UTC",
+    "updatedAt": "2015-05-18 23:01:54 UTC"
+  },
+  "admin": true,
+  "avatarImage": {
+    "url": "https://s3.amazonaws.com/swan-public/uploads/swan_user/profile_image/1/f9e2c4d5-7ea5-4b36-90f3-f1000431a8c9.jpeg"
+  },
+  "online": "yes"
+}

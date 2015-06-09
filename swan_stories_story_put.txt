@@ -1,0 +1,15 @@
+{
+  "createdAt": "2015-02-25T13:31:42+00:00",
+  "updatedAt": "2015-02-25T14:45:14+00:00",
+  "id": "01831420-3600-4f8c-85a2-d546f4abb591",
+  "ownerId": 156,
+  "description": "test story",
+  "origin": "custom",
+  "customStoryId": "3f619bc7-8c27-4241-9a32-89921a9b34bc",
+  "commentsIds": null,
+  "favoritesIds": null,
+  "custom": {
+    "storyType": "text",
+    "image": null
+  }
+}

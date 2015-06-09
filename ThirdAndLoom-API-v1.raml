@@ -1,0 +1,386 @@
+#%RAML 0.8
+
+title: Third&Loom
+version: v1
+
+/swan:
+  /account:
+    get:
+      description: Returns current logged user's information.
+      responses:
+          200:
+            description: OK
+            body:
+              application/json:
+                example: !include swan_account.txt
+
+  /dress:
+    /projects:
+      /{project_id}:
+        get:
+          description: Returns the project with provided id.
+          responses:
+            200:
+              description: OK
+              body:
+                application/json:
+                  example: !include swan_dress_projects_id_get.txt
+
+  /orders:
+    get:
+      description: Returns all the available configurations of Spree.
+      responses:
+         200:
+           description: OK
+           body:
+             application/json:
+               example: !include swan_spree_order_configs_get.txt
+
+  /stories:
+    post:
+      description: Creates new text or image story for current logged user.
+      body:
+          application/json:
+            schema: |
+                  {
+                    "story": {
+                      "description": {
+                          "required": true,
+                          "type": "string"
+                      },
+                      "custom_story": {
+                          "storyType": {
+                            "description":"'text' or 'image'",
+                            "required": true,
+                            "type": "string"
+                          },
+                          "image": {
+                            "description":"format base64",
+                            "required": false,
+                            "type": "string"
+                          }
+                      },
+                      "required": true,
+                      "type": "object"
+                    },
+                    "required": true,
+                    "type": "object"
+                  }
+            example: |
+                {
+                  "story": {
+                    "description": "test story"
+                  },
+                  "custom_story": {
+                    "storyType": "image", 
+                    "image": "data:image/jpg;base64,/9j/4UWO...qCWGL/AHL9OmZZV//Z"
+                  }
+                }
+
+      responses:
+          200:
+            description: OK
+            body:
+              application/json:
+                example: !include swan_stories_story_post.txt
+
+          403:
+            description: Forbidden |
+              If story type is invalid (i.e. not “text” nor “image”)
+            body:
+              application/json:
+                example: |
+                  {  
+                    'errors':'INVALID STORY TYPE' 
+                  }
+
+    get:
+      description: |
+        Retrieves necessary info to fill Story Page. It can be used for different purposes: 
+
+        Retrieve main_period stories (expanded stories), n forward stories (collapsed) and m backward stories (collapsed). See Request Example 1. OR
+        Retrieve only main_period stories (expanded). See Request Example 2. OR
+        Retrieve only collapsed stories. See Request Example 3.
+
+      queryParameters:
+        requested_user_id:
+          displayName: requested_user_id
+          type: integer
+          description: id of the owner of the story page
+          example: 1
+          required: true
+        main_period:
+          displayName: main_period
+          type: string
+          description: period  which will be shown as the main period of the Stories page (format can be 'yyyy/mm/dd' , 'yyyy/mm' or 'yyyy')
+          example: '2001'
+          required: true
+        forward_periods:
+          displayName: forward_periods
+          type: integer
+          description: amount of periods after the main_periods that frontend wants to show to User
+          example: 2
+          required: true
+        backward_periods:
+          displayName: backward_periods
+          type: integer
+          description: amount of periods before the main_periods that frontend wants to show to User.
+          example: 1
+          required: true
+        retrieve_main:
+          displayName: retrieve_main
+          type: boolean
+          description: true if main period must be retrieved, false if else
+          example: true
+          required: false
+          default: true
+
+      responses:      
+        200:
+          description: OK | Please notice the difference between the body of each story at the main period (expanded) and the body of each story at the side periods (collapsed) |
+            Expanded story response parameters -- >
+            
+            id = story id;
+            ownerId = id of the user who owns the story;
+            ownerName = owner name;
+            ownerAvatar.url = owner profile image url;
+            createdDate = date at which story was created;
+            description = story description;
+            origin = “project” / “custom”;
+            projectId = id of the project in case its origin is “project”;
+            comments = array of comments;
+            likes = amount of likes;
+            type = “image” / “text” / “event” / “video”;
+            image.url = url of original story image (this parameter only exists in case     type= “image”);
+            image.expanded.url = url of expanded version of story image (this parameter only exists in case type= “image”);
+
+            Collapsed story response parameters -- >
+
+            id = story id;
+            ownerId  = id of the user who owns the story;
+            ownerAvatar.url = owner profile image url;
+            createdDate = date at which story was created;
+            description = story description;
+            type= “image” / “text” / “event” / “video”;
+            image.collapsed.url = url of collapsed version of story image (this parameter only exists in case type= “image”)
+
+          body:
+            application/json:
+              example: !include swan_stories_story_get.txt
+
+    /{story_id}:
+      put:
+        description: Updates story with provided id
+        body:
+          application/json:
+            schema: |
+                  {
+                    "story": {
+                      "description": {
+                          "required": true,
+                          "type": "string"
+                      },
+                      "custom_story": {
+                          "storyType": {
+                            "description":"'text' or 'image'",
+                            "required": true,
+                            "type": "string"
+                          },
+                          "image": {
+                            "description":"format base64",
+                            "required": false,
+                            "type": "string"
+                          }
+                      },
+                      "required": true,
+                      "type": "object"
+                    },
+                    "required": true,
+                    "type": "object"
+                  }
+            example: |
+                {
+                  "story": {
+                    "description": "test story"
+                  },
+                  "custom_story": {
+                    "storyType": "text"
+                  }
+                }
+        responses:
+          200:
+            description: OK
+            body:
+              application/json:
+                example: !include swan_stories_story_put.txt
+
+          403:
+            description: Forbidden |
+              If story type is invalid (i.e. not “text” nor “image”) or if there is no story with provided id or if current logged user is not the owner of the story with provided id
+            body:
+              application/json:
+                example: |
+                  {  
+                    'errors':'INVALID STORY TYPE' 
+                  }
+                  |
+                  {  
+                    'errors':'RECORD NOT FOUND' 
+                  }
+                  |
+                  {  
+                    'errors':'NOT OWNER' 
+                  }
+
+      delete:
+        description: Deletes story with provided id
+        responses:
+            200:
+              description: OK
+            403:
+              description: Forbidden |
+                If current logged user is not the owner of the story with provided id
+              body:
+                application/json:
+                  example: |
+                    {
+                      'errors':'NOT OWNER'
+                    }
+
+/lookbook:
+  /user_info/{user_id}:
+    get:
+      description: Retrieves basic necessary user info for lookbook.
+      responses:
+         200:
+           description: OK
+           body:
+             application/json:
+               example: !include lookbook_user_info_get.txt
+
+  /social_info/{user_id}:
+    get:
+      description: Retrieves basic necessary user social info for lookbook. 
+      responses:
+        200:
+          description: OK
+          body:
+            application/json:
+              example: !include lookbook_social_info_user_id_get.txt
+
+  /projects/?user_id={user_id}&first={first}&limit={limit}:
+    get:
+      description: Retrieves basic necessary project info for every project (that is not a story) of user with provided id. It allows pagination. <br>
+                   The project cards are returned showing the newest project first, and the oldest last.
+      responses:
+        200:
+          description: OK
+          body:
+            application/json:
+              example: !include lookbook_projects_get.txt
+        404:
+          description: Not Found, user with provided id does not exist.
+          body:
+            application/json:
+              example: '{"errors":"RECORD NOT FOUND"}'
+
+
+/api:
+  /orders:
+    post:
+      description: Creates an empty Spree Order
+      headers:
+        X-Spree-Token:
+          description: Spree Token to access Spree API. Returned in the response body of /swan/account endpoint. 
+          type: string
+          required: true
+      responses:
+          201:
+            description: Created
+            body:
+              application/json:
+                example: !include spree_api_order_post.txt
+
+    /{order_number}:
+      get:
+        description: Gets desired Spree Order
+        headers:
+          X-Spree-Token:
+            description: Spree Token to access Spree API. Returned in the response body of /swan/account endpoint. 
+            type: string
+            required: true
+        responses:
+            200:
+              description: OK
+              body:
+                application/json:
+                  example: !include spree_api_order_get.txt
+      /line_items:
+        post:
+          description: Adds a line item to the Spree Order with the provided Spree Variant id and the quantity. |
+                            The variant_id key must be retrieved from the response body of /swan/dress/projects/{project_id} endpoint. |
+                            In case we want to charge a sketch, we will use sketchVariantId. And in case we want to charge the rest of the Design, we will use designVariantId.
+          headers:
+            X-Spree-Token:
+              description: Spree Token to access Spree API. Returned in the response body of /swan/account endpoint. 
+              type: string
+              required: true
+          body:
+            application/json:
+              schema: |
+                {
+                  "line_item": {
+                      "variant_id": {
+                          "required": true,
+                          "type": "integer"
+                      },
+                      "quantity": {
+                          "required": true,
+                          "type": "integer"
+                      }
+                  },
+                  "required": true,
+                  "type": "object"
+                }
+          responses:
+            201:
+              description: Created
+              body:
+                application/json:
+                  example: !include spree_api_add_line_item_to_order.txt
+
+      /payments:
+        get:
+          description: See all the payments of the Spree Order. |
+                        More information about payment status -> //guides.spreecommerce.com/developer/payments.html
+          headers:
+            X-Spree-Token:
+              description: Spree Token to access Spree API. Returned in the response body of /swan/account endpoint. 
+              type: string
+              required: true
+          responses:
+            200:
+              description: OK
+              body:
+                application/json:
+                  example: !include spree_api_order_payment_get.txt
+
+  /checkouts:
+    /{order_number}:
+      put:
+        description: To transition an order to its next step |
+                      {cart - address - delivery - payment - confirm - complete} |
+                      More information about Spree Orders steps -> //guides.spreecommerce.com/developer/orders.html
+        headers:
+          X-Spree-Token:
+            description: Spree Token to access Spree API. Returned in the response body of /swan/account endpoint. 
+            type: string
+            required: true
+        responses:
+          200:
+            description: OK. |
+              The following example represents the transition from 'cart' state to 'address' state. |
+              The default addresses, those uploaded by the user previously, are assigned to the order.
+            body:
+              application/json:
+                example: !include spree_api_checkout_cart_to_address.txt

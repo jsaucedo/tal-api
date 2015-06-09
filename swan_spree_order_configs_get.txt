@@ -1,0 +1,429 @@
+{
+  "states": [
+    {
+      "id": 1314,
+      "name": "Alabama",
+      "abbr": "AL",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:36 UTC"
+    },
+    {
+      "id": 1325,
+      "name": "Alaska",
+      "abbr": "AK",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:44 UTC"
+    },
+    {
+      "id": 1280,
+      "name": "Arizona",
+      "abbr": "AZ",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:13 UTC"
+    },
+    {
+      "id": 1286,
+      "name": "Arkansas",
+      "abbr": "AR",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:18 UTC"
+    },
+    {
+      "id": 1307,
+      "name": "California",
+      "abbr": "CA",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:32 UTC"
+    },
+    {
+      "id": 1320,
+      "name": "Colorado",
+      "abbr": "CO",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:40 UTC"
+    },
+    {
+      "id": 1322,
+      "name": "Connecticut",
+      "abbr": "CT",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:42 UTC"
+    },
+    {
+      "id": 1295,
+      "name": "Delaware",
+      "abbr": "DE",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:24 UTC"
+    },
+    {
+      "id": 1288,
+      "name": "District of Columbia",
+      "abbr": "DC",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:19 UTC"
+    },
+    {
+      "id": 1302,
+      "name": "Florida",
+      "abbr": "FL",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:28 UTC"
+    },
+    {
+      "id": 1319,
+      "name": "Georgia",
+      "abbr": "GA",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:40 UTC"
+    },
+    {
+      "id": 1292,
+      "name": "Hawaii",
+      "abbr": "HI",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:22 UTC"
+    },
+    {
+      "id": 1289,
+      "name": "Idaho",
+      "abbr": "ID",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:20 UTC"
+    },
+    {
+      "id": 1281,
+      "name": "Illinois",
+      "abbr": "IL",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:14 UTC"
+    },
+    {
+      "id": 1310,
+      "name": "Indiana",
+      "abbr": "IN",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:34 UTC"
+    },
+    {
+      "id": 1315,
+      "name": "Iowa",
+      "abbr": "IA",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:37 UTC"
+    },
+    {
+      "id": 1284,
+      "name": "Kansas",
+      "abbr": "KS",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:16 UTC"
+    },
+    {
+      "id": 1317,
+      "name": "Kentucky",
+      "abbr": "KY",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:38 UTC"
+    },
+    {
+      "id": 1298,
+      "name": "Louisiana",
+      "abbr": "LA",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:26 UTC"
+    },
+    {
+      "id": 1309,
+      "name": "Maine",
+      "abbr": "ME",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:33 UTC"
+    },
+    {
+      "id": 1301,
+      "name": "Maryland",
+      "abbr": "MD",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:28 UTC"
+    },
+    {
+      "id": 1321,
+      "name": "Massachusetts",
+      "abbr": "MA",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:41 UTC"
+    },
+    {
+      "id": 1276,
+      "name": "Michigan",
+      "abbr": "MI",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:11 UTC"
+    },
+    {
+      "id": 1304,
+      "name": "Minnesota",
+      "abbr": "MN",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:30 UTC"
+    },
+    {
+      "id": 1316,
+      "name": "Mississippi",
+      "abbr": "MS",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:38 UTC"
+    },
+    {
+      "id": 1285,
+      "name": "Missouri",
+      "abbr": "MO",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:17 UTC"
+    },
+    {
+      "id": 1299,
+      "name": "Montana",
+      "abbr": "MT",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:26 UTC"
+    },
+    {
+      "id": 1290,
+      "name": "Nebraska",
+      "abbr": "NE",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:20 UTC"
+    },
+    {
+      "id": 1287,
+      "name": "Nevada",
+      "abbr": "NV",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:18 UTC"
+    },
+    {
+      "id": 1282,
+      "name": "New Hampshire",
+      "abbr": "NH",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:15 UTC"
+    },
+    {
+      "id": 1305,
+      "name": "New Jersey",
+      "abbr": "NJ",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:30 UTC"
+    },
+    {
+      "id": 1318,
+      "name": "New Mexico",
+      "abbr": "NM",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:39 UTC"
+    },
+    {
+      "id": 1323,
+      "name": "New York",
+      "abbr": "NY",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:42 UTC"
+    },
+    {
+      "id": 1283,
+      "name": "North Carolina",
+      "abbr": "NC",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:15 UTC"
+    },
+    {
+      "id": 1308,
+      "name": "North Dakota",
+      "abbr": "ND",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:32 UTC"
+    },
+    {
+      "id": 1306,
+      "name": "Ohio",
+      "abbr": "OH",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:31 UTC"
+    },
+    {
+      "id": 1297,
+      "name": "Oklahoma",
+      "abbr": "OK",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:25 UTC"
+    },
+    {
+      "id": 1312,
+      "name": "Oregon",
+      "abbr": "OR",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:35 UTC"
+    },
+    {
+      "id": 1291,
+      "name": "Pennsylvania",
+      "abbr": "PA",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:21 UTC"
+    },
+    {
+      "id": 1296,
+      "name": "Rhode Island",
+      "abbr": "RI",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:24 UTC"
+    },
+    {
+      "id": 1324,
+      "name": "South Carolina",
+      "abbr": "SC",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:43 UTC"
+    },
+    {
+      "id": 1277,
+      "name": "South Dakota",
+      "abbr": "SD",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:11 UTC"
+    },
+    {
+      "id": 1300,
+      "name": "Tennessee",
+      "abbr": "TN",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:27 UTC"
+    },
+    {
+      "id": 1311,
+      "name": "Texas",
+      "abbr": "TX",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:34 UTC"
+    },
+    {
+      "id": 1293,
+      "name": "Utah",
+      "abbr": "UT",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:22 UTC"
+    },
+    {
+      "id": 1294,
+      "name": "Vermont",
+      "abbr": "VT",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:23 UTC"
+    },
+    {
+      "id": 1303,
+      "name": "Virginia",
+      "abbr": "VA",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:29 UTC"
+    },
+    {
+      "id": 1278,
+      "name": "Washington",
+      "abbr": "WA",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:12 UTC"
+    },
+    {
+      "id": 1326,
+      "name": "West Virginia",
+      "abbr": "WV",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:44 UTC"
+    },
+    {
+      "id": 1279,
+      "name": "Wisconsin",
+      "abbr": "WI",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:13 UTC"
+    },
+    {
+      "id": 1313,
+      "name": "Wyoming",
+      "abbr": "WY",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:36 UTC"
+    }
+  ],
+  "countries": [
+    {
+      "id": 1,
+      "isoName": "USA",
+      "iso": null,
+      "iso3": null,
+      "name": "United States",
+      "numcode": null,
+      "statesRequired": false,
+      "updatedAt": "2015-05-12 12:58:48 UTC"
+    }
+  ],
+  "paymentMethods": [
+    {
+      "id": 1,
+      "name": "Credit Card via Stripe",
+      "description": null,
+      "active": true,
+      "environment": "development",
+      "deletedAt": null,
+      "createdAt": "2014-10-27 20:26:35 UTC",
+      "updatedAt": "2015-05-19 20:36:09 UTC",
+      "displayOn": "both",
+      "autoCapture": null,
+      "preferences": {
+        "secretKey": "sk_test_hw4hNCpwNP6P9ZKZmOpKXNBG",
+        "publishableKey": "pk_test_RGWn7gFP3ufcZ7h51xfpeBl1",
+        "server": "development",
+        "testMode": true
+      }
+    },
+    {
+      "id": 2,
+      "name": "PayPal",
+      "description": null,
+      "active": true,
+      "environment": "development",
+      "deletedAt": null,
+      "createdAt": "2014-10-27 20:26:36 UTC",
+      "updatedAt": "2015-05-19 20:36:10 UTC",
+      "displayOn": "both",
+      "autoCapture": null,
+      "preferences": {
+        "login": "paypal+test@swan.com",
+        "password": "sw12anTest34",
+        "signature": "Swan",
+        "currencyCode": "USD",
+        "server": "test",
+        "testMode": true
+      }
+    }
+  ],
+  "shippingMethods": [
+    {
+      "id": 1,
+      "name": "laa",
+      "displayOn": null,
+      "deletedAt": null,
+      "createdAt": "2014-12-02 18:52:37 UTC",
+      "updatedAt": "2014-12-02 18:52:37 UTC",
+      "trackingUrl": null,
+      "adminName": null,
+      "taxCategoryId": null,
+      "code": null
+    }
+  ],
+  "sketchPricePercent": 0.1,
+  "stripePublishableKey": "pk_test_RGWn7gFP3ufcZ7h51xfpeBl1"
+}

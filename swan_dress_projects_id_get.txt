@@ -1,0 +1,117 @@
+{
+  "createdAt": "2015-05-19T15:12:23+00:00",
+  "updatedAt": "2015-05-19T15:16:25+00:00",
+  "id": "6ae65bc7-0773-43ed-a763-a52e8372904f",
+  "designId": "748798b2-7728-4824-9723-6658162bc19b",
+  "originalDesignId": null,
+  "sketchOrderId": 31,
+  "dressOrderId": null,
+  "coutureSettingId": "cc8e277c-6130-428c-994c-e2b655af1188",
+  "approvedSketch": null,
+  "inspiration": null,
+  "measurements": null,
+  "monogram": null,
+  "sketchComments": null,
+  "silhouette": null,
+  "backgroundCover": null,
+  "projectTitle": "The titled project without sku",
+  "eventType": null,
+  "eventDate": "2015-04-20T00:00:00+00:00",
+  "thumbsUp": null,
+  "privacy": "everyone",
+  "totalPrice": "500",
+  "origin": "product_details",
+  "creator": 1,
+  "state": "sketch",
+  "pose": null,
+  "sketchVariantId": 26,
+  "designVariantId": 25,
+  "uploadsIds": null,
+  "commentsIds": null,
+  "design": {
+    "createdAt": "2015-05-19T15:10:39+00:00",
+    "updatedAt": "2015-05-19T15:12:44+00:00",
+    "id": "748798b2-7728-4824-9723-6658162bc19b",
+    "visualsIds": null,
+    "ratings": null,
+    "softDeleted": false,
+    "ownerId": "aa5579ef-7c57-4307-b4a5-36b30884c067",
+    "projectId": "6ae65bc7-0773-43ed-a763-a52e8372904f",
+    "marketing": null,
+    "isNew": false,
+    "inCollection": null,
+    "hasMarketing": false,
+    "hasWateau": false,
+    "manufacturingDetails": null,
+    "likes": 0,
+    "section": null,
+    "category": "aCategory",
+    "style": "aStyle",
+    "construction": null,
+    "dressType": null,
+    "basePrice": null,
+    "customizationPrice": null,
+    "overview": null,
+    "sku": "C15-05-19-12",
+    "silhouette": [
+      "silhouette-a-line"
+    ],
+    "neckline": [
+      "neckline-bateau"
+    ],
+    "sleeve": [
+      "sleeve-cap"
+    ],
+    "back": [
+      "back-u-shape"
+    ],
+    "train": null,
+    "fabric": [
+      "fabric-shantung"
+    ],
+    "closure": null,
+    "status": null,
+    "color": [
+      "color-white"
+    ],
+    "details": null,
+    "features": [
+      "designer-choice"
+    ],
+    "technique": [
+      "technique-embroidery"
+    ],
+    "effect": null,
+    "pattern": null,
+    "coverage": null,
+    "monogram": null,
+    "stylePalette": null,
+    "notEditableFields": null,
+    "detailsFeatures": null,
+    "constructionType": null,
+    "dressStyle": null,
+    "dressCategory": null,
+    "customPrice": null,
+    "typeDress": null,
+    "sections": null,
+    "price": null,
+    "visuals": []
+  },
+  "coutureSetting": {
+    "createdAt": "2015-05-19T15:12:22+00:00",
+    "updatedAt": "2015-05-19T15:13:27+00:00",
+    "id": "cc8e277c-6130-428c-994c-e2b655af1188",
+    "occasion": null,
+    "ageRange": null,
+    "dressType": null,
+    "bodyType": null,
+    "projectId": "6ae65bc7-0773-43ed-a763-a52e8372904f",
+    "firstRun": true
+  },
+  "uploads": [],
+  "comments": {
+    "comments": [],
+    "total": 0,
+    "unseen": 0
+  }
+}
