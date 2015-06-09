@@ -246,6 +246,50 @@ version: v1
                     {
                       'errors':'NOT OWNER'
                     }
+/swan_user:
+  /lost_password:
+    post: 
+        description: |
+          Find a user by id and try to reset password with the new password. 
+         
+        body:
+          application/json:
+            schema: |
+              {
+                "type": "object",
+                "$schema": "http://json-schema.org/draft-03/schema",
+                "id": "http://jsonschema.net",
+                "required": true,
+                "properties": {
+                  "id": {
+                    "description": "user id",
+                    "type": "string",
+                    "required": true
+
+                  },
+                  "resetPasswordToken": {
+                    "description": "token sent with reset password email",
+                    "type": "string",
+                    "required": true
+                  },
+                  "password": {
+                    "type": "string",
+                    "required": true
+                  },
+                  "passwordConfirmation": {
+                    "type": "string",
+                    "required": true
+                  }
+
+                }
+              }
+            example: |
+              {
+                "id": "1",
+                "resetPasswordToken": "a token",
+                "password": "12345678",
+                "passwordConfirmation: "12345678"
+              }
 
 /lookbook:
   /user_info/{user_id}:
