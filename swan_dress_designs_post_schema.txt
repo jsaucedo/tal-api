@@ -1,0 +1,122 @@
+{
+  "rich_blurb": {
+    "required": false,
+    "type": "string"
+  },
+  "title": {
+    "required": false,
+    "type": "string"
+  },
+  "sku": {
+    "required": true,
+    "type": "string"
+  },
+  "section": {
+    "required": false,
+    "type": "string"
+  },
+  "category": {
+    "required": false,
+    "type": "string"
+  },
+  "style": {
+    "required": false,
+    "type": "string"
+  },
+  "dress_type": {
+    "required": false,
+    "type": "string"
+  },
+  "construction": {
+    "required": false,
+    "type": "string"
+  },
+  "overview": {
+    "required": false,
+    "type": "string"
+  },
+  "features": {
+    "required": true,
+    "type": "array"
+  },
+  "dress": {
+    "not_editable_fields": {
+      "required": false,
+      "type": "array"
+    },
+    "silhouette": {
+      "required": false,
+      "type": "string"
+    },
+    "neckline": {
+      "required": false,
+      "type": "string"
+    },
+    "sleeve": {
+      "required": false,
+      "type": "string"
+    },
+    "back": {
+      "required": false,
+      "type": "string"
+    },
+    "train": {
+      "required": false,
+      "type": "string"
+    },
+    "fabric": {
+      "required": false,
+      "type": "array"
+    },
+    "closure": {
+      "required": false,
+      "type": "string"
+    },
+    "color": {
+      "required": false,
+      "type": "string"
+    },
+    "details": {
+      "required": false,
+      "type": "string"
+    },
+    "features": {
+      "required": false,
+      "type": "array"
+    },
+    "technique": {
+      "required": false,
+      "type": "string"
+    },
+    "effect": {
+      "required": false,
+      "type": "string"
+    },
+    "pattern": {
+      "required": false,
+      "type": "array"
+    },
+    "coverage": {
+      "required": false,
+      "type": "string"
+    },
+    "monogram": {
+      "required": false,
+      "type": "string"
+    },
+    "style_palette": {
+      "required": false,
+      "type": "array"
+    },
+    "base_price": {
+      "required": false,
+      "type": "string"
+    },
+    "customization_price": {
+      "required": false,
+      "type": "string"
+    }
+  },
+  "required": true,
+  "type": "object"
+}

@@ -26,7 +26,38 @@ version: v1
                 application/json:
                   example: !include swan_dress_projects_id_get.txt
     /designs:
+      get:
+        description: Returns all the designs with sku, title and rich_blurb.
+        responses:
+          200:
+            description: OK
+            body:
+              application/json:
+                example: !include swan_dress_designs_get.txt
+
+      post:
+        description: Creates a Design
+        body:
+          application/json:
+            schema: !include swan_dress_designs_post_schema.txt
+            example: !include swan_dress_designs_post_schema_example.txt
+        responses:
+          200:
+            description: OK
+            body:
+              application/json:
+                example: !include swan_dress_designs_post.txt
+
       /{designId}:
+        get:
+          description: Returns the design with the provided id.
+          responses:
+            200:
+              description: OK
+              body:
+                application/json:
+                  example: !include swan_dress_designs_id_get.txt
+
         /visuals:
           post:
             description: Creates a Visual for this design

@@ -1,0 +1,53 @@
+{
+  "id": 5,
+  "created_at": "2015-04-30 15:45:21 UTC",
+  "owner_id": 1,
+  "rich_blurb": "the rich blurb",
+  "title": "the title",
+  "sku": "123-123-2",
+  "likes": 0,
+  "section": null,
+  "category": null,
+  "style": null,
+  "dress_type": null,
+  "construction": null,
+  "overview": null,
+  "features": [
+    "designs features",
+    "designs features1"
+  ],
+  "dress": {
+    "not_editable_fields": [
+      "silhouette"
+    ],
+    "silhouette": null,
+    "neckline": "the best neckline",
+    "sleeve": "the best sleeve",
+    "back": null,
+    "train": null,
+    "fabric": [
+      "fabricsss"
+    ],
+    "closure": null,
+    "color": null,
+    "details": null,
+    "features": [
+      "the features",
+      "the features1"
+    ],
+    "technique": null,
+    "effect": null,
+    "pattern": [
+      "the pattern"
+    ],
+    "coverage": null,
+    "monogram": null,
+    "style_palette": [
+      "the style palette",
+      "the style palette2"
+    ],
+    "base_price": null,
+    "customization_price": null
+  },
+  "visuals": []
+}
