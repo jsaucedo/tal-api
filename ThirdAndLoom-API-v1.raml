@@ -16,7 +16,7 @@ version: v1
 
   /dress:
     /projects:
-      /{project_id}:
+      /{projectId}:
         get:
           description: Returns the project with provided id.
           responses:
@@ -25,6 +25,38 @@ version: v1
               body:
                 application/json:
                   example: !include swan_dress_projects_id_get.txt
+    /designs:
+      /{designId}:
+        /visuals:
+          post:
+            description: Creates a Visual for this design
+            body:
+              application/json:
+                schema: |
+                      {
+                        "image": { 
+                          "description": "Format base64", 
+                          "required": true,
+                          "type": "string"
+                        },
+                        "tags": { 
+                          "description": "Labels added to this image",
+                          "required": true,
+                          "type": "array"
+                        }
+                      }
+                example: |
+                    {
+                      "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAYcAAAFzCAYAAADVHcVxAAAgAElEQVR4Xu292XMcWXbmeZmZzCTBFSAWYge4ANyTe1VlVVaVSlKPNGPTD+p+kamn50F/y/T/MtLDaMxUUlXpYTSm6jblxn3FTgAEQJAACXDNvc/vBg7SGQkyAMTmHvG52bXA4sv179zwz8++5ciRI98HbTWHwPfffx++++678O2334YtW7bE0dDQEPbs2RP27dsX2tvbQ0tLa+jo7Az797eF1ta2+P/t27eH9957L7z77rvhnXfeCZxHW/kQQC7IifHy5YuwuPg4LC09CePj42F6ajqMjY+F8bGx8ODBgygXhsuTT21CoFwIbBE5lAva6p6Xh80333zzGjm0tLSEnp6ecOjQIRuHQ09vbySKHTt2RFLwhw6EIFKovPyczPm8f/9+mJ+fD9evXQt//OMfw61bN8MHH3wQ3n///UjaDJFD5WVUT1cUOdSAtP1hzqc/4HnDfN8eJtu2bQvNRgB7GxtNQ9gf9re1hY6OztDc0hwaG5siMWzdujUONn/giBwqvzBc2+N......",
+                      "tags": ["front", dress]
+                    }
+            responses:
+              200:
+                description: OK
+                body:
+                  application/json:
+                    example: !include swan_dress_designs_visuals_post_response.txt
+          
 
   /orders:
     get:
@@ -168,7 +200,7 @@ version: v1
             application/json:
               example: !include swan_stories_story_get.txt
 
-    /{story_id}:
+    /storyId:
       put:
         description: Updates story with provided id
         body:
@@ -292,7 +324,7 @@ version: v1
               }
 
 /lookbook:
-  /user_info/{user_id}:
+  /user_info/{userId}:
     get:
       description: Retrieves basic necessary user info for lookbook.
       responses:
@@ -302,7 +334,7 @@ version: v1
              application/json:
                example: !include lookbook_user_info_get.txt
 
-  /social_info/{user_id}:
+  /social_info/{userId}:
     get:
       description: Retrieves basic necessary user social info for lookbook. 
       responses:
@@ -345,7 +377,7 @@ version: v1
               application/json:
                 example: !include spree_api_order_post.txt
 
-    /{order_number}:
+    /{orderNumber}:
       get:
         description: Gets desired Spree Order
         headers:
@@ -410,7 +442,7 @@ version: v1
                   example: !include spree_api_order_payment_get.txt
 
   /checkouts:
-    /{order_number}:
+    /{orderNumber}:
       put:
         description: To transition an order to its next step |
                       {cart - address - delivery - payment - confirm - complete} |
