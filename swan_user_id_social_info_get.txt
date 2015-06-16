@@ -1,0 +1,64 @@
+{
+  "id": 2,
+  "followers": 0,
+  "invites": 2,
+  "invitesList": [
+    {
+      "id": 145,
+      "firstName": "lau",
+      "lastName": null,
+      "profileImage": "https://cdn.thirdandloom.com/assets/static/images/profile/avatar-default-new.png",
+      "location": null,
+      "coverImage": null,
+      "coverBackgroundColor": null,
+      "confirmed": true,
+      "stories": 0,
+      "projects": 0,
+      "favorites": 0,
+      "instants": 0,
+      "online": "no"
+    },
+    {
+      "id": 1,
+      "firstName": "Emma",
+      "lastName": "Cooper",
+      "profileImage": "https://s3.amazonaws.com/swan-public/uploads/swan_user/profile_image/1/5ee832e9-e4af-4f28-b814-3b0455592522.jpeg",
+      "location": "Seattle",
+      "coverImage": "https://s3.amazonaws.com/swan-public/uploads/swan_user/cover_image/1/b337964b-bfc4-449e-9a45-335287b90e4a.jpeg",
+      "coverBackgroundColor": "#000000",
+      "confirmed": false,
+      "stories": 0,
+      "projects": 18,
+      "favorites": 2,
+      "instants": 0,
+      "online": "no"
+    }
+  ],
+  "invitationsSent": [
+    {
+      "user": {
+        "id": 3,
+        "firstName": "Anita",
+        "lastName": "Awesome",
+        "profileImage": "https://s3.amazonaws.com/swan-public/uploads/swan_user/profile_image/3/4ecd3a26-82b1-4eb5-91c0-bcdaca65f6db.jpeg",
+        "location": "Los Santos",
+        "coverImage": "https://s3.amazonaws.com/swan-public/uploads/swan_user/cover_image/3/669f7457-105b-4919-9dd3-8b6fa0dd8af5.jpeg",
+        "coverBackgroundColor": "#ffffff",
+        "confirmed": false,
+        "stories": 0,
+        "projects": 6,
+        "favorites": 0,
+        "instants": 0,
+        "online": "idle"
+      },
+      "invitationInfo": [
+        {
+          "delayed": true,
+          "viewed": false,
+          "createdAt": "2015-01-08T15:35:26.000Z"
+        }
+      ]
+    }
+  ],
+  "invitationsReceived": []
+}

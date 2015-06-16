@@ -1,0 +1,1696 @@
+<!DOCTYPE HTML><html><head><title>Third&Loom API documentation</title><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="generator" content="https://github.com/kevinrenskers/raml2html 2.0.1"><link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/styles/default.min.css"><script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script><script type="text/javascript" src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/highlight.min.js"></script><script type="text/javascript">
+      $(document).ready(function() {
+        $('.page-header pre code, .top-resource-description pre code').each(function(i, block) {
+          hljs.highlightBlock(block);
+        });
+
+        $('[data-toggle]').click(function() {
+          var selector = $(this).data('target') + ' pre code';
+          $(selector).each(function(i, block) {
+            hljs.highlightBlock(block);
+          });
+        });
+
+        // open modal on hashes like #_action_get
+        $(window).bind('hashchange', function(e) {
+          var anchor_id = document.location.hash.substr(1); //strip #
+          var element = $('#' + anchor_id);
+
+          // do we have such element + is it a modal?  --> show it
+          if (element.length && element.hasClass('modal')) {
+            element.modal('show');
+          }
+        });
+
+        // execute hashchange on first page load
+        $(window).trigger('hashchange');
+
+        // remove url fragment on modal hide
+        $('.modal').on('hidden.bs.modal', function() {
+          if(history && history.replaceState) {
+            history.replaceState({}, '', '#');
+          }
+        });
+      });
+    </script><style>
+      .hljs {
+        background: transparent;
+      }
+      .parent {
+        color: #999;
+      }
+      .list-group-item > .badge {
+        float: none;
+        margin-right: 6px;
+      }
+      .panel-title > .methods {
+        float: right;
+      }
+      .badge {
+        border-radius: 0;
+        text-transform: uppercase;
+        width: 70px;
+        font-weight: normal;
+        color: #f3f3f6;
+        line-height: normal;
+      }
+      .badge_get {
+        background-color: #63a8e2;
+      }
+      .badge_post {
+        background-color: #6cbd7d;
+      }
+      .badge_put {
+        background-color: #22bac4;
+      }
+      .badge_delete {
+        background-color: #d26460;
+      }
+      .badge_patch {
+        background-color: #ccc444;
+      }
+      .list-group, .panel-group {
+        margin-bottom: 0;
+      }
+      .panel-group .panel+.panel-white {
+        margin-top: 0;
+      }
+      .panel-group .panel-white {
+        border-bottom: 1px solid #F5F5F5;
+        border-radius: 0;
+      }
+      .panel-white:last-child {
+        border-bottom-color: white;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+      }
+      .panel-white .panel-heading {
+        background: white;
+      }
+      .tab-pane ul {
+        padding-left: 2em;
+      }
+      .tab-pane h2 {
+        font-size: 1.2em;
+        padding-bottom: 4px;
+        border-bottom: 1px solid #ddd;
+      }
+      .tab-pane h3 {
+        font-size: 1.1em;
+      }
+      .tab-content {
+        border-left: 1px solid #ddd;
+        border-right: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+        padding: 10px;
+      }
+      #sidebar {
+        margin-top: 30px;
+        padding-right: 5px;
+        overflow: auto;
+        height: 90%;
+      }
+      .top-resource-description {
+        border-bottom: 1px solid #ddd;
+        background: #fcfcfc;
+        padding: 15px 15px 0 15px;
+        margin: -15px -15px 10px -15px;
+      }
+      .resource-description {
+        border-bottom: 1px solid #fcfcfc;
+        background: #fcfcfc;
+        padding: 15px 15px 0 15px;
+        margin: -15px -15px 10px -15px;
+      }
+      .resource-description p:last-child {
+        margin: 0;
+      }
+      .list-group .badge {
+        float: left;
+      }
+      .method_description {
+        margin-left: 85px;
+      }
+      .method_description p:last-child {
+        margin: 0;
+      }
+      .list-group-item {
+        cursor: pointer;
+      }
+      .list-group-item:hover {
+        background-color: #f5f5f5;
+      }
+    </style></head><body data-spy="scroll" data-target="#sidebar"><div class="container"><div class="row"><div class="col-md-9" role="main"><div class="page-header"><h1>Third&Loom API documentation <small>version v1</small></h1><p>https://thirdandloom.com/</p></div><div class="panel panel-default"><div class="panel-heading"><h3 id="swan" class="panel-title">/swan</h3></div><div class="panel-body"><div class="panel-group"><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_swan_account"><span class="parent">/swan</span>/account</a> <span class="methods"><a href="#swan_account_get"><span class="badge badge_get">get</span></a></span></h4></div><div id="panel_swan_account" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#swan_account_get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Returns current logged user&#39;s information.</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="swan_account_get"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/swan</span>/account</h4></div><div class="modal-body"><div class="alert alert-info"><p>Returns current logged user&#39;s information.</p></div><ul class="nav nav-tabs"><li><a href="#swan_account_get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane" id="swan_account_get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>OK</p><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{
+  "id": 1,
+  "email": "admin@swan.com",
+  "lastRequestAt": null,
+  "login": "admin@swan.com",
+  "shipAddressId": 617,
+  "billAddressId": 618,
+  "createdAt": "2014-10-27 20:10:30 UTC",
+  "updatedAt": "2015-05-19 18:48:03 UTC",
+  "spreeApiKey": "d6b136f33489662e88807a6c21688300356cd9bc0a40a2f2",
+  "firstName": "Emma",
+  "lastName": "Cooper",
+  "defaultMeasurementsId": "4b166ec7-330b-43c9-9206-996c14c53bdb",
+  "continueRegistrationToken": false,
+  "prefs": {
+    "questions": {
+      "questionCategory": {
+        "key": "question-category",
+        "attrKey": "category",
+        "textDescription": "What occasion are you excited about?",
+        "index": 0,
+        "$$hashKey": "0TP",
+        "answer": "category-bridal"
+      },
+      "questionStyle": {
+        "key": "question-style",
+        "attrKey": "style",
+        "textDescription": "...and how do you want your dress to look?",
+        "index": 1,
+        "$$hashKey": "0TQ",
+        "answer": "style-classic-and-traditional"
+      },
+      "questionConstruction": {
+        "key": "question-construction",
+        "attrKey": "construction",
+        "textDescription": "What about its construction?",
+        "index": 2,
+        "$$hashKey": "0TR",
+        "answer": "construction-complex"
+      }
+    }
+  },
+  "uid": "aa5579ef-7c57-4307-b4a5-36b30884c067",
+  "identityId": null,
+  "location": "Seattle",
+  "profileImage": {
+    "url": "https://s3.amazonaws.com/swan-public/uploads/swan_user/profile_image/1/f9e2c4d5-7ea5-4b36-90f3-f1000431a8c9.jpeg"
+  },
+  "onlineImage": {
+    "url": null,
+    "xxlarge": {
+      "url": null
+    },
+    "xlarge": {
+      "url": null
+    },
+    "xxxlarge": {
+      "url": null
+    },
+    "large": {
+      "url": null
+    },
+    "medium": {
+      "url": null
+    },
+    "small": {
+      "url": null
+    },
+    "thumb": {
+      "url": null
+    }
+  },
+  "coverImage": {
+    "url": "https://s3.amazonaws.com/swan-public/uploads/swan_user/cover_image/1/6c8953d2-35e3-4c7c-b8d9-9c81063b5f52.jpeg"
+  },
+  "chatImage": {
+    "url": null,
+    "xxlarge": {
+      "url": null
+    },
+    "xlarge": {
+      "url": null
+    },
+    "xxxlarge": {
+      "url": null
+    },
+    "large": {
+      "url": null
+    },
+    "medium": {
+      "url": null
+    },
+    "small": {
+      "url": null
+    },
+    "thumb": {
+      "url": null
+    }
+  },
+  "personalQuote": "There is no quote",
+  "username": "emma",
+  "confirmed": null,
+  "lastSignOut": "2015-05-18 12:27:29 UTC",
+  "coverBackgroundColor": "#25221B",
+  "billAddress": {
+    "id": 618,
+    "firstname": "Chris12",
+    "lastname": "Hassonzz12",
+    "address1": "6900 E Green Lake Way N",
+    "address2": null,
+    "city": "Seattlew123",
+    "zipcode": "98115",
+    "phone": "1234567890",
+    "stateName": null,
+    "alternativePhone": null,
+    "company": null,
+    "stateId": 54,
+    "countryId": 1,
+    "createdAt": "2015-05-18 23:01:54 UTC",
+    "updatedAt": "2015-05-18 23:01:54 UTC"
+  },
+  "shipAddress": {
+    "id": 617,
+    "firstname": "Chris123",
+    "lastname": "Hasson23",
+    "address1": "6900 E Green Lake Way N123",
+    "address2": null,
+    "city": "Bethesda",
+    "zipcode": "98115",
+    "phone": "3014445002",
+    "stateName": null,
+    "alternativePhone": null,
+    "company": null,
+    "stateId": 54,
+    "countryId": 1,
+    "createdAt": "2015-05-18 23:01:54 UTC",
+    "updatedAt": "2015-05-18 23:01:54 UTC"
+  },
+  "admin": true,
+  "avatarImage": {
+    "url": "https://s3.amazonaws.com/swan-public/uploads/swan_user/profile_image/1/f9e2c4d5-7ea5-4b36-90f3-f1000431a8c9.jpeg"
+  },
+  "online": "yes"
+}
+</code></pre></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_swan_dress_projects__projectId_"><span class="parent">/swan/dress/projects</span>/{projectId}</a> <span class="methods"><a href="#swan_dress_projects__projectId__get"><span class="badge badge_get">get</span></a></span></h4></div><div id="panel_swan_dress_projects__projectId_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#swan_dress_projects__projectId__get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Returns the project with provided id.</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="swan_dress_projects__projectId__get"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/swan/dress/projects</span>/{projectId}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Returns the project with provided id.</p></div><ul class="nav nav-tabs"><li class="active"><a href="#swan_dress_projects__projectId__get_request" data-toggle="tab">Request</a></li><li><a href="#swan_dress_projects__projectId__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="swan_dress_projects__projectId__get_request"><h3>URI Parameters</h3><ul><li><strong>projectId</strong>: <em>required (string)</em></li></ul></div><div class="tab-pane" id="swan_dress_projects__projectId__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>OK</p><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{
+  "createdAt": "2015-05-19T15:12:23+00:00",
+  "updatedAt": "2015-05-19T15:16:25+00:00",
+  "id": "6ae65bc7-0773-43ed-a763-a52e8372904f",
+  "designId": "748798b2-7728-4824-9723-6658162bc19b",
+  "originalDesignId": null,
+  "sketchOrderId": 31,
+  "dressOrderId": null,
+  "coutureSettingId": "cc8e277c-6130-428c-994c-e2b655af1188",
+  "approvedSketch": null,
+  "inspiration": null,
+  "measurements": null,
+  "monogram": null,
+  "sketchComments": null,
+  "silhouette": null,
+  "backgroundCover": null,
+  "projectTitle": "The titled project without sku",
+  "eventType": null,
+  "eventDate": "2015-04-20T00:00:00+00:00",
+  "thumbsUp": null,
+  "privacy": "everyone",
+  "totalPrice": "500",
+  "origin": "product_details",
+  "creator": 1,
+  "state": "sketch",
+  "pose": null,
+  "sketchVariantId": 26,
+  "designVariantId": 25,
+  "uploadsIds": null,
+  "commentsIds": null,
+  "design": {
+    "createdAt": "2015-05-19T15:10:39+00:00",
+    "updatedAt": "2015-05-19T15:12:44+00:00",
+    "id": "748798b2-7728-4824-9723-6658162bc19b",
+    "visualsIds": null,
+    "ratings": null,
+    "softDeleted": false,
+    "ownerId": "aa5579ef-7c57-4307-b4a5-36b30884c067",
+    "projectId": "6ae65bc7-0773-43ed-a763-a52e8372904f",
+    "marketing": null,
+    "isNew": false,
+    "inCollection": null,
+    "hasMarketing": false,
+    "hasWateau": false,
+    "manufacturingDetails": null,
+    "likes": 0,
+    "section": null,
+    "category": "aCategory",
+    "style": "aStyle",
+    "construction": null,
+    "dressType": null,
+    "basePrice": null,
+    "customizationPrice": null,
+    "overview": null,
+    "sku": "C15-05-19-12",
+    "silhouette": [
+      "silhouette-a-line"
+    ],
+    "neckline": [
+      "neckline-bateau"
+    ],
+    "sleeve": [
+      "sleeve-cap"
+    ],
+    "back": [
+      "back-u-shape"
+    ],
+    "train": null,
+    "fabric": [
+      "fabric-shantung"
+    ],
+    "closure": null,
+    "status": null,
+    "color": [
+      "color-white"
+    ],
+    "details": null,
+    "features": [
+      "designer-choice"
+    ],
+    "technique": [
+      "technique-embroidery"
+    ],
+    "effect": null,
+    "pattern": null,
+    "coverage": null,
+    "monogram": null,
+    "stylePalette": null,
+    "notEditableFields": null,
+    "detailsFeatures": null,
+    "constructionType": null,
+    "dressStyle": null,
+    "dressCategory": null,
+    "customPrice": null,
+    "typeDress": null,
+    "sections": null,
+    "price": null,
+    "visuals": []
+  },
+  "coutureSetting": {
+    "createdAt": "2015-05-19T15:12:22+00:00",
+    "updatedAt": "2015-05-19T15:13:27+00:00",
+    "id": "cc8e277c-6130-428c-994c-e2b655af1188",
+    "occasion": null,
+    "ageRange": null,
+    "dressType": null,
+    "bodyType": null,
+    "projectId": "6ae65bc7-0773-43ed-a763-a52e8372904f",
+    "firstRun": true
+  },
+  "uploads": [],
+  "comments": {
+    "comments": [],
+    "total": 0,
+    "unseen": 0
+  }
+}
+</code></pre></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_swan_dress_designs__designId__visuals"><span class="parent">/swan/dress/designs/{designId}</span>/visuals</a> <span class="methods"><a href="#swan_dress_designs__designId__visuals_post"><span class="badge badge_post">post</span></a></span></h4></div><div id="panel_swan_dress_designs__designId__visuals" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#swan_dress_designs__designId__visuals_post'" class="list-group-item"><span class="badge badge_post">post</span><div class="method_description"><p>Creates a Visual for this design</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="swan_dress_designs__designId__visuals_post"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_post">post</span> <span class="parent">/swan/dress/designs/{designId}</span>/visuals</h4></div><div class="modal-body"><div class="alert alert-info"><p>Creates a Visual for this design</p></div><ul class="nav nav-tabs"><li class="active"><a href="#swan_dress_designs__designId__visuals_post_request" data-toggle="tab">Request</a></li><li><a href="#swan_dress_designs__designId__visuals_post_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="swan_dress_designs__designId__visuals_post_request"><h3>URI Parameters</h3><ul><li><strong>designId</strong>: <em>required (string)</em></li></ul><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Schema</strong>:</p><pre><code>{
+  "image": { 
+    "description": "Format base64", 
+    "required": true,
+    "type": "string"
+  },
+  "tags": { 
+    "description": "Labels added to this image",
+    "required": true,
+    "type": "array"
+  }
+}
+</code></pre><p><strong>Example</strong>:</p><pre><code>{
+  "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAYcAAAFzCAYAAADVHcVxAAAgAElEQVR4Xu292XMcWXbmeZmZzCTBFSAWYge4ANyTe1VlVVaVSlKPNGPTD+p+kamn50F/y/T/MtLDaMxUUlXpYTSm6jblxn3FTgAEQJAACXDNvc/vBg7SGQkyAMTmHvG52bXA4sv179zwz8++5ciRI98HbTWHwPfffx++++678O2334YtW7bE0dDQEPbs2RP27dsX2tvbQ0tLa+jo7Az797eF1ta2+P/t27eH9957L7z77rvhnXfeCZxHW/kQQC7IifHy5YuwuPg4LC09CePj42F6ajqMjY+F8bGx8ODBgygXhsuTT21CoFwIbBE5lAva6p6Xh80333zzGjm0tLSEnp6ecOjQIRuHQ09vbySKHTt2RFLwhw6EIFKovPyczPm8f/9+mJ+fD9evXQt//OMfw61bN8MHH3wQ3n///UjaDJFD5WVUT1cUOdSAtP1hzqc/4HnDfN8eJtu2bQvNRgB7GxtNQ9gf9re1hY6OztDc0hwaG5siMWzdujUONn/giBwqvzBc2+N......",
+  "tags": ["front", dress]
+}
+</code></pre></div><div class="tab-pane" id="swan_dress_designs__designId__visuals_post_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>OK</p><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{
+	"id":"aed2cff5-3ad3-4060-81c8-e0e37fe46c6c",
+	"url":"https://cdn.thirdandloom.com/uploads/swan/visual/image/aed2cff5-3ad3-4060-81c8-e0e37fe46c6c/b533bc55-47e6-46a1-9b94-4662ee6bcaa7.jpeg",
+	"sizes":{
+		"xxxlarge":"https://cdn.thirdandloom.com/uploads/swan/visual/image/aed2cff5-3ad3-4060-81c8-e0e37fe46c6c/xxxlarge_b533bc55-47e6-46a1-9b94-4662ee6bcaa7.jpeg",
+		"xxlarge":"https://cdn.thirdandloom.com/uploads/swan/visual/image/aed2cff5-3ad3-4060-81c8-e0e37fe46c6c/xxlarge_b533bc55-47e6-46a1-9b94-4662ee6bcaa7.jpeg",
+		"xlarge":"https://cdn.thirdandloom.com/uploads/swan/visual/image/aed2cff5-3ad3-4060-81c8-e0e37fe46c6c/xlarge_b533bc55-47e6-46a1-9b94-4662ee6bcaa7.jpeg",
+		"large":"https://cdn.thirdandloom.com/uploads/swan/visual/image/aed2cff5-3ad3-4060-81c8-e0e37fe46c6c/large_b533bc55-47e6-46a1-9b94-4662ee6bcaa7.jpeg",
+		"medium":"https://cdn.thirdandloom.com/uploads/swan/visual/image/aed2cff5-3ad3-4060-81c8-e0e37fe46c6c/medium_b533bc55-47e6-46a1-9b94-4662ee6bcaa7.jpeg",
+		"small":"https://cdn.thirdandloom.com/uploads/swan/visual/image/aed2cff5-3ad3-4060-81c8-e0e37fe46c6c/small_b533bc55-47e6-46a1-9b94-4662ee6bcaa7.jpeg",
+		"thumb":"https://cdn.thirdandloom.com/uploads/swan/visual/image/aed2cff5-3ad3-4060-81c8-e0e37fe46c6c/thumb_b533bc55-47e6-46a1-9b94-4662ee6bcaa7.jpeg"},
+		"tags":["dress","front"],"version":null}</code></pre></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_swan_orders"><span class="parent">/swan</span>/orders</a> <span class="methods"><a href="#swan_orders_get"><span class="badge badge_get">get</span></a></span></h4></div><div id="panel_swan_orders" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#swan_orders_get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Returns all the available configurations of Spree.</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="swan_orders_get"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/swan</span>/orders</h4></div><div class="modal-body"><div class="alert alert-info"><p>Returns all the available configurations of Spree.</p></div><ul class="nav nav-tabs"><li><a href="#swan_orders_get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane" id="swan_orders_get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>OK</p><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{
+  "states": [
+    {
+      "id": 1314,
+      "name": "Alabama",
+      "abbr": "AL",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:36 UTC"
+    },
+    {
+      "id": 1325,
+      "name": "Alaska",
+      "abbr": "AK",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:44 UTC"
+    },
+    {
+      "id": 1280,
+      "name": "Arizona",
+      "abbr": "AZ",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:13 UTC"
+    },
+    {
+      "id": 1286,
+      "name": "Arkansas",
+      "abbr": "AR",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:18 UTC"
+    },
+    {
+      "id": 1307,
+      "name": "California",
+      "abbr": "CA",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:32 UTC"
+    },
+    {
+      "id": 1320,
+      "name": "Colorado",
+      "abbr": "CO",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:40 UTC"
+    },
+    {
+      "id": 1322,
+      "name": "Connecticut",
+      "abbr": "CT",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:42 UTC"
+    },
+    {
+      "id": 1295,
+      "name": "Delaware",
+      "abbr": "DE",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:24 UTC"
+    },
+    {
+      "id": 1288,
+      "name": "District of Columbia",
+      "abbr": "DC",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:19 UTC"
+    },
+    {
+      "id": 1302,
+      "name": "Florida",
+      "abbr": "FL",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:28 UTC"
+    },
+    {
+      "id": 1319,
+      "name": "Georgia",
+      "abbr": "GA",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:40 UTC"
+    },
+    {
+      "id": 1292,
+      "name": "Hawaii",
+      "abbr": "HI",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:22 UTC"
+    },
+    {
+      "id": 1289,
+      "name": "Idaho",
+      "abbr": "ID",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:20 UTC"
+    },
+    {
+      "id": 1281,
+      "name": "Illinois",
+      "abbr": "IL",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:14 UTC"
+    },
+    {
+      "id": 1310,
+      "name": "Indiana",
+      "abbr": "IN",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:34 UTC"
+    },
+    {
+      "id": 1315,
+      "name": "Iowa",
+      "abbr": "IA",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:37 UTC"
+    },
+    {
+      "id": 1284,
+      "name": "Kansas",
+      "abbr": "KS",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:16 UTC"
+    },
+    {
+      "id": 1317,
+      "name": "Kentucky",
+      "abbr": "KY",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:38 UTC"
+    },
+    {
+      "id": 1298,
+      "name": "Louisiana",
+      "abbr": "LA",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:26 UTC"
+    },
+    {
+      "id": 1309,
+      "name": "Maine",
+      "abbr": "ME",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:33 UTC"
+    },
+    {
+      "id": 1301,
+      "name": "Maryland",
+      "abbr": "MD",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:28 UTC"
+    },
+    {
+      "id": 1321,
+      "name": "Massachusetts",
+      "abbr": "MA",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:41 UTC"
+    },
+    {
+      "id": 1276,
+      "name": "Michigan",
+      "abbr": "MI",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:11 UTC"
+    },
+    {
+      "id": 1304,
+      "name": "Minnesota",
+      "abbr": "MN",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:30 UTC"
+    },
+    {
+      "id": 1316,
+      "name": "Mississippi",
+      "abbr": "MS",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:38 UTC"
+    },
+    {
+      "id": 1285,
+      "name": "Missouri",
+      "abbr": "MO",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:17 UTC"
+    },
+    {
+      "id": 1299,
+      "name": "Montana",
+      "abbr": "MT",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:26 UTC"
+    },
+    {
+      "id": 1290,
+      "name": "Nebraska",
+      "abbr": "NE",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:20 UTC"
+    },
+    {
+      "id": 1287,
+      "name": "Nevada",
+      "abbr": "NV",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:18 UTC"
+    },
+    {
+      "id": 1282,
+      "name": "New Hampshire",
+      "abbr": "NH",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:15 UTC"
+    },
+    {
+      "id": 1305,
+      "name": "New Jersey",
+      "abbr": "NJ",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:30 UTC"
+    },
+    {
+      "id": 1318,
+      "name": "New Mexico",
+      "abbr": "NM",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:39 UTC"
+    },
+    {
+      "id": 1323,
+      "name": "New York",
+      "abbr": "NY",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:42 UTC"
+    },
+    {
+      "id": 1283,
+      "name": "North Carolina",
+      "abbr": "NC",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:15 UTC"
+    },
+    {
+      "id": 1308,
+      "name": "North Dakota",
+      "abbr": "ND",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:32 UTC"
+    },
+    {
+      "id": 1306,
+      "name": "Ohio",
+      "abbr": "OH",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:31 UTC"
+    },
+    {
+      "id": 1297,
+      "name": "Oklahoma",
+      "abbr": "OK",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:25 UTC"
+    },
+    {
+      "id": 1312,
+      "name": "Oregon",
+      "abbr": "OR",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:35 UTC"
+    },
+    {
+      "id": 1291,
+      "name": "Pennsylvania",
+      "abbr": "PA",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:21 UTC"
+    },
+    {
+      "id": 1296,
+      "name": "Rhode Island",
+      "abbr": "RI",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:24 UTC"
+    },
+    {
+      "id": 1324,
+      "name": "South Carolina",
+      "abbr": "SC",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:43 UTC"
+    },
+    {
+      "id": 1277,
+      "name": "South Dakota",
+      "abbr": "SD",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:11 UTC"
+    },
+    {
+      "id": 1300,
+      "name": "Tennessee",
+      "abbr": "TN",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:27 UTC"
+    },
+    {
+      "id": 1311,
+      "name": "Texas",
+      "abbr": "TX",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:34 UTC"
+    },
+    {
+      "id": 1293,
+      "name": "Utah",
+      "abbr": "UT",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:22 UTC"
+    },
+    {
+      "id": 1294,
+      "name": "Vermont",
+      "abbr": "VT",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:23 UTC"
+    },
+    {
+      "id": 1303,
+      "name": "Virginia",
+      "abbr": "VA",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:29 UTC"
+    },
+    {
+      "id": 1278,
+      "name": "Washington",
+      "abbr": "WA",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:12 UTC"
+    },
+    {
+      "id": 1326,
+      "name": "West Virginia",
+      "abbr": "WV",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:44 UTC"
+    },
+    {
+      "id": 1279,
+      "name": "Wisconsin",
+      "abbr": "WI",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:13 UTC"
+    },
+    {
+      "id": 1313,
+      "name": "Wyoming",
+      "abbr": "WY",
+      "countryId": 1,
+      "updatedAt": "2015-05-19 20:35:36 UTC"
+    }
+  ],
+  "countries": [
+    {
+      "id": 1,
+      "isoName": "USA",
+      "iso": null,
+      "iso3": null,
+      "name": "United States",
+      "numcode": null,
+      "statesRequired": false,
+      "updatedAt": "2015-05-12 12:58:48 UTC"
+    }
+  ],
+  "paymentMethods": [
+    {
+      "id": 1,
+      "name": "Credit Card via Stripe",
+      "description": null,
+      "active": true,
+      "environment": "development",
+      "deletedAt": null,
+      "createdAt": "2014-10-27 20:26:35 UTC",
+      "updatedAt": "2015-05-19 20:36:09 UTC",
+      "displayOn": "both",
+      "autoCapture": null,
+      "preferences": {
+        "secretKey": "sk_test_hw4hNCpwNP6P9ZKZmOpKXNBG",
+        "publishableKey": "pk_test_RGWn7gFP3ufcZ7h51xfpeBl1",
+        "server": "development",
+        "testMode": true
+      }
+    },
+    {
+      "id": 2,
+      "name": "PayPal",
+      "description": null,
+      "active": true,
+      "environment": "development",
+      "deletedAt": null,
+      "createdAt": "2014-10-27 20:26:36 UTC",
+      "updatedAt": "2015-05-19 20:36:10 UTC",
+      "displayOn": "both",
+      "autoCapture": null,
+      "preferences": {
+        "login": "paypal+test@swan.com",
+        "password": "sw12anTest34",
+        "signature": "Swan",
+        "currencyCode": "USD",
+        "server": "test",
+        "testMode": true
+      }
+    }
+  ],
+  "shippingMethods": [
+    {
+      "id": 1,
+      "name": "laa",
+      "displayOn": null,
+      "deletedAt": null,
+      "createdAt": "2014-12-02 18:52:37 UTC",
+      "updatedAt": "2014-12-02 18:52:37 UTC",
+      "trackingUrl": null,
+      "adminName": null,
+      "taxCategoryId": null,
+      "code": null
+    }
+  ],
+  "sketchPricePercent": 0.1,
+  "stripePublishableKey": "pk_test_RGWn7gFP3ufcZ7h51xfpeBl1"
+}
+</code></pre></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_swan_stories"><span class="parent">/swan</span>/stories</a> <span class="methods"><a href="#swan_stories_post"><span class="badge badge_post">post</span></a> <a href="#swan_stories_get"><span class="badge badge_get">get</span></a></span></h4></div><div id="panel_swan_stories" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#swan_stories_post'" class="list-group-item"><span class="badge badge_post">post</span><div class="method_description"><p>Creates new text or image story for current logged user.</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#swan_stories_get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Retrieves necessary info to fill Story Page. It can be used for different purposes:</p><p>Retrieve main_period stories (expanded stories), n forward stories (collapsed) and m backward stories (collapsed). See Request Example 1. OR Retrieve only main_period stories (expanded). See Request Example 2. OR Retrieve only collapsed stories. See Request Example 3.</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="swan_stories_post"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_post">post</span> <span class="parent">/swan</span>/stories</h4></div><div class="modal-body"><div class="alert alert-info"><p>Creates new text or image story for current logged user.</p></div><ul class="nav nav-tabs"><li class="active"><a href="#swan_stories_post_request" data-toggle="tab">Request</a></li><li><a href="#swan_stories_post_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="swan_stories_post_request"><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Schema</strong>:</p><pre><code>{
+  "story": {
+    "description": {
+        "required": true,
+        "type": "string"
+    },
+    "custom_story": {
+        "storyType": {
+          "description":"'text' or 'image'",
+          "required": true,
+          "type": "string"
+        },
+        "image": {
+          "description":"format base64",
+          "required": false,
+          "type": "string"
+        }
+    },
+    "required": true,
+    "type": "object"
+  },
+  "required": true,
+  "type": "object"
+}
+</code></pre><p><strong>Example</strong>:</p><pre><code>{
+  "story": {
+    "description": "test story"
+  },
+  "custom_story": {
+    "storyType": "image", 
+    "image": "data:image/jpg;base64,/9j/4UWO...qCWGL/AHL9OmZZV//Z"
+  }
+}
+</code></pre></div><div class="tab-pane" id="swan_stories_post_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>OK</p><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{
+  "createdAt": "2015-02-27T14:20:13+00:00",
+  "updatedAt": "2015-03-04T18:46:41+00:00",
+  "id": "e81cb763-bd87-4400-bba6-eefef6c189d6",
+  "ownerId": 2,
+  "description": "this is my story",
+  "origin": "custom",
+  "customStoryId": "537d0107-a7ef-4cb2-a343-0c8832cb2323",
+  "commentsIds": null,
+  "favoritesIds": null,
+  "likes": 0,
+  "custom": {
+    "storyType": "image",
+    "image": {
+      "url": "https://s3.amazonaws.com/swan-public/uploads/swan/custom_story/image/537d0107-a7ef-4cb2-a343-0c8832cb2323/8992974f-787b-4fed-878e-56e9b8493c91.jpeg",
+      "collapsed": {
+        "url": "https://s3.amazonaws.com/swan-public/uploads/swan/custom_story/image/537d0107-a7ef-4cb2-a343-0c8832cb2323/collapsed_8992974f-787b-4fed-878e-56e9b8493c91.jpeg"
+      },
+      "expanded": {
+        "url": "https://s3.amazonaws.com/swan-public/uploads/swan/custom_story/image/537d0107-a7ef-4cb2-a343-0c8832cb2323/expanded_8992974f-787b-4fed-878e-56e9b8493c91.jpeg"
+      }
+    }
+  }
+}
+</code></pre><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><p>Forbidden | If story type is invalid (i.e. not “text” nor “image”)</p><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{  
+  'errors':'INVALID STORY TYPE' 
+}
+</code></pre></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="swan_stories_get"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/swan</span>/stories</h4></div><div class="modal-body"><div class="alert alert-info"><p>Retrieves necessary info to fill Story Page. It can be used for different purposes:</p><p>Retrieve main_period stories (expanded stories), n forward stories (collapsed) and m backward stories (collapsed). See Request Example 1. OR Retrieve only main_period stories (expanded). See Request Example 2. OR Retrieve only collapsed stories. See Request Example 3.</p></div><ul class="nav nav-tabs"><li class="active"><a href="#swan_stories_get_request" data-toggle="tab">Request</a></li><li><a href="#swan_stories_get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="swan_stories_get_request"><h3>Query Parameters</h3><ul><li><strong>requested_user_id</strong>: <em>required (integer)</em><p>id of the owner of the story page</p><p><strong>Example</strong>:</p><pre><code>1</code></pre></li><li><strong>main_period</strong>: <em>required (string)</em><p>period which will be shown as the main period of the Stories page (format can be &#39;yyyy/mm/dd&#39; , &#39;yyyy/mm&#39; or &#39;yyyy&#39;)</p><p><strong>Example</strong>:</p><pre>2001</pre></li><li><strong>forward_periods</strong>: <em>required (integer)</em><p>amount of periods after the main_periods that frontend wants to show to User</p><p><strong>Example</strong>:</p><pre><code>2</code></pre></li><li><strong>backward_periods</strong>: <em>required (integer)</em><p>amount of periods before the main_periods that frontend wants to show to User.</p><p><strong>Example</strong>:</p><pre><code>1</code></pre></li><li><strong>retrieve_main</strong>: <em>(boolean - default: true)</em><p>true if main period must be retrieved, false if else</p><p><strong>Example</strong>:</p><pre><code>true</code></pre></li></ul></div><div class="tab-pane" id="swan_stories_get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>OK | Please notice the difference between the body of each story at the main period (expanded) and the body of each story at the side periods (collapsed) | Expanded story response parameters -- &gt; id = story id; ownerId = id of the user who owns the story; ownerName = owner name; ownerAvatar.url = owner profile image url; createdDate = date at which story was created; description = story description; origin = “project” / “custom”; projectId = id of the project in case its origin is “project”; comments = array of comments; likes = amount of likes; type = “image” / “text” / “event” / “video”; image.url = url of original story image (this parameter only exists in case type= “image”); image.expanded.url = url of expanded version of story image (this parameter only exists in case type= “image”); Collapsed story response parameters -- &gt; id = story id; ownerId = id of the user who owns the story; ownerAvatar.url = owner profile image url; createdDate = date at which story was created; description = story description; type= “image” / “text” / “event” / “video”; image.collapsed.url = url of collapsed version of story image (this parameter only exists in case type= “image”)</p><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{
+  "mainPeriodStories": {
+    "periodName": "2015",
+    "periodStories": [
+      {
+        "id": "3a88b494-b68f-4582-831d-f0ed3bc4ff8c",
+        "ownerId": 156,
+        "ownerName": "laura",
+        "ownerAvatar": {
+          "url": "https://s3.amazonaws.com/swan-public/uploads/swan_user/profile_image/156/019fad78-022e-4c80-b5f6-0c4b1211b65d.jpeg"
+        },
+        "createdDate": "2015-02-27T14:32:47.484+00:00",
+        "description": "my image story",
+        "origin": "custom",
+        "projectId": null,
+        "comments": [],
+        "likes": 0,
+        "type": "image",
+        "image": {
+          "url": "https://s3.amazonaws.com/swan-public/uploads/swan/custom_story/image/ca95bd4e-e866-4712-b75d-2db88557cb23/78a8ccef-c878-41ec-a771-80f83e955e5a.jpeg",
+          "expanded": {
+            "url": "https://s3.amazonaws.com/swan-public/uploads/swan/custom_story/image/ca95bd4e-e866-4712-b75d-2db88557cb23/expanded_78a8ccef-c878-41ec-a771-80f83e955e5a.jpeg"
+          }
+        }
+      }
+    ]
+  },
+  "forwardPeriodStories": [
+    {
+      "periodName": "2016",
+      "periodStories": [
+        {
+          "id": "4c893522-a771-4b42-95c0-996c78622c61",
+          "ownerId": 2,
+          "ownerAvatar": {
+            "url": "https://s3.amazonaws.com/swan-public/uploads/swan_user/profile_image/2/e2575ed3-5040-428e-b52d-00a528a70710.jpeg"
+          },
+          "createdDate": "2015-02-27T14:22:27.100+00:00",
+          "description": "my test text story",
+          "type": "text",
+          "image": null
+        },
+        {
+          "id": "b52b2164-3a7d-4aa0-9f0f-7033f9d1e55c",
+          "ownerId": 2,
+          "ownerAvatar": {
+            "url": "https://s3.amazonaws.com/swan-public/uploads/swan_user/profile_image/2/e2575ed3-5040-428e-b52d-00a528a70710.jpeg"
+          },
+          "createdDate": "2015-02-27T14:21:36.474+00:00",
+          "description": "this is a text story",
+          "type": "text",
+          "image": null
+        }
+      ]
+    },
+    {
+      "periodName": "2017",
+      "periodStories": [
+        {
+          "id": "4c893522-a771-4b42-95c0-996c78622c61",
+          "ownerId": 2,
+          "ownerAvatar": {
+            "url": "https://s3.amazonaws.com/swan-public/uploads/swan_user/profile_image/2/e2575ed3-5040-428e-b52d-00a528a70710.jpeg"
+          },
+          "createdDate": "2015-02-27T14:22:27.100+00:00",
+          "description": "my test text story",
+          "type": "text",
+          "image": null
+        },
+        {
+          "id": "b52b2164-3a7d-4aa0-9f0f-7033f9d1e55c",
+          "ownerId": 2,
+          "ownerAvatar": {
+            "url": "https://s3.amazonaws.com/swan-public/uploads/swan_user/profile_image/2/e2575ed3-5040-428e-b52d-00a528a70710.jpeg"
+          },
+          "createdDate": "2015-02-27T14:21:36.474+00:00",
+          "description": "this is a text story",
+          "type": "text",
+          "image": null
+        }
+      ]
+    }
+  ],
+  "backwardPeriodStories": [
+    {
+      "periodName": "2014",
+      "periodStories": [
+        {
+          "id": "4c893522-a771-4b42-95c0-996c78622c61",
+          "ownerId": 2,
+          "ownerAvatar": {
+            "url": "https://s3.amazonaws.com/swan-public/uploads/swan_user/profile_image/2/e2575ed3-5040-428e-b52d-00a528a70710.jpeg"
+          },
+          "createdDate": "2015-02-27T14:22:27.100+00:00",
+          "description": "my test text story",
+          "type": "text",
+          "image": null
+        },
+        {
+          "id": "b52b2164-3a7d-4aa0-9f0f-7033f9d1e55c",
+          "ownerId": 2,
+          "ownerAvatar": {
+            "url": "https://s3.amazonaws.com/swan-public/uploads/swan_user/profile_image/2/e2575ed3-5040-428e-b52d-00a528a70710.jpeg"
+          },
+          "createdDate": "2015-02-27T14:21:36.474+00:00",
+          "description": "this is a text story",
+          "type": "text",
+          "image": null
+        }
+      ]
+    },
+    {
+      "periodName": "2013",
+      "periodStories": [
+        {
+          "id": "4c893522-a771-4b42-95c0-996c78622c61",
+          "ownerId": 2,
+          "ownerAvatar": {
+            "url": "https://s3.amazonaws.com/swan-public/uploads/swan_user/profile_image/2/e2575ed3-5040-428e-b52d-00a528a70710.jpeg"
+          },
+          "createdDate": "2015-02-27T14:22:27.100+00:00",
+          "description": "my test text story",
+          "type": "text",
+          "image": null
+        },
+        {
+          "id": "b52b2164-3a7d-4aa0-9f0f-7033f9d1e55c",
+          "ownerId": 2,
+          "ownerAvatar": {
+            "url": "https://s3.amazonaws.com/swan-public/uploads/swan_user/profile_image/2/e2575ed3-5040-428e-b52d-00a528a70710.jpeg"
+          },
+          "createdDate": "2015-02-27T14:21:36.474+00:00",
+          "description": "this is a text story",
+          "type": "text",
+          "image": null
+        }
+      ]
+    }
+  ],
+  "canComment": true,
+  "canFavorite": true
+}
+</code></pre></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_swan_stories__storyId_"><span class="parent">/swan/stories</span>/{storyId}</a> <span class="methods"><a href="#swan_stories__storyId__put"><span class="badge badge_put">put</span></a> <a href="#swan_stories__storyId__delete"><span class="badge badge_delete">delete</span></a></span></h4></div><div id="panel_swan_stories__storyId_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#swan_stories__storyId__put'" class="list-group-item"><span class="badge badge_put">put</span><div class="method_description"><p>Updates story with provided id</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#swan_stories__storyId__delete'" class="list-group-item"><span class="badge badge_delete">delete</span><div class="method_description"><p>Deletes story with provided id</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="swan_stories__storyId__put"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_put">put</span> <span class="parent">/swan/stories</span>/{storyId}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Updates story with provided id</p></div><ul class="nav nav-tabs"><li class="active"><a href="#swan_stories__storyId__put_request" data-toggle="tab">Request</a></li><li><a href="#swan_stories__storyId__put_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="swan_stories__storyId__put_request"><h3>URI Parameters</h3><ul><li><strong>storyId</strong>: <em>required (string)</em></li></ul><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Schema</strong>:</p><pre><code>{
+  "story": {
+    "description": {
+        "required": true,
+        "type": "string"
+    },
+    "custom_story": {
+        "storyType": {
+          "description":"'text' or 'image'",
+          "required": true,
+          "type": "string"
+        },
+        "image": {
+          "description":"format base64",
+          "required": false,
+          "type": "string"
+        }
+    },
+    "required": true,
+    "type": "object"
+  },
+  "required": true,
+  "type": "object"
+}
+</code></pre><p><strong>Example</strong>:</p><pre><code>{
+  "story": {
+    "description": "test story"
+  },
+  "custom_story": {
+    "storyType": "text"
+  }
+}
+</code></pre></div><div class="tab-pane" id="swan_stories__storyId__put_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>OK</p><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{
+  "createdAt": "2015-02-25T13:31:42+00:00",
+  "updatedAt": "2015-02-25T14:45:14+00:00",
+  "id": "01831420-3600-4f8c-85a2-d546f4abb591",
+  "ownerId": 156,
+  "description": "test story",
+  "origin": "custom",
+  "customStoryId": "3f619bc7-8c27-4241-9a32-89921a9b34bc",
+  "commentsIds": null,
+  "favoritesIds": null,
+  "custom": {
+    "storyType": "text",
+    "image": null
+  }
+}
+</code></pre><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><p>Forbidden | If story type is invalid (i.e. not “text” nor “image”) or if there is no story with provided id or if current logged user is not the owner of the story with provided id</p><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{  
+  'errors':'INVALID STORY TYPE' 
+}
+|
+{  
+  'errors':'RECORD NOT FOUND' 
+}
+|
+{  
+  'errors':'NOT OWNER' 
+}
+</code></pre></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="swan_stories__storyId__delete"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_delete">delete</span> <span class="parent">/swan/stories</span>/{storyId}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Deletes story with provided id</p></div><ul class="nav nav-tabs"><li class="active"><a href="#swan_stories__storyId__delete_request" data-toggle="tab">Request</a></li><li><a href="#swan_stories__storyId__delete_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="swan_stories__storyId__delete_request"><h3>URI Parameters</h3><ul><li><strong>storyId</strong>: <em>required (string)</em></li></ul></div><div class="tab-pane" id="swan_stories__storyId__delete_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>OK</p><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><p>Forbidden | If current logged user is not the owner of the story with provided id</p><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{
+  'errors':'NOT OWNER'
+}
+</code></pre></div></div></div></div></div></div></div></div></div></div><div class="panel panel-default"><div class="panel-heading"><h3 id="swan_user" class="panel-title">/swan_user</h3></div><div class="panel-body"><div class="panel-group"><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_swan_user__userId_"><span class="parent">/swan_user</span>/{userId}</a> <span class="methods"><a href="#swan_user__userId__get"><span class="badge badge_get">get</span></a></span></h4></div><div id="panel_swan_user__userId_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#swan_user__userId__get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Retrieves basic necessary user social info for lookbook.</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="swan_user__userId__get"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/swan_user</span>/{userId}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Retrieves basic necessary user social info for lookbook.</p></div><ul class="nav nav-tabs"><li class="active"><a href="#swan_user__userId__get_request" data-toggle="tab">Request</a></li><li><a href="#swan_user__userId__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="swan_user__userId__get_request"><h3>URI Parameters</h3><ul><li><strong>userId</strong>: <em>required (string)</em></li></ul><h3>Query Parameters</h3><ul><li><strong>countryCode</strong>: <em>(string - minLength: 3 - maxLength: 3)</em><p>The code of the country used to filter the artists list</p><p><strong>Example</strong>:</p><pre>FRA</pre></li></ul></div><div class="tab-pane" id="swan_user__userId__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>OK</p><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{
+	"id":2,
+	"firstName":"usuario",
+	"lastName":null,
+	"profileImage":"https://s3.amazonaws.com/swan-public/uploads/swan_user/profile_image/2/e2575ed3-5040-428e-b52d-00a528a70710.jpeg",
+	"location":null,
+	"coverImage":"https://s3.amazonaws.com/swan-public/uploads/swan_user/cover_image/2/e08b617b-3bbc-49ba-84ca-4116a30298bf.jpeg",
+	"coverBackgroundColor":null,
+	"confirmed":false,
+	"stories":0,
+	"projects":7,
+	"favorites":4,
+	"instants":0
+}</code></pre></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_swan_user__userId__social_info"><span class="parent">/swan_user/{userId}</span>/social_info</a> <span class="methods"><a href="#swan_user__userId__social_info_get"><span class="badge badge_get">get</span></a></span></h4></div><div id="panel_swan_user__userId__social_info" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#swan_user__userId__social_info_get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Retrieves basic necessary user social info for lookbook.</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="swan_user__userId__social_info_get"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/swan_user/{userId}</span>/social_info</h4></div><div class="modal-body"><div class="alert alert-info"><p>Retrieves basic necessary user social info for lookbook.</p></div><ul class="nav nav-tabs"><li class="active"><a href="#swan_user__userId__social_info_get_request" data-toggle="tab">Request</a></li><li><a href="#swan_user__userId__social_info_get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="swan_user__userId__social_info_get_request"><h3>URI Parameters</h3><ul><li><strong>userId</strong>: <em>required (string)</em></li></ul></div><div class="tab-pane" id="swan_user__userId__social_info_get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>OK</p><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{
+  "id": 2,
+  "followers": 0,
+  "invites": 2,
+  "invitesList": [
+    {
+      "id": 145,
+      "firstName": "lau",
+      "lastName": null,
+      "profileImage": "https://cdn.thirdandloom.com/assets/static/images/profile/avatar-default-new.png",
+      "location": null,
+      "coverImage": null,
+      "coverBackgroundColor": null,
+      "confirmed": true,
+      "stories": 0,
+      "projects": 0,
+      "favorites": 0,
+      "instants": 0,
+      "online": "no"
+    },
+    {
+      "id": 1,
+      "firstName": "Emma",
+      "lastName": "Cooper",
+      "profileImage": "https://s3.amazonaws.com/swan-public/uploads/swan_user/profile_image/1/5ee832e9-e4af-4f28-b814-3b0455592522.jpeg",
+      "location": "Seattle",
+      "coverImage": "https://s3.amazonaws.com/swan-public/uploads/swan_user/cover_image/1/b337964b-bfc4-449e-9a45-335287b90e4a.jpeg",
+      "coverBackgroundColor": "#000000",
+      "confirmed": false,
+      "stories": 0,
+      "projects": 18,
+      "favorites": 2,
+      "instants": 0,
+      "online": "no"
+    }
+  ],
+  "invitationsSent": [
+    {
+      "user": {
+        "id": 3,
+        "firstName": "Anita",
+        "lastName": "Awesome",
+        "profileImage": "https://s3.amazonaws.com/swan-public/uploads/swan_user/profile_image/3/4ecd3a26-82b1-4eb5-91c0-bcdaca65f6db.jpeg",
+        "location": "Los Santos",
+        "coverImage": "https://s3.amazonaws.com/swan-public/uploads/swan_user/cover_image/3/669f7457-105b-4919-9dd3-8b6fa0dd8af5.jpeg",
+        "coverBackgroundColor": "#ffffff",
+        "confirmed": false,
+        "stories": 0,
+        "projects": 6,
+        "favorites": 0,
+        "instants": 0,
+        "online": "idle"
+      },
+      "invitationInfo": [
+        {
+          "delayed": true,
+          "viewed": false,
+          "createdAt": "2015-01-08T15:35:26.000Z"
+        }
+      ]
+    }
+  ],
+  "invitationsReceived": []
+}</code></pre></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_swan_user__userId__projects"><span class="parent">/swan_user/{userId}</span>/projects</a> <span class="methods"><a href="#swan_user__userId__projects_get"><span class="badge badge_get">get</span></a></span></h4></div><div id="panel_swan_user__userId__projects" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#swan_user__userId__projects_get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Retrieves basic necessary project info for every project (that is not a story) of user with provided id. It allows pagination.<br>The project cards are returned showing the newest project first, and the oldest last.</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="swan_user__userId__projects_get"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/swan_user/{userId}</span>/projects</h4></div><div class="modal-body"><div class="alert alert-info"><p>Retrieves basic necessary project info for every project (that is not a story) of user with provided id. It allows pagination.<br>The project cards are returned showing the newest project first, and the oldest last.</p></div><ul class="nav nav-tabs"><li class="active"><a href="#swan_user__userId__projects_get_request" data-toggle="tab">Request</a></li><li><a href="#swan_user__userId__projects_get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="swan_user__userId__projects_get_request"><h3>URI Parameters</h3><ul><li><strong>userId</strong>: <em>required (string)</em></li></ul><h3>Query Parameters</h3><ul><li><strong>first</strong>: <em>(integer)</em><p>pagination offset. By default is 0</p><p><strong>Example</strong>:</p><pre><code>1</code></pre></li><li><strong>quantity</strong>: <em>(integer)</em><p>amount of projects to retrieve starting from specified offset. If is not specified, all projects are retrieved</p><p><strong>Example</strong>:</p><pre><code>20</code></pre></li></ul></div><div class="tab-pane" id="swan_user__userId__projects_get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>OK</p><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>[
+	{
+		"id":"7905a369-4102-41fd-ab4e-b854773fa527",
+		"projectTitle":null,
+		"thumbsUp":null,
+		"privacy":"everyone",
+		"origin":"bespoke",
+		"eventDate":null,
+		"eventType":”wedding”,
+		"silhouette":"silhouette-a-line",
+		"neckline":null,
+		"sleeve":"sleeve-short",
+		"backgroundImage":null,
+		"state":"design",
+		"commentsCount":0,
+		“unseenCommentsCount”: 0, 
+		“productImage”: “https://cdn.thirdandloom.com/assets/static/images/lookbook/lookbook-pattern.png"
+	},
+	{
+		"id":"55942850-6512-4879-a311-31cc983d6d18",
+		"projectTitle":null,
+		"thumbsUp":null,
+		"privacy":"everyone",
+		"origin":null,
+		"eventDate":null,
+		"eventType":null,
+		"silhouette":"silhouette-a-line",
+		"neckline":"neckline-dipped",
+		"sleeve":"sleeve-short",
+		"backgroundImage":null,
+		"state":"design",
+		"commentsCount":0, 
+		“unseenCommentsCount”: 0,
+		“productImage”:”https://cdn.thirdandloom.com/uploads/swan/visual/image/8e593950-373c-4bb9-b3f1-e433ee6193e9/small_fc9fc186-07d6-4055-a0bd-23c1964ba38e.jpg" 
+	}
+]</code></pre><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><p>Not Found, user with provided id does not exist.</p><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{"errors":"RECORD NOT FOUND"}</code></pre></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_swan_user__userId__stories"><span class="parent">/swan_user/{userId}</span>/stories</a> <span class="methods"><a href="#swan_user__userId__stories_get"><span class="badge badge_get">get</span></a></span></h4></div><div id="panel_swan_user__userId__stories" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#swan_user__userId__stories_get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Retrieves basic necessary user social info for lookbook. It allows pagination.</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="swan_user__userId__stories_get"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/swan_user/{userId}</span>/stories</h4></div><div class="modal-body"><div class="alert alert-info"><p>Retrieves basic necessary user social info for lookbook. It allows pagination.</p></div><ul class="nav nav-tabs"><li class="active"><a href="#swan_user__userId__stories_get_request" data-toggle="tab">Request</a></li><li><a href="#swan_user__userId__stories_get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="swan_user__userId__stories_get_request"><h3>URI Parameters</h3><ul><li><strong>userId</strong>: <em>required (string)</em></li></ul><h3>Query Parameters</h3><ul><li><strong>first</strong>: <em>(integer)</em><p>pagination offset. By default is 0</p><p><strong>Example</strong>:</p><pre><code>1</code></pre></li><li><strong>quantity</strong>: <em>(integer)</em><p>amount of stories to retrieve starting from the specified offset. If is not specified, all projects are retrieved</p><p><strong>Example</strong>:</p><pre><code>20</code></pre></li></ul></div><div class="tab-pane" id="swan_user__userId__stories_get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>OK</p><h3>Body</h3><p><strong>Type: application/json</strong></p></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_swan_user_lost_password"><span class="parent">/swan_user</span>/lost_password</a> <span class="methods"><a href="#swan_user_lost_password_post"><span class="badge badge_post">post</span></a></span></h4></div><div id="panel_swan_user_lost_password" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#swan_user_lost_password_post'" class="list-group-item"><span class="badge badge_post">post</span><div class="method_description"><p>Find a user by id and try to reset password with the new password.</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="swan_user_lost_password_post"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_post">post</span> <span class="parent">/swan_user</span>/lost_password</h4></div><div class="modal-body"><div class="alert alert-info"><p>Find a user by id and try to reset password with the new password.</p></div><ul class="nav nav-tabs"><li class="active"><a href="#swan_user_lost_password_post_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="swan_user_lost_password_post_request"><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Schema</strong>:</p><pre><code>{
+  "type": "object",
+  "$schema": "http://json-schema.org/draft-03/schema",
+  "id": "http://jsonschema.net",
+  "required": true,
+  "properties": {
+    "id": {
+      "description": "user id",
+      "type": "string",
+      "required": true
+
+    },
+    "resetPasswordToken": {
+      "description": "token sent with reset password email",
+      "type": "string",
+      "required": true
+    },
+    "password": {
+      "type": "string",
+      "required": true
+    },
+    "passwordConfirmation": {
+      "type": "string",
+      "required": true
+    }
+
+  }
+}
+</code></pre><p><strong>Example</strong>:</p><pre><code>{
+  "id": "1",
+  "resetPasswordToken": "a token",
+  "password": "12345678",
+  "passwordConfirmation: "12345678"
+}
+</code></pre></div></div></div></div></div></div></div></div></div></div><div class="panel panel-default"><div class="panel-heading"><h3 id="lookbook" class="panel-title">/lookbook</h3></div><div class="panel-body"><div class="panel-group"><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_lookbook_user_info__userId_"><span class="parent">/lookbook</span>/user_info/{userId}</a> <span class="methods"><a href="#lookbook_user_info__userId__get"><span class="badge badge_get">get</span></a></span></h4></div><div id="panel_lookbook_user_info__userId_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#lookbook_user_info__userId__get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Retrieves basic necessary user info for lookbook.</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="lookbook_user_info__userId__get"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/lookbook</span>/user_info/{userId}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Retrieves basic necessary user info for lookbook.</p></div><ul class="nav nav-tabs"><li class="active"><a href="#lookbook_user_info__userId__get_request" data-toggle="tab">Request</a></li><li><a href="#lookbook_user_info__userId__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="lookbook_user_info__userId__get_request"><h3>URI Parameters</h3><ul><li><strong>userId</strong>: <em>required (string)</em></li></ul></div><div class="tab-pane" id="lookbook_user_info__userId__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>OK</p><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{
+	"id":2,
+	"firstName":"usuario",
+	"lastName":null,
+	"profileImage":"https://s3.amazonaws.com/swan-public/uploads/swan_user/profile_image/2/e2575ed3-5040-428e-b52d-00a528a70710.jpeg",
+	"location":null,
+	"coverImage":"https://s3.amazonaws.com/swan-public/uploads/swan_user/cover_image/2/e08b617b-3bbc-49ba-84ca-4116a30298bf.jpeg",
+	"coverBackgroundColor":null,
+	"confirmed":false,
+	"stories":0,
+	"projects":7,
+	"favorites":4,
+	"instants":0
+}</code></pre></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_lookbook_social_info__userId_"><span class="parent">/lookbook</span>/social_info/{userId}</a> <span class="methods"><a href="#lookbook_social_info__userId__get"><span class="badge badge_get">get</span></a></span></h4></div><div id="panel_lookbook_social_info__userId_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#lookbook_social_info__userId__get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Retrieves basic necessary user social info for lookbook.</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="lookbook_social_info__userId__get"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/lookbook</span>/social_info/{userId}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Retrieves basic necessary user social info for lookbook.</p></div><ul class="nav nav-tabs"><li class="active"><a href="#lookbook_social_info__userId__get_request" data-toggle="tab">Request</a></li><li><a href="#lookbook_social_info__userId__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="lookbook_social_info__userId__get_request"><h3>URI Parameters</h3><ul><li><strong>userId</strong>: <em>required (string)</em></li></ul></div><div class="tab-pane" id="lookbook_social_info__userId__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>OK</p><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{
+  "id": 2,
+  "followers": 0,
+  "invites": 2,
+  "invitesList": [
+    {
+      "id": 145,
+      "firstName": "lau",
+      "lastName": null,
+      "profileImage": "https://cdn.thirdandloom.com/assets/static/images/profile/avatar-default-new.png",
+      "location": null,
+      "coverImage": null,
+      "coverBackgroundColor": null,
+      "confirmed": true,
+      "stories": 0,
+      "projects": 0,
+      "favorites": 0,
+      "instants": 0,
+      "online": "no"
+    },
+    {
+      "id": 1,
+      "firstName": "Emma",
+      "lastName": "Cooper",
+      "profileImage": "https://s3.amazonaws.com/swan-public/uploads/swan_user/profile_image/1/5ee832e9-e4af-4f28-b814-3b0455592522.jpeg",
+      "location": "Seattle",
+      "coverImage": "https://s3.amazonaws.com/swan-public/uploads/swan_user/cover_image/1/b337964b-bfc4-449e-9a45-335287b90e4a.jpeg",
+      "coverBackgroundColor": "#000000",
+      "confirmed": false,
+      "stories": 0,
+      "projects": 18,
+      "favorites": 2,
+      "instants": 0,
+      "online": "no"
+    }
+  ],
+  "invitationsSent": [
+    {
+      "user": {
+        "id": 3,
+        "firstName": "Anita",
+        "lastName": "Awesome",
+        "profileImage": "https://s3.amazonaws.com/swan-public/uploads/swan_user/profile_image/3/4ecd3a26-82b1-4eb5-91c0-bcdaca65f6db.jpeg",
+        "location": "Los Santos",
+        "coverImage": "https://s3.amazonaws.com/swan-public/uploads/swan_user/cover_image/3/669f7457-105b-4919-9dd3-8b6fa0dd8af5.jpeg",
+        "coverBackgroundColor": "#ffffff",
+        "confirmed": false,
+        "stories": 0,
+        "projects": 6,
+        "favorites": 0,
+        "instants": 0,
+        "online": "idle"
+      },
+      "invitationInfo": [
+        {
+          "delayed": true,
+          "viewed": false,
+          "createdAt": "2015-01-08T15:35:26.000Z"
+        }
+      ]
+    }
+  ],
+  "invitationsReceived": []
+}
+</code></pre></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_lookbook_projects__user_id__user_id__first__first__limit__limit_"><span class="parent">/lookbook</span>/projects/?user_id={user_id}&first={first}&limit={limit}</a> <span class="methods"><a href="#lookbook_projects__user_id__user_id__first__first__limit__limit__get"><span class="badge badge_get">get</span></a></span></h4></div><div id="panel_lookbook_projects__user_id__user_id__first__first__limit__limit_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#lookbook_projects__user_id__user_id__first__first__limit__limit__get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Retrieves basic necessary project info for every project (that is not a story) of user with provided id. It allows pagination.<br>The project cards are returned showing the newest project first, and the oldest last.</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="lookbook_projects__user_id__user_id__first__first__limit__limit__get"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/lookbook</span>/projects/?user_id={user_id}&first={first}&limit={limit}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Retrieves basic necessary project info for every project (that is not a story) of user with provided id. It allows pagination.<br>The project cards are returned showing the newest project first, and the oldest last.</p></div><ul class="nav nav-tabs"><li class="active"><a href="#lookbook_projects__user_id__user_id__first__first__limit__limit__get_request" data-toggle="tab">Request</a></li><li><a href="#lookbook_projects__user_id__user_id__first__first__limit__limit__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="lookbook_projects__user_id__user_id__first__first__limit__limit__get_request"><h3>URI Parameters</h3><ul><li><strong>user_id</strong>: <em>required (string)</em></li><li><strong>first</strong>: <em>required (string)</em></li><li><strong>limit</strong>: <em>required (string)</em></li></ul></div><div class="tab-pane" id="lookbook_projects__user_id__user_id__first__first__limit__limit__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>OK</p><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>[
+	{
+		"id":"7905a369-4102-41fd-ab4e-b854773fa527",
+		"projectTitle":null,
+		"thumbsUp":null,
+		"privacy":"everyone",
+		"origin":"bespoke",
+		"eventDate":null,
+		"eventType":”wedding”,
+		"silhouette":"silhouette-a-line",
+		"neckline":null,
+		"sleeve":"sleeve-short",
+		"backgroundImage":null,
+		"state":"design",
+		"commentsCount":0,
+		“unseenCommentsCount”: 0, 
+		“productImage”: “https://cdn.thirdandloom.com/assets/static/images/lookbook/lookbook-pattern.png"
+	},
+	{
+		"id":"55942850-6512-4879-a311-31cc983d6d18",
+		"projectTitle":null,
+		"thumbsUp":null,
+		"privacy":"everyone",
+		"origin":null,
+		"eventDate":null,
+		"eventType":null,
+		"silhouette":"silhouette-a-line",
+		"neckline":"neckline-dipped",
+		"sleeve":"sleeve-short",
+		"backgroundImage":null,
+		"state":"design",
+		"commentsCount":0, 
+		“unseenCommentsCount”: 0,
+		“productImage”:”https://cdn.thirdandloom.com/uploads/swan/visual/image/8e593950-373c-4bb9-b3f1-e433ee6193e9/small_fc9fc186-07d6-4055-a0bd-23c1964ba38e.jpg" 
+	}
+]</code></pre><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><p>Not Found, user with provided id does not exist.</p><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{"errors":"RECORD NOT FOUND"}</code></pre></div></div></div></div></div></div></div></div></div></div><div class="panel panel-default"><div class="panel-heading"><h3 id="api" class="panel-title">/api</h3></div><div class="panel-body"><div class="panel-group"><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_api_orders"><span class="parent">/api</span>/orders</a> <span class="methods"><a href="#api_orders_post"><span class="badge badge_post">post</span></a></span></h4></div><div id="panel_api_orders" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#api_orders_post'" class="list-group-item"><span class="badge badge_post">post</span><div class="method_description"><p>Creates an empty Spree Order</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="api_orders_post"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_post">post</span> <span class="parent">/api</span>/orders</h4></div><div class="modal-body"><div class="alert alert-info"><p>Creates an empty Spree Order</p></div><ul class="nav nav-tabs"><li class="active"><a href="#api_orders_post_request" data-toggle="tab">Request</a></li><li><a href="#api_orders_post_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="api_orders_post_request"><h3>Headers</h3><ul><li><strong>X-Spree-Token</strong>: <em>required (string)</em><p>Spree Token to access Spree API. Returned in the response body of /swan/account endpoint.</p></li></ul></div><div class="tab-pane" id="api_orders_post_response"><h2>HTTP status code <a href="http://httpstatus.es/201" target="_blank">201</a></h2><p>Created</p><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{
+  "id": 32,
+  "number": "R023481998",
+  "item_total": "0.0",
+  "total": "0.0",
+  "ship_total": "0.0",
+  "state": "cart",
+  "adjustment_total": "0.0",
+  "user_id": 1,
+  "created_at": "2015-05-19T19:34:08.000Z",
+  "updated_at": "2015-05-19T19:34:09.000Z",
+  "completed_at": null,
+  "payment_total": "0.0",
+  "shipment_state": null,
+  "payment_state": null,
+  "email": "admin@swan.com",
+  "special_instructions": null,
+  "channel": "spree",
+  "included_tax_total": "0.0",
+  "additional_tax_total": "0.0",
+  "display_included_tax_total": "$0.00",
+  "display_additional_tax_total": "$0.00",
+  "tax_total": "0.0",
+  "currency": "USD",
+  "display_item_total": "$0.00",
+  "total_quantity": 0,
+  "display_total": "$0.00",
+  "display_ship_total": "$0.00",
+  "display_tax_total": "$0.00",
+  "token": "3FoN0-vwnZWjvxoNZuy5nw",
+  "checkout_steps": [
+    "address",
+    "delivery",
+    "complete"
+  ],
+  "permissions": {
+    "can_update": true
+  },
+  "bill_address": null,
+  "ship_address": null,
+  "line_items": [],
+  "payments": [],
+  "shipments": [],
+  "adjustments": []
+}
+</code></pre></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_api_orders__orderNumber_"><span class="parent">/api/orders</span>/{orderNumber}</a> <span class="methods"><a href="#api_orders__orderNumber__get"><span class="badge badge_get">get</span></a></span></h4></div><div id="panel_api_orders__orderNumber_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#api_orders__orderNumber__get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Gets desired Spree Order</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="api_orders__orderNumber__get"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/api/orders</span>/{orderNumber}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Gets desired Spree Order</p></div><ul class="nav nav-tabs"><li class="active"><a href="#api_orders__orderNumber__get_request" data-toggle="tab">Request</a></li><li><a href="#api_orders__orderNumber__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="api_orders__orderNumber__get_request"><h3>URI Parameters</h3><ul><li><strong>orderNumber</strong>: <em>required (string)</em></li></ul><h3>Headers</h3><ul><li><strong>X-Spree-Token</strong>: <em>required (string)</em><p>Spree Token to access Spree API. Returned in the response body of /swan/account endpoint.</p></li></ul></div><div class="tab-pane" id="api_orders__orderNumber__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>OK</p><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{
+  "id": 32,
+  "number": "R023481998",
+  "item_total": "250.0",
+  "total": "250.0",
+  "ship_total": "0.0",
+  "state": "cart",
+  "adjustment_total": "0.0",
+  "user_id": 1,
+  "created_at": "2015-05-19T19:34:08.000Z",
+  "updated_at": "2015-05-19T19:52:45.000Z",
+  "completed_at": null,
+  "payment_total": "0.0",
+  "shipment_state": null,
+  "payment_state": null,
+  "email": "admin@swan.com",
+  "special_instructions": null,
+  "channel": "spree",
+  "included_tax_total": "0.0",
+  "additional_tax_total": "0.0",
+  "display_included_tax_total": "$0.00",
+  "display_additional_tax_total": "$0.00",
+  "tax_total": "0.0",
+  "currency": "USD",
+  "display_item_total": "$250.00",
+  "total_quantity": 1,
+  "display_total": "$250.00",
+  "display_ship_total": "$0.00",
+  "display_tax_total": "$0.00",
+  "token": "3FoN0-vwnZWjvxoNZuy5nw",
+  "checkout_steps": [
+    "address",
+    "delivery",
+    "payment",
+    "complete"
+  ],
+  "permissions": {
+    "can_update": true
+  },
+  "bill_address": null,
+  "ship_address": null,
+  "line_items": [
+    {
+      "id": 8,
+      "quantity": 1,
+      "price": "250.0",
+      "variant_id": 25,
+      "single_display_amount": "$250.00",
+      "display_amount": "$250.00",
+      "total": "250.0",
+      "variant": {
+        "id": 25,
+        "name": "DEFAULT PRODUCT FOR COUTURE",
+        "sku": "C15-05-19-12-DESIGN",
+        "price": "250.0",
+        "weight": "0.0",
+        "height": null,
+        "width": null,
+        "depth": null,
+        "is_master": false,
+        "slug": "default-product-for-couture",
+        "description": null,
+        "track_inventory": true,
+        "cost_price": null,
+        "display_price": "$250.00",
+        "options_text": "",
+        "in_stock": true,
+        "option_values": [],
+        "images": [],
+        "product_id": 12
+      },
+      "adjustments": []
+    }
+  ],
+  "payments": [],
+  "shipments": [],
+  "adjustments": []
+}
+</code></pre></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_api_orders__orderNumber__line_items"><span class="parent">/api/orders/{orderNumber}</span>/line_items</a> <span class="methods"><a href="#api_orders__orderNumber__line_items_post"><span class="badge badge_post">post</span></a></span></h4></div><div id="panel_api_orders__orderNumber__line_items" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#api_orders__orderNumber__line_items_post'" class="list-group-item"><span class="badge badge_post">post</span><div class="method_description"><p>Adds a line item to the Spree Order with the provided Spree Variant id and the quantity. | The variant_id key must be retrieved from the response body of /swan/dress/projects/{project_id} endpoint. | In case we want to charge a sketch, we will use sketchVariantId. And in case we want to charge the rest of the Design, we will use designVariantId.</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="api_orders__orderNumber__line_items_post"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_post">post</span> <span class="parent">/api/orders/{orderNumber}</span>/line_items</h4></div><div class="modal-body"><div class="alert alert-info"><p>Adds a line item to the Spree Order with the provided Spree Variant id and the quantity. | The variant_id key must be retrieved from the response body of /swan/dress/projects/{project_id} endpoint. | In case we want to charge a sketch, we will use sketchVariantId. And in case we want to charge the rest of the Design, we will use designVariantId.</p></div><ul class="nav nav-tabs"><li class="active"><a href="#api_orders__orderNumber__line_items_post_request" data-toggle="tab">Request</a></li><li><a href="#api_orders__orderNumber__line_items_post_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="api_orders__orderNumber__line_items_post_request"><h3>URI Parameters</h3><ul><li><strong>orderNumber</strong>: <em>required (string)</em></li></ul><h3>Headers</h3><ul><li><strong>X-Spree-Token</strong>: <em>required (string)</em><p>Spree Token to access Spree API. Returned in the response body of /swan/account endpoint.</p></li></ul><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Schema</strong>:</p><pre><code>{
+  "line_item": {
+      "variant_id": {
+          "required": true,
+          "type": "integer"
+      },
+      "quantity": {
+          "required": true,
+          "type": "integer"
+      }
+  },
+  "required": true,
+  "type": "object"
+}
+</code></pre></div><div class="tab-pane" id="api_orders__orderNumber__line_items_post_response"><h2>HTTP status code <a href="http://httpstatus.es/201" target="_blank">201</a></h2><p>Created</p><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{
+  "id": 8,
+  "quantity": 1,
+  "price": "250.0",
+  "variant_id": 25,
+  "single_display_amount": "$250.00",
+  "display_amount": "$250.00",
+  "total": "250.0",
+  "variant": {
+    "id": 25,
+    "name": "DEFAULT PRODUCT FOR COUTURE",
+    "sku": "C15-05-19-12-DESIGN",
+    "price": "250.0",
+    "weight": "0.0",
+    "height": null,
+    "width": null,
+    "depth": null,
+    "is_master": false,
+    "slug": "default-product-for-couture",
+    "description": null,
+    "track_inventory": true,
+    "cost_price": null,
+    "display_price": "$250.00",
+    "options_text": "",
+    "in_stock": true,
+    "option_values": [],
+    "images": [],
+    "product_id": 12
+  },
+  "adjustments": []
+}
+</code></pre></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_api_orders__orderNumber__payments"><span class="parent">/api/orders/{orderNumber}</span>/payments</a> <span class="methods"><a href="#api_orders__orderNumber__payments_get"><span class="badge badge_get">get</span></a></span></h4></div><div id="panel_api_orders__orderNumber__payments" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#api_orders__orderNumber__payments_get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>See all the payments of the Spree Order. | More information about payment status -&gt; //guides.spreecommerce.com/developer/payments.html</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="api_orders__orderNumber__payments_get"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/api/orders/{orderNumber}</span>/payments</h4></div><div class="modal-body"><div class="alert alert-info"><p>See all the payments of the Spree Order. | More information about payment status -&gt; //guides.spreecommerce.com/developer/payments.html</p></div><ul class="nav nav-tabs"><li class="active"><a href="#api_orders__orderNumber__payments_get_request" data-toggle="tab">Request</a></li><li><a href="#api_orders__orderNumber__payments_get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="api_orders__orderNumber__payments_get_request"><h3>URI Parameters</h3><ul><li><strong>orderNumber</strong>: <em>required (string)</em></li></ul><h3>Headers</h3><ul><li><strong>X-Spree-Token</strong>: <em>required (string)</em><p>Spree Token to access Spree API. Returned in the response body of /swan/account endpoint.</p></li></ul></div><div class="tab-pane" id="api_orders__orderNumber__payments_get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>OK</p><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{
+  "count": 1,
+  "current_page": 1,
+  "pages": 1,
+  "payments": [
+    {
+      "id": 7,
+      "source_type": "Spree::CreditCard",
+      "source_id": 7,
+      "amount": "250.0",
+      "display_amount": "$250.00",
+      "payment_method_id": 1,
+      "response_code": null,
+      "state": "checkout",
+      "avs_response": null,
+      "created_at": "2015-05-19T20:40:03.000Z",
+      "updated_at": "2015-05-19T20:40:03.000Z"
+    }
+  ]
+}
+</code></pre></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_api_checkouts__orderNumber_"><span class="parent">/api/checkouts</span>/{orderNumber}</a> <span class="methods"><a href="#api_checkouts__orderNumber__put"><span class="badge badge_put">put</span></a></span></h4></div><div id="panel_api_checkouts__orderNumber_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#api_checkouts__orderNumber__put'" class="list-group-item"><span class="badge badge_put">put</span><div class="method_description"><p>To transition an order to its next step | {cart - address - delivery - payment - confirm - complete} | More information about Spree Orders steps -&gt; //guides.spreecommerce.com/developer/orders.html</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="api_checkouts__orderNumber__put"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_put">put</span> <span class="parent">/api/checkouts</span>/{orderNumber}</h4></div><div class="modal-body"><div class="alert alert-info"><p>To transition an order to its next step | {cart - address - delivery - payment - confirm - complete} | More information about Spree Orders steps -&gt; //guides.spreecommerce.com/developer/orders.html</p></div><ul class="nav nav-tabs"><li class="active"><a href="#api_checkouts__orderNumber__put_request" data-toggle="tab">Request</a></li><li><a href="#api_checkouts__orderNumber__put_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="api_checkouts__orderNumber__put_request"><h3>URI Parameters</h3><ul><li><strong>orderNumber</strong>: <em>required (string)</em></li></ul><h3>Headers</h3><ul><li><strong>X-Spree-Token</strong>: <em>required (string)</em><p>Spree Token to access Spree API. Returned in the response body of /swan/account endpoint.</p></li></ul></div><div class="tab-pane" id="api_checkouts__orderNumber__put_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>OK. | The following example represents the transition from &#39;cart&#39; state to &#39;address&#39; state. | The default addresses, those uploaded by the user previously, are assigned to the order.</p><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{
+  "id": 32,
+  "number": "R023481998",
+  "item_total": "250.0",
+  "total": "250.0",
+  "ship_total": "0.0",
+  "state": "address",
+  "adjustment_total": "0.0",
+  "user_id": 1,
+  "created_at": "2015-05-19T19:34:08.000Z",
+  "updated_at": "2015-05-19T20:14:03.664Z",
+  "completed_at": null,
+  "payment_total": "0.0",
+  "shipment_state": null,
+  "payment_state": null,
+  "email": "admin@swan.com",
+  "special_instructions": null,
+  "channel": "spree",
+  "included_tax_total": "0.0",
+  "additional_tax_total": "0.0",
+  "display_included_tax_total": "$0.00",
+  "display_additional_tax_total": "$0.00",
+  "tax_total": "0.0",
+  "currency": "USD",
+  "display_item_total": "$250.00",
+  "total_quantity": 1,
+  "display_total": "$250.00",
+  "display_ship_total": "$0.00",
+  "display_tax_total": "$0.00",
+  "token": "3FoN0-vwnZWjvxoNZuy5nw",
+  "checkout_steps": [
+    "address",
+    "delivery",
+    "payment",
+    "complete"
+  ],
+  "permissions": {
+    "can_update": true
+  },
+  "bill_address": {
+    "id": 590,
+    "firstname": "John",
+    "lastname": "Doe",
+    "full_name": "John Doe",
+    "address1": "7735 Old Georgetown Road",
+    "address2": null,
+    "city": "Bethesda",
+    "zipcode": "20814",
+    "phone": "3014445002",
+    "company": null,
+    "alternative_phone": null,
+    "country_id": 1,
+    "state_id": 1,
+    "state_name": null,
+    "state_text": null,
+    "country": {
+      "id": 1,
+      "iso_name": "USA",
+      "iso": null,
+      "iso3": null,
+      "name": "United States",
+      "numcode": null
+    },
+    "": null
+  },
+  "ship_address": {
+    "id": 591,
+    "firstname": "John",
+    "lastname": "Doe",
+    "full_name": "John Doe",
+    "address1": "7735 Old Georgetown Road",
+    "address2": null,
+    "city": "Bethesda",
+    "zipcode": "20814",
+    "phone": "3014445002",
+    "company": null,
+    "alternative_phone": null,
+    "country_id": 1,
+    "state_id": 1,
+    "state_name": null,
+    "state_text": null,
+    "country": {
+      "id": 1,
+      "iso_name": "USA",
+      "iso": null,
+      "iso3": null,
+      "name": "United States",
+      "numcode": null
+    },
+    "": null
+  },
+  "line_items": [
+    {
+      "id": 8,
+      "quantity": 1,
+      "price": "250.0",
+      "variant_id": 25,
+      "single_display_amount": "$250.00",
+      "display_amount": "$250.00",
+      "total": "250.0",
+      "variant": {
+        "id": 25,
+        "name": "DEFAULT PRODUCT FOR COUTURE",
+        "sku": "C15-05-19-12-DESIGN",
+        "price": "250.0",
+        "weight": "0.0",
+        "height": null,
+        "width": null,
+        "depth": null,
+        "is_master": false,
+        "slug": "default-product-for-couture",
+        "description": null,
+        "track_inventory": true,
+        "cost_price": null,
+        "display_price": "$250.00",
+        "options_text": "",
+        "in_stock": true,
+        "option_values": [],
+        "images": [],
+        "product_id": 12
+      },
+      "adjustments": []
+    }
+  ],
+  "payments": [],
+  "shipments": [],
+  "adjustments": []
+}
+</code></pre></div></div></div></div></div></div></div></div></div></div></div><div class="col-md-3"><div id="sidebar" class="hidden-print affix" role="complementary"><ul class="nav nav-pills nav-stacked"><li><a href="#swan">/swan</a></li><li><a href="#swan_user">/swan_user</a></li><li><a href="#lookbook">/lookbook</a></li><li><a href="#api">/api</a></li></ul></div></div></div></div></body></html>
