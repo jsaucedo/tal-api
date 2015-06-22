@@ -279,18 +279,75 @@ version: v1
                     {
                       'errors':'NOT OWNER'
                     }
+  /newsletter_subscriber:
+    get:
+      description: Returns all newsletter subscribers if current logged user is admin. It can be filtered by email(is not necessary to be admin)
+      queryParameters:
+        email:
+          description: "Subscriber's email to filter by"
+          example: "social@thirdandloom.com"
+          type: string
+          required: true 
+      responses:
+         200:
+           description: OK
+           body:
+             application/json:
+               example: !include swan_newsletter_subscribers_get.txt
+
+    post:
+      description: Creates a newsletter subscriber. If this email has been registered, the suscriber is retrieved
+      body:
+        application/json:
+          schema: |
+                {
+                  "name": { 
+                    "description": "subscriber's name", 
+                    "required": false,
+                    "type": "string"
+                  },
+                  "email": { 
+                    "description": "subscriber'email. It has to be unique ",
+                    "required": true,
+                    "type": "string"
+                  }
+                }
+          example: |
+              { 
+                "name": "swan",
+                "email": "social@thirdandloom.com"
+                
+              }
+      responses:
+        200:
+          description: OK
+          body:
+            application/json:
+              example: |
+                { "id": 1,
+                  "name": "swan",
+                  "email": "social@thirdandloom.com",
+                  "activated": true
+                }
+
+    /{subscriberId}:
+      delete:
+        description: Desactivates the subscription for this subscriberId. The "activated" field is setted in false.
+        responses:
+          200:
+            description: OK
+          404:
+            description: Not Found, user with provided id does not exist.
+            body:
+              application/json:
+                example: '{"errors":"RECORD NOT FOUND"}'
+
+
+
 /swan_user:
   /{userId}:
     get:
       description: Retrieves basic necessary user social info for lookbook.
-      queryParameters:
-        countryCode:
-          description: "The code of the country used to filter the artists list"
-          example: "FRA"
-          type: string
-          maxLength: 3
-          minLength: 3
-          required: false
       responses:
        200:
          description: OK
