@@ -411,7 +411,7 @@ version: v1
                example: !include swan_user_id_stories_get.txt
 
 
-  /lost_password:
+  /reset_password:
     post: 
         description: |
           Find a user by id and try to reset password with the new password. 
@@ -450,10 +450,17 @@ version: v1
             example: |
               {
                 "id": "1",
-                "resetPasswordToken": "a token",
+                "resetPasswordToken": "6f64c0ec1048f52f5fe1d649f98f9ae9c18fcb120eadfa5676c78e173ca53f1",
                 "password": "12345678",
                 "passwordConfirmation: "12345678"
               }
+        responses:
+          200:
+           description: OK
+           body:
+             application/json:
+               example: !include swan_user_reset_password_response.txt
+          
 
 /lookbook:
   /user_info/{userId}:
