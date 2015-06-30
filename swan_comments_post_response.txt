@@ -1,0 +1,10 @@
+{
+	"id":"e6b603ef-616e-4837-856b-491c2a9f0e27",
+	"createdAt":"2015-06-30T19:06:44+00:00",
+	"text":"This is a comment",
+	"author":1,
+	"unseen":true,
+	"privacy":"everyone",
+	"authorName":"Emma Cooper",
+	"authorProfileImage":null
+}

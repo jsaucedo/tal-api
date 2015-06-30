@@ -342,6 +342,108 @@ version: v1
               application/json:
                 example: '{"errors":"RECORD NOT FOUND"}'
 
+  /comment:
+    /comments:
+      post:
+        description: Allows current logged user to add a comment to a project.
+        body:
+          application/json:
+            schema: |
+                  {
+                    "update_action": { 
+                      "description": " to update the content or the privacy layer of a comment, this value must be set to update_content", 
+                      "required": true,
+                      "type": "string"
+                    },
+                    "text": { 
+                      "description": "The text of the comment. It can be at least 1 char long, and at most 300",
+                      "required": true,
+                      "type": "string"
+                    },
+                    "privacy": { 
+                      "description": "It can be 'everyone’, ‘only-me’ and ‘invites-only’}",
+                      "required": true,
+                      "type": "string"
+                    }
+                  }
+            example: |
+                { "project_id":"ad91b10d-3441-48be-8c23-b89fdc63d13e"
+                  "text":"This is a comment",
+                  "privacy":"everyone"
+                }
+        responses:
+          200:
+            description: OK
+            body:
+              application/json:
+                example: !include swan_comments_post_response.txt
+      /seen:
+        post:
+          description: Allows to update to seen the status of the specific comments  
+          body:
+            application/json:
+              schema: |
+                  {
+                    "comments_id": { 
+                      "description": "Array with the ids of the comments", 
+                      "required": true,
+                      "type": "array"
+                    }
+
+                  }
+              example: |
+                { 
+                  "comments_id":["86ef022f-211b-47b9-84a6-1b393a1f137b","9f73f54a-ff11-4014-90e6-aa5dd5bc3e18"]
+                }
+          responses:
+            200:
+              description: OK
+              body:
+                application/json:
+                  example: !include swan_comments_seen_post_response.txt
+      /{commentId}:
+        put:
+          description: Allows current logged user to update a comment. User can just update their comments.
+          body:
+            application/json:
+              schema: |
+                {
+                    "project_id": { 
+                      "description": "ID of the project which the comment will be added to", 
+                      "required": true,
+                      "type": "string"
+                    },
+                    "text": { 
+                      "description": "The text of the comment. It can be at least 1 char long, and at most 300",
+                      "required": false,
+                      "type": "string"
+                    },
+                    "privacy": { 
+                      "description": "It can be 'everyone’, ‘only-me’ and ‘invites-only’}",
+                      "required": false,
+                      "type": "string"
+                    }
+                }
+              example: |
+                { "update_action":"update_content",
+                  "text":"This is a comment",
+                  "privacy":"everyone"
+                }
+          responses:
+            200:
+              description: OK
+              body:
+                application/json:
+                  example: !include swan_comments_post_response.txt
+        delete:
+          description: Allows current logged user to delete a comment. User can just delete their comments. 
+          responses: 
+            200:
+              description: Ok
+           
+            
+
+
 
 
 /swan_user:
@@ -487,7 +589,7 @@ version: v1
   /projects/?user_id={user_id}&first={first}&limit={limit}:
     get:
       description: Retrieves basic necessary project info for every project (that is not a story) of user with provided id. It allows pagination. <br>
-                   The project cards are returned showing the newest project first, and the oldest last.
+                   The project cards are returned showing the newest project first, and the oldest last.If amount parameter is present, it retrieve the amount of projects
       responses:
         200:
           description: OK

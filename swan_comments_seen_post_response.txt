@@ -1,0 +1,22 @@
+[
+  {
+    "id": "86ef022f-211b-47b9-84a6-1b393a1f137b",
+    "createdAt": "2015-06-26T13:37:52+00:00",
+    "text": "Comment 4",
+    "author": "384",
+    "unseen": false,
+    "privacy": "everyone",
+    "authorName": "hi ",
+    "authorProfileImage": null
+  },
+  {
+    "id": "9f73f54a-ff11-4014-90e6-aa5dd5bc3e18",
+    "createdAt": "2015-06-26T13:37:12+00:00",
+    "text": "Comment 3",
+    "author": "384",
+    "unseen": false,
+    "privacy": "everyone",
+    "authorName": "hi ",
+    "authorProfileImage": null
+  }
+]
