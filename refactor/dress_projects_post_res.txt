@@ -1,0 +1,76 @@
+{
+  "id": 12,
+  "originalDesignId": 62,
+  "createdAt": "2015-06-15 18:38:30 UTC",
+  "sketchOrderId": null,
+  "dressOrderId": null,
+  "approvedSketch": null,
+  "backgroundCover": "the background cover",
+  "title": "Sophie Custom Dress",
+  "eventType": "fashion",
+  "eventDate": "2015-07-08",
+  "privacy": "everyone",
+  "likes": 0,
+  "totalPrice": null,
+  "origin": "product_details",
+  "creator": 1,
+  "state": "design",
+  "pose": null,
+  "design": {
+    "dress": {
+      "notEditableFields": [
+        "fabric",
+        "color",
+        "features",
+        "technique",
+        "details",
+        "coverage",
+        "closure",
+        "train",
+        "monogram",
+        "effect"
+      ],
+      "silhouette": "silhouette-sheath",
+      "length": "silhouette",
+      "neckline": "neckline-dipped",
+      "necklineIllusion": "neckline-plunging",
+      "sleeve": "sleeve-sleeveless",
+      "sleeveIllusion": null,
+      "back": "back-bare",
+      "backIllusion": "back-closed",
+      "train": "train-royal",
+      "fabric": [
+        "fabric-90",
+        "fabric-18243480-6b3b-0cfe-7c24-09433a00fc95"
+      ],
+      "closure": "closure-taffeta",
+      "color": "color-gold",
+      "details": null,
+      "features": [
+        "nice"
+      ],
+      "technique": "technique-beadwork",
+      "effect": "effect-fb2271c9-1f75-a194-ee3f-c5857eb10c65",
+      "pattern": [
+        "the pattern"
+      ],
+      "coverage": "coverage-scattered",
+      "monogram": "monogram-elephant",
+      "stylePalette": [
+        "the style palette",
+        "the style palette2"
+      ],
+      "basePrice": "1600",
+      "customizationPrice": "40"
+    }
+  },
+  "coutureSetting": {
+    "occasion": "the best ocassion",
+    "ageRange": "15-20",
+    "dressType": "beautiful one",
+    "bodyType": "thin",
+    "firstRun": false
+  },
+  "uploads": [],
+  "comments": {}
+}

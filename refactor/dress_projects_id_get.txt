@@ -1,0 +1,86 @@
+{
+  "id": 26,
+  "originalDesignId": 62,
+  "createdAt": "2015-06-22 19:59:13 UTC",
+  "sketchOrderId": null,
+  "dressOrderId": null,
+  "approvedSketch": null,
+  "title": "Sophie Custom Dress",
+  "eventType": "fashion",
+  "eventDate": "2015-07-08",
+  "privacy": "everyone",
+  "likes": 0,
+  "totalPrice": "1234",
+  "origin": "product_details",
+  "creator": 1,
+  "state": "design",
+  "pose": null,
+  "backgroundCover": {
+    "id": 1,
+    "image": {
+      "url": "https://s3.amazonaws.com/swan-public/uploads/background_covers/3f7b555a-ad94-4714-98ff-30178af2862d.jpeg"
+    }
+  },
+  "silhouette": {
+    "id": 1,
+    "image": {
+      "url": "https://s3.amazonaws.com/swan-public/uploads/silhouettes/c0cdd939-bed8-49a4-9431-ad1428bd40ff.jpeg"
+    }
+  },
+  "design": {
+    "dress": {
+      "notEditableFields": [
+        "fabric",
+        "color",
+        "features",
+        "technique",
+        "details",
+        "coverage",
+        "closure",
+        "train",
+        "monogram",
+        "effect"
+      ],
+      "silhouette": "silhouette-sheath",
+      "length": "silhouette",
+      "neckline": "neckline-dipped",
+      "necklineIllusion": "neckline-plunging",
+      "sleeve": "sleeve-sleeveless",
+      "sleeveIllusion": null,
+      "back": "back-bare",
+      "backIllusion": "back-closed",
+      "train": "train-royal",
+      "fabric": [
+        "fabric-90",
+        "fabric-18243480-6b3b-0cfe-7c24-09433a00fc95"
+      ],
+      "closure": "closure-taffeta",
+      "color": "color-gold",
+      "details": null,
+      "features": [
+        "nice"
+      ],
+      "technique": "technique-beadwork",
+      "effect": "effect-fb2271c9-1f75-a194-ee3f-c5857eb10c65",
+      "pattern": [
+        "the pattern"
+      ],
+      "coverage": "coverage-scattered",
+      "monogram": "monogram-elephant",
+      "stylePalette": [
+        "the style palette",
+        "the style palette2"
+      ],
+      "basePrice": "1600",
+      "customizationPrice": "40"
+    }
+  },
+  "coutureSettings": {
+    "occasion": "the best ocassion",
+    "ageRange": "15-20",
+    "dressType": "beautiful one",
+    "bodyType": "thin",
+    "firstRun": false
+  },
+  "uploads": []
+}

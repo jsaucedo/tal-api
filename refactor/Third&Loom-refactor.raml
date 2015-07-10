@@ -1,0 +1,380 @@
+#%RAML 0.8
+
+title: Third&Loom
+baseUri: http://beta.thirdandloom.com
+version: refactor
+
+/swan:
+  
+
+
+
+  /designs:
+    get:
+      description: Retrieve all the available designs.
+      responses:
+        200:
+          description: OK
+          body:
+            application/json:
+              example: !include dress_designs_index.txt
+
+    post:
+      description: Create a new design
+      body:
+        application/json: 
+          example: !include dress_designs_post_req.txt
+      responses:
+        200:
+          description: OK
+          body:
+            application/json:
+              example: !include dress_designs_post_res.txt
+    
+
+    /{design_id}:
+      get:
+        description: Retrieve a certain design
+        responses:
+          200:
+            description: OK
+            body:
+              application/json:
+                example: !include dress_designs_get_id_res.txt
+
+      put:
+        description: Update an existing design
+        body:
+          application/json:
+            example: !include dress_designs_id_update_req.txt
+
+        responses:
+          200:
+            description: OK
+            body:
+              application/json:
+                example: !include dress_designs_id_update_res.txt
+
+      patch:
+        description: Patch an existing resource
+        body:
+          application/json: 
+            example: !include dress_designs_id_patch_req.txt
+        responses:
+          200:
+            description: OK
+            body:
+              application/json:
+                example: !include dress_designs_id_patch_res.txt
+
+      delete:
+        description: Delete a design
+        responses:
+          200:
+            description: OK
+      
+      
+    
+    /filter/:
+      get:
+        description: Retrieves basic necessary info of designs filtered by provided category, section and quantity (if provided).
+        queryParameters:
+          category:
+            displayName: category
+            type: string
+            description: category of the dresses to be returned
+            example: fashion
+            required: false
+          section:
+            displayName: section
+            type: string
+            description: section, within the category, of the dresses to be returned
+            example: evening
+            required: false
+          quantity:
+            displayName: quantity
+            type: string
+            description: amount of projects to be retrieved
+            example: 4
+            required: false
+          last_id:
+            displayName: last_id
+            type: string
+            description: id of the design since which the requested amount should be retrieved.
+            example: 1
+            required: false
+          sku:
+            displayName: sku
+            type: string
+            description: sku of the design to be retrieved
+            example: w-123-123
+            required: false
+
+
+        responses:
+          200:
+            description: OK
+            body:
+              application/json:
+                example: !include dress_designs_filter.txt
+
+  /projects:
+    get:
+      description: Retrieve all the projects of the current logged user.
+      queryParameters:
+        quantity:
+          displayName: quantity
+          type: string
+          description: amount of projects to be retrieved
+          example: 4
+          required: false
+        last_id:
+          displayName: last_id
+          type: string
+          description: id of the project since which the requested amount should be retrieved.
+          example: 1
+          required: false
+
+      responses:
+        200:
+          description: OK
+          body:
+            application/json:
+              example: !include dress_projects_get.txt
+    
+    post:
+      description: Create a new project for the current logged user
+      body:
+        application/json: 
+          example: !include dress_projects_post_req.txt
+      responses:
+        200:
+          description: OK
+          body:
+            application/json:
+              example: !include dress_projects_post_res.txt
+
+    /{project_id}:
+      get:
+        description: Retrieve a project with the provided id, for the current logged user.
+        responses:
+          200:
+            description: OK
+            body:
+              application/json:
+                example: !include dress_projects_id_get.txt
+
+      delete:
+        description: Allows current logged User to remove a Project from his Lookbook.
+        responses:
+          200:
+            description: OK
+
+      put:
+        description: Update an existing project of the current logged user ownership.
+        body:
+          application/json:
+            example: !include dress_projects_id_put_req.txt
+        responses:
+          200:
+            description: OK
+            body:
+              application/json:
+                example: !include dress_projects_id_put_res.txt
+
+      patch:
+        description: Patch an existing project of the current logged user ownership.
+        body:
+          application/json:
+            example: !include dress_projects_id_patch_req.txt
+        responses:
+          200:
+            description: OK
+            body:
+              application/json:
+                example: !include dress_projects_id_patch_res.txt
+    
+      /comments:
+        get: 
+          description: Retrieve all the comments with the provided project_id.
+          responses:
+            200:
+              description:
+              body:
+                application/json:
+                  example: !include projects_id_comments_index.txt
+        post:
+          description: Allows current logged user to add a comment to a project.
+          body:
+            application/json:
+              schema: |
+                    {
+                      "text": { 
+                        "description": "The text of the comment. It can be at least 1 char long, and at most 300",
+                        "required": true,
+                        "type": "string"
+                      },
+                      "privacy": { 
+                        "description": "It can be 'everyone’, ‘only-me’ and ‘invites-only’}",
+                        "required": true,
+                        "type": "string"
+                      }
+                    }
+              example: |
+                  { 
+                    "text":"This is a comment",
+                    "privacy":"everyone"
+                  }
+          responses:
+            200:
+              description: OK
+              body:
+                application/json:
+                  example: !include swan_comments_post_response.txt
+        
+        /{commentId}:
+          put:
+            description: Allows current logged user to update a comment. User can just update their comments.
+            body:
+              application/json:
+                schema: |
+                  {
+                     "text": { 
+                        "description": "The text of the comment. It can be at least 1 char long, and at most 300",
+                        "required": false,
+                        "type": "string"
+                      },
+                      "privacy": { 
+                        "description": "It can be 'everyone’, ‘only-me’ and ‘invites-only’}",
+                        "required": false,
+                        "type": "string"
+                      }
+                  }
+                example: |
+                  { 
+                    "text":"This is a comment",
+                    "privacy":"everyone"
+                  }
+            responses:
+              200:
+                description: OK
+                body:
+                  application/json:
+                    example: !include swan_comments_post_response.txt
+          delete:
+            description: Allows current logged user to delete a comment. User can just delete their comments. 
+            responses: 
+              200:
+                description: Ok
+
+      /uploads:
+        post:
+          description: Create a new upload for an already existing project
+          body:
+            application/json: 
+              example: !include dress_projects_id_post_upload_req.txt
+          responses:
+            200:
+              description: OK
+              body:
+                application/json:
+                  example: !include dress_projects_id_post_upload_res.txt
+
+      /silhouette_images:
+        post:
+          description: Create a new silhouette image for an already existing project 
+          body:
+            application/json:
+              example: !include dress_projects_id_post_silhouette_req.txt
+          responses:
+            200:
+              description: OK
+              body:
+                application/json:
+                  example: !include dress_projects_id_post_silhouette_res.txt
+
+        /{silhouette_image_id}:
+          put:
+            description: Update an existing silhouette_image
+            body:
+              application/json:
+                example: !include dress_projects_id_put_silhouette_req.txt
+            responses:
+              200:
+                description: OK
+                body:
+                  application/json:
+                    example: !include dress_projects_id_put_silhouette_res.txt
+          
+          delete:
+            description: Delete a silhouette image
+            responses:
+              200:
+                description: OK
+
+      /background_images:
+        post:
+          description: Create a new background_image for an already existing project 
+          body:
+            application/json:
+              example: !include dress_projects_id_post_background_req.txt
+          responses:
+            200:
+              description: OK
+              body:
+                application/json:
+                  example: !include dress_projects_id_post_background_res.txt
+
+        /{background_image_id}:
+          delete:
+            description: Delete a background_image
+            responses:
+              200:
+                description: OK
+
+          put:
+            description: Update an existing background_image
+            body:
+              application/json:
+                example: !include dress_projects_id_put_background_req.txt
+            responses:
+              200:
+                description: OK
+                body:
+                  application/json:
+                    example: !include dress_projects_id_put_background_res.txt
+
+    /set_privacy/{project_id}:
+      post:
+        description: Sets or updates Project’s privacy. <br>
+                     Valid privacies. "only-me" / "invites-only" / "everyone" <br>
+        responses:
+          200:
+            description: OK.
+            body:
+              application/json:
+              #  example: !include dress_projects_set_privacy.txt
+          404:
+            description: ERROR.
+            body:
+              application/json:
+                example: '{"errors":"INVALID_PRIVACY"}'
+
+#/lookbook:
+
+# /projects/?user_id={user_id}&first={first}&limit={limit}:
+#  get:
+#    description: Retrieves basic necessary project info for every project (that is not a story) of user with provided id. It allows pagination. <br>
+#                 The project cards are returned showing the newest project first, and the oldest last. <br>
+#                 swan/lookbook#projects
+#    responses:
+#      200:
+#        description: OK
+#        body:
+ #         application/json:
+  #          example: !include lookbook_projects.txt
+  #    404:
+  #      description: Not Found, user with provided id does not exist
+  #      body:
+  #        application/json:
+  #          example: '{"errors":"RECORD NOT FOUND"}'

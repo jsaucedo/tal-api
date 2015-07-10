@@ -1,0 +1,40 @@
+{
+  "approvedSketch": null,
+  "backgroundCover": "the background cover rolbacked",
+  "title": "Sophie Title edited Dress",
+  "eventType": "party",
+  "eventDate": "2015-09-10",
+  "privacy": "everyone",
+  "totalPrice": "999",
+  "origin": "product_details",
+  "state": "design",
+  "design": {
+    "dress": {
+      "silhouette": "silhouette-ball-gown",
+      "length": "tea",
+      "neckline": "neckline-dipped",
+      "necklineIllusion": "neckline-di",
+      "fabric": [
+        "fabric-90",
+        "fabric-92"
+      ],
+      "features": [
+        "nice"
+      ],
+      "technique": "technique-beadwork",
+      "pattern": [
+        "the pattern"
+      ],
+      "coverage": "coverage-scattered",
+      "monogram": "monogram-elephant",
+      "stylePalette": [],
+      "basePrice": "1200",
+      "customizationPrice": "20"
+    }
+  },
+  "coutureSettings": {
+    "occasion": "the best ocassion",
+    "bodyType": "thin edited",
+    "firstRun": false
+  }
+}

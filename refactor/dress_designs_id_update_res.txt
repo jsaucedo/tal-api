@@ -1,0 +1,52 @@
+{
+  "richBlurb": "the rich blurb",
+  "title": "the title",
+  "sku": "W12-99-1304",
+  "section": null,
+  "category": null,
+  "style": null,
+  "dressType": null,
+  "construction": null,
+  "overview": null,
+  "features": [
+    "designs features",
+    "designs features1"
+  ],
+  "dress": {
+    "notEditableFields": [
+      "silhouette"
+    ],
+    "silhouette": null,
+    "neckline": "the best neckline",
+    "sleeve": "the best sleeve",
+    "back": null,
+    "train": null,
+    "fabric": [
+      "fabricsss"
+    ],
+    "closure": null,
+    "color": null,
+    "details": null,
+    "features": [
+      "the features",
+      "the features1"
+    ],
+    "technique": null,
+    "effect": null,
+    "pattern": [
+      "the pattern"
+    ],
+    "coverage": null,
+    "monogram": null,
+    "stylePalette": [
+      "the style palette",
+      "the style palette2"
+    ],
+    "basePrice": null,
+    "customizationPrice": null,
+    "length": null,
+    "necklineIllusion": "the neclkine illusion",
+    "sleeveIllusion": "the best sleeve illusion ever",
+    "backIllusion": "the best backIlusion"
+  }
+}

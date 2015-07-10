@@ -1,0 +1,6 @@
+pasos agregar contenido a proyecto;
+
+Crear proyecto
+asociar uploads luego
+asociar background image luego
+asociar silhouette image luego

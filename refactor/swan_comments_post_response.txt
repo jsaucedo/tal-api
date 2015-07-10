@@ -1,0 +1,8 @@
+{
+	"id":"5",
+	"text":"This is a comment",
+	"authorId":1,
+	"wasDeleted":"false,"
+	"privacy":"everyone",
+	
+}

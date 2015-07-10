@@ -1,0 +1,9 @@
+{
+  "id": 1,
+  "image": {
+    "url": "https://s3.amazonaws.com/swan-public/uploads/background_covers/3f7b555a-ad94-4714-98ff-30178af2862d.jpeg"
+  },
+  "projectId": 26,
+  "createdAt": "2015-06-22 20:36:12 UTC",
+  "updatedAt": "2015-06-22 20:36:14 UTC"
+}

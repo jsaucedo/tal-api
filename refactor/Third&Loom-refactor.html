@@ -1,0 +1,2423 @@
+<!DOCTYPE HTML><html><head><title>Third&Loom API documentation</title><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="generator" content="https://github.com/kevinrenskers/raml2html 2.0.1"><link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/styles/default.min.css"><script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script><script type="text/javascript" src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/highlight.min.js"></script><script type="text/javascript">
+      $(document).ready(function() {
+        $('.page-header pre code, .top-resource-description pre code').each(function(i, block) {
+          hljs.highlightBlock(block);
+        });
+
+        $('[data-toggle]').click(function() {
+          var selector = $(this).data('target') + ' pre code';
+          $(selector).each(function(i, block) {
+            hljs.highlightBlock(block);
+          });
+        });
+
+        // open modal on hashes like #_action_get
+        $(window).bind('hashchange', function(e) {
+          var anchor_id = document.location.hash.substr(1); //strip #
+          var element = $('#' + anchor_id);
+
+          // do we have such element + is it a modal?  --> show it
+          if (element.length && element.hasClass('modal')) {
+            element.modal('show');
+          }
+        });
+
+        // execute hashchange on first page load
+        $(window).trigger('hashchange');
+
+        // remove url fragment on modal hide
+        $('.modal').on('hidden.bs.modal', function() {
+          if(history && history.replaceState) {
+            history.replaceState({}, '', '#');
+          }
+        });
+      });
+    </script><style>
+      .hljs {
+        background: transparent;
+      }
+      .parent {
+        color: #999;
+      }
+      .list-group-item > .badge {
+        float: none;
+        margin-right: 6px;
+      }
+      .panel-title > .methods {
+        float: right;
+      }
+      .badge {
+        border-radius: 0;
+        text-transform: uppercase;
+        width: 70px;
+        font-weight: normal;
+        color: #f3f3f6;
+        line-height: normal;
+      }
+      .badge_get {
+        background-color: #63a8e2;
+      }
+      .badge_post {
+        background-color: #6cbd7d;
+      }
+      .badge_put {
+        background-color: #22bac4;
+      }
+      .badge_delete {
+        background-color: #d26460;
+      }
+      .badge_patch {
+        background-color: #ccc444;
+      }
+      .list-group, .panel-group {
+        margin-bottom: 0;
+      }
+      .panel-group .panel+.panel-white {
+        margin-top: 0;
+      }
+      .panel-group .panel-white {
+        border-bottom: 1px solid #F5F5F5;
+        border-radius: 0;
+      }
+      .panel-white:last-child {
+        border-bottom-color: white;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+      }
+      .panel-white .panel-heading {
+        background: white;
+      }
+      .tab-pane ul {
+        padding-left: 2em;
+      }
+      .tab-pane h2 {
+        font-size: 1.2em;
+        padding-bottom: 4px;
+        border-bottom: 1px solid #ddd;
+      }
+      .tab-pane h3 {
+        font-size: 1.1em;
+      }
+      .tab-content {
+        border-left: 1px solid #ddd;
+        border-right: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+        padding: 10px;
+      }
+      #sidebar {
+        margin-top: 30px;
+        padding-right: 5px;
+        overflow: auto;
+        height: 90%;
+      }
+      .top-resource-description {
+        border-bottom: 1px solid #ddd;
+        background: #fcfcfc;
+        padding: 15px 15px 0 15px;
+        margin: -15px -15px 10px -15px;
+      }
+      .resource-description {
+        border-bottom: 1px solid #fcfcfc;
+        background: #fcfcfc;
+        padding: 15px 15px 0 15px;
+        margin: -15px -15px 10px -15px;
+      }
+      .resource-description p:last-child {
+        margin: 0;
+      }
+      .list-group .badge {
+        float: left;
+      }
+      .method_description {
+        margin-left: 85px;
+      }
+      .method_description p:last-child {
+        margin: 0;
+      }
+      .list-group-item {
+        cursor: pointer;
+      }
+      .list-group-item:hover {
+        background-color: #f5f5f5;
+      }
+    </style></head><body data-spy="scroll" data-target="#sidebar"><div class="container"><div class="row"><div class="col-md-9" role="main"><div class="page-header"><h1>Third&Loom API documentation <small>version refactor</small></h1><p>http://beta.thirdandloom.com</p></div><div class="panel panel-default"><div class="panel-heading"><h3 id="swan" class="panel-title">/swan</h3></div><div class="panel-body"><div class="panel-group"><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_swan_designs"><span class="parent">/swan</span>/designs</a> <span class="methods"><a href="#swan_designs_get"><span class="badge badge_get">get</span></a> <a href="#swan_designs_post"><span class="badge badge_post">post</span></a></span></h4></div><div id="panel_swan_designs" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#swan_designs_get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Retrieve all the available designs.</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#swan_designs_post'" class="list-group-item"><span class="badge badge_post">post</span><div class="method_description"><p>Create a new design</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="swan_designs_get"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/swan</span>/designs</h4></div><div class="modal-body"><div class="alert alert-info"><p>Retrieve all the available designs.</p></div><ul class="nav nav-tabs"><li><a href="#swan_designs_get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane" id="swan_designs_get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>OK</p><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>[
+  {
+    "id": 1,
+    "createdAt": "2015-04-28 20:13:13 UTC",
+    "ownerId": 1,
+    "richBlurb": "the rich blurb",
+    "title": "the title",
+    "sku": "123-123",
+    "likes": 0,
+    "section": null,
+    "category": null,
+    "style": null,
+    "dressType": null,
+    "construction": null,
+    "overview": null,
+    "features": [],
+    "dress": {
+      "notEditableFields": [],
+      "silhouette": null,
+      "neckline": null,
+      "sleeve": null,
+      "back": null,
+      "train": null,
+      "fabric": [],
+      "closure": null,
+      "color": null,
+      "details": null,
+      "features": [],
+      "technique": null,
+      "effect": null,
+      "pattern": [],
+      "coverage": null,
+      "monogram": null,
+      "stylePalette": [],
+      "basePrice": null,
+      "customizationPrice": null
+    },
+    "visuals": []
+  },
+  {
+    "id": 2,
+    "createdAt": "2015-04-30 15:08:04 UTC",
+    "ownerId": 1,
+    "richBlurb": "the rich blurb",
+    "title": "the title",
+    "sku": "123-123-123",
+    "likes": 0,
+    "section": null,
+    "category": null,
+    "style": null,
+    "dressType": null,
+    "construction": null,
+    "overview": null,
+    "features": [],
+    "dress": {
+      "notEditableFields": [],
+      "silhouette": null,
+      "neckline": null,
+      "sleeve": "the best sleeve",
+      "back": null,
+      "train": null,
+      "fabric": [],
+      "closure": null,
+      "color": null,
+      "details": null,
+      "features": [],
+      "technique": null,
+      "effect": null,
+      "pattern": [],
+      "coverage": null,
+      "monogram": null,
+      "stylePalette": [],
+      "basePrice": null,
+      "customizationPrice": null
+    },
+    "visuals": []
+  },
+  {
+    "id": 3,
+    "createdAt": "2015-04-30 15:12:04 UTC",
+    "ownerId": 1,
+    "richBlurb": "the rich blurb",
+    "title": "the title",
+    "sku": "123-123-456",
+    "likes": 0,
+    "section": null,
+    "category": null,
+    "style": null,
+    "dressType": null,
+    "construction": null,
+    "overview": null,
+    "features": [],
+    "dress": {
+      "notEditableFields": [],
+      "silhouette": null,
+      "neckline": "the best neckline",
+      "sleeve": "the best sleeve",
+      "back": null,
+      "train": null,
+      "fabric": [],
+      "closure": null,
+      "color": null,
+      "details": null,
+      "features": [],
+      "technique": null,
+      "effect": null,
+      "pattern": [],
+      "coverage": null,
+      "monogram": null,
+      "stylePalette": [],
+      "basePrice": null,
+      "customizationPrice": null
+    },
+    "visuals": []
+  },
+  {
+    "id": 4,
+    "createdAt": "2015-04-30 15:42:32 UTC",
+    "ownerId": 1,
+    "richBlurb": "the rich blurb",
+    "title": "the title",
+    "sku": "123-123-1",
+    "likes": 0,
+    "section": null,
+    "category": null,
+    "style": null,
+    "dressType": null,
+    "construction": null,
+    "overview": null,
+    "features": [],
+    "dress": {
+      "notEditableFields": [],
+      "silhouette": null,
+      "neckline": "the best neckline",
+      "sleeve": "the best sleeve",
+      "back": null,
+      "train": null,
+      "fabric": [],
+      "closure": null,
+      "color": null,
+      "details": null,
+      "features": [],
+      "technique": null,
+      "effect": null,
+      "pattern": [],
+      "coverage": null,
+      "monogram": null,
+      "stylePalette": [
+        "1"
+      ],
+      "basePrice": null,
+      "customizationPrice": null
+    },
+    "visuals": []
+  },
+  {
+    "id": 5,
+    "createdAt": "2015-04-30 15:45:21 UTC",
+    "ownerId": 1,
+    "richBlurb": "the rich blurb",
+    "title": "the title",
+    "sku": "123-123-2",
+    "likes": 0,
+    "section": null,
+    "category": null,
+    "style": null,
+    "dressType": null,
+    "construction": null,
+    "overview": null,
+    "features": [
+      "designs features",
+      "designs features1"
+    ],
+    "dress": {
+      "notEditableFields": [
+        "silhouette"
+      ],
+      "silhouette": null,
+      "neckline": "the best neckline",
+      "sleeve": "the best sleeve",
+      "back": null,
+      "train": null,
+      "fabric": [
+        "fabricsss"
+      ],
+      "closure": null,
+      "color": null,
+      "details": null,
+      "features": [
+        "the features",
+        "the features1"
+      ],
+      "technique": null,
+      "effect": null,
+      "pattern": [
+        "the pattern"
+      ],
+      "coverage": null,
+      "monogram": null,
+      "stylePalette": [
+        "the style palette",
+        "the style palette2"
+      ],
+      "basePrice": null,
+      "customizationPrice": null
+    },
+    "visuals": []
+  }
+]
+</code></pre></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="swan_designs_post"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_post">post</span> <span class="parent">/swan</span>/designs</h4></div><div class="modal-body"><div class="alert alert-info"><p>Create a new design</p></div><ul class="nav nav-tabs"><li class="active"><a href="#swan_designs_post_request" data-toggle="tab">Request</a></li><li><a href="#swan_designs_post_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="swan_designs_post_request"><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{
+  "richBlurb": "the rich blurb",
+  "title": "the title",
+  "sku": "W12-99-1304",
+  "section": null,
+  "category": null,
+  "style": null,
+  "dressType": null,
+  "construction": null,
+  "overview": null,
+  "features": [
+    "designs features",
+    "designs features1"
+  ],
+  "dress": {
+    "notEditableFields": [
+      "silhouette"
+    ],
+    "silhouette": null,
+    "neckline": "the best neckline",
+    "sleeve": "the best sleeve",
+    "back": null,
+    "train": null,
+    "fabric": [
+      "fabricsss"
+    ],
+    "closure": null,
+    "color": null,
+    "details": null,
+    "features": [
+      "the features",
+      "the features1"
+    ],
+    "technique": null,
+    "effect": null,
+    "pattern": [
+      "the pattern"
+    ],
+    "coverage": null,
+    "monogram": null,
+    "stylePalette": [
+      "the style palette",
+      "the style palette2"
+    ],
+    "basePrice": null,
+    "customizationPrice": null,
+    "length": "the best length ever",
+    "necklineIllusion": "the neclkine illusion",
+    "sleeveIllusion": "the best sleeve illusion ever",
+    "backIllusion": "the best backIlusion"
+  }
+}
+</code></pre></div><div class="tab-pane" id="swan_designs_post_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>OK</p><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{
+  "id": 67,
+  "createdAt": "2015-06-12 20:46:28 UTC",
+  "ownerId": 1,
+  "richBlurb": "the rich blurb",
+  "title": "the title",
+  "sku": "W12-99-1304",
+  "likes": 0,
+  "section": null,
+  "category": null,
+  "style": null,
+  "dressType": null,
+  "construction": null,
+  "overview": null,
+  "features": [
+    "designs features",
+    "designs features1"
+  ],
+  "dress": {
+    "notEditableFields": [
+      "silhouette"
+    ],
+    "silhouette": null,
+    "length": "the best length ever",
+    "neckline": "the best neckline",
+    "necklineIlussion": "the neclkine illusion",
+    "sleeve": "the best sleeve",
+    "sleeveIllusion": "the best sleeve illusion ever",
+    "back": null,
+    "backIlussion": "the best backIlusion",
+    "train": null,
+    "fabric": [
+      "fabricsss"
+    ],
+    "closure": null,
+    "color": null,
+    "details": null,
+    "features": [
+      "the features",
+      "the features1"
+    ],
+    "technique": null,
+    "effect": null,
+    "pattern": [
+      "the pattern"
+    ],
+    "coverage": null,
+    "monogram": null,
+    "stylePalette": [
+      "the style palette",
+      "the style palette2"
+    ],
+    "basePrice": null,
+    "customizationPrice": null
+  },
+  "visuals": []
+}
+</code></pre></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_swan_designs__design_id_"><span class="parent">/swan/designs</span>/{design_id}</a> <span class="methods"><a href="#swan_designs__design_id__get"><span class="badge badge_get">get</span></a> <a href="#swan_designs__design_id__put"><span class="badge badge_put">put</span></a> <a href="#swan_designs__design_id__patch"><span class="badge badge_patch">patch</span></a> <a href="#swan_designs__design_id__delete"><span class="badge badge_delete">delete</span></a></span></h4></div><div id="panel_swan_designs__design_id_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#swan_designs__design_id__get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Retrieve a certain design</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#swan_designs__design_id__put'" class="list-group-item"><span class="badge badge_put">put</span><div class="method_description"><p>Update an existing design</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#swan_designs__design_id__patch'" class="list-group-item"><span class="badge badge_patch">patch</span><div class="method_description"><p>Patch an existing resource</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#swan_designs__design_id__delete'" class="list-group-item"><span class="badge badge_delete">delete</span><div class="method_description"><p>Delete a design</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="swan_designs__design_id__get"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/swan/designs</span>/{design_id}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Retrieve a certain design</p></div><ul class="nav nav-tabs"><li class="active"><a href="#swan_designs__design_id__get_request" data-toggle="tab">Request</a></li><li><a href="#swan_designs__design_id__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="swan_designs__design_id__get_request"><h3>URI Parameters</h3><ul><li><strong>design_id</strong>: <em>required (string)</em></li></ul></div><div class="tab-pane" id="swan_designs__design_id__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>OK</p><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{
+  "id": 67,
+  "createdAt": "2015-06-12 20:46:28 UTC",
+  "ownerId": 1,
+  "richBlurb": "the rich blurb",
+  "title": "the title",
+  "sku": "W12-99-1304",
+  "likes": 0,
+  "section": null,
+  "category": null,
+  "style": null,
+  "dressType": null,
+  "construction": null,
+  "overview": null,
+  "features": [
+    "designs features",
+    "designs features1"
+  ],
+  "dress": {
+    "notEditableFields": [
+      "silhouette"
+    ],
+    "silhouette": null,
+    "length": "again length",
+    "neckline": "the best neckline",
+    "necklineIlussion": "the neclkine illusion",
+    "sleeve": "the best sleeve",
+    "sleeveIllusion": "the best sleeve illusion ever",
+    "back": null,
+    "backIlussion": "the best backIlusion",
+    "train": null,
+    "fabric": [
+      "fabricsss"
+    ],
+    "closure": null,
+    "color": null,
+    "details": null,
+    "features": [
+      "the features",
+      "the features1"
+    ],
+    "technique": null,
+    "effect": null,
+    "pattern": [
+      "the pattern"
+    ],
+    "coverage": null,
+    "monogram": null,
+    "stylePalette": [
+      "the style palette",
+      "the style palette2"
+    ],
+    "basePrice": null,
+    "customizationPrice": null
+  },
+  "visuals": []
+}
+</code></pre></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="swan_designs__design_id__put"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_put">put</span> <span class="parent">/swan/designs</span>/{design_id}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Update an existing design</p></div><ul class="nav nav-tabs"><li class="active"><a href="#swan_designs__design_id__put_request" data-toggle="tab">Request</a></li><li><a href="#swan_designs__design_id__put_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="swan_designs__design_id__put_request"><h3>URI Parameters</h3><ul><li><strong>design_id</strong>: <em>required (string)</em></li></ul><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{
+  "richBlurb": "the rich blurb",
+  "title": "the title",
+  "sku": "W12-99-1304",
+  "section": null,
+  "category": null,
+  "style": null,
+  "dressType": null,
+  "construction": null,
+  "overview": null,
+  "features": [
+    "designs features",
+    "designs features1"
+  ],
+  "dress": {
+    "notEditableFields": [
+      "silhouette"
+    ],
+    "silhouette": null,
+    "neckline": "the best neckline",
+    "sleeve": "the best sleeve",
+    "back": null,
+    "train": null,
+    "fabric": [
+      "fabricsss"
+    ],
+    "closure": null,
+    "color": null,
+    "details": null,
+    "features": [
+      "the features",
+      "the features1"
+    ],
+    "technique": null,
+    "effect": null,
+    "pattern": [
+      "the pattern"
+    ],
+    "coverage": null,
+    "monogram": null,
+    "stylePalette": [
+      "the style palette",
+      "the style palette2"
+    ],
+    "basePrice": null,
+    "customizationPrice": null,
+    "length": null,
+    "necklineIllusion": "the neclkine illusion",
+    "sleeveIllusion": "the best sleeve illusion ever",
+    "backIllusion": "the best backIlusion"
+  }
+}
+</code></pre></div><div class="tab-pane" id="swan_designs__design_id__put_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>OK</p><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{
+  "richBlurb": "the rich blurb",
+  "title": "the title",
+  "sku": "W12-99-1304",
+  "section": null,
+  "category": null,
+  "style": null,
+  "dressType": null,
+  "construction": null,
+  "overview": null,
+  "features": [
+    "designs features",
+    "designs features1"
+  ],
+  "dress": {
+    "notEditableFields": [
+      "silhouette"
+    ],
+    "silhouette": null,
+    "neckline": "the best neckline",
+    "sleeve": "the best sleeve",
+    "back": null,
+    "train": null,
+    "fabric": [
+      "fabricsss"
+    ],
+    "closure": null,
+    "color": null,
+    "details": null,
+    "features": [
+      "the features",
+      "the features1"
+    ],
+    "technique": null,
+    "effect": null,
+    "pattern": [
+      "the pattern"
+    ],
+    "coverage": null,
+    "monogram": null,
+    "stylePalette": [
+      "the style palette",
+      "the style palette2"
+    ],
+    "basePrice": null,
+    "customizationPrice": null,
+    "length": null,
+    "necklineIllusion": "the neclkine illusion",
+    "sleeveIllusion": "the best sleeve illusion ever",
+    "backIllusion": "the best backIlusion"
+  }
+}
+</code></pre></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="swan_designs__design_id__patch"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_patch">patch</span> <span class="parent">/swan/designs</span>/{design_id}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Patch an existing resource</p></div><ul class="nav nav-tabs"><li class="active"><a href="#swan_designs__design_id__patch_request" data-toggle="tab">Request</a></li><li><a href="#swan_designs__design_id__patch_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="swan_designs__design_id__patch_request"><h3>URI Parameters</h3><ul><li><strong>design_id</strong>: <em>required (string)</em></li></ul><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{
+  "richBlurb": "the rich blurb",
+  "title": "the title",
+  "sku": "W12-99-1304",
+  "section": null,
+  "category": null,
+  "style": null,
+  "dressType": null,
+  "construction": null,
+  "overview": null,
+  "features": [
+    "designs features",
+    "designs features1"
+  ],
+  "dress": {
+    "length": "again length"
+  }
+}
+</code></pre></div><div class="tab-pane" id="swan_designs__design_id__patch_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>OK</p><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{
+  "id": 67,
+  "createdAt": "2015-06-12 20:46:28 UTC",
+  "ownerId": 1,
+  "richBlurb": "the rich blurb",
+  "title": "the title",
+  "sku": "W12-99-1304",
+  "likes": 0,
+  "section": null,
+  "category": null,
+  "style": null,
+  "dressType": null,
+  "construction": null,
+  "overview": null,
+  "features": [
+    "designs features",
+    "designs features1"
+  ],
+  "dress": {
+    "notEditableFields": [
+      "silhouette"
+    ],
+    "silhouette": null,
+    "length": "again length",
+    "neckline": "the best neckline",
+    "necklineIlussion": "the neclkine illusion",
+    "sleeve": "the best sleeve",
+    "sleeveIllusion": "the best sleeve illusion ever",
+    "back": null,
+    "backIlussion": "the best backIlusion",
+    "train": null,
+    "fabric": [
+      "fabricsss"
+    ],
+    "closure": null,
+    "color": null,
+    "details": null,
+    "features": [
+      "the features",
+      "the features1"
+    ],
+    "technique": null,
+    "effect": null,
+    "pattern": [
+      "the pattern"
+    ],
+    "coverage": null,
+    "monogram": null,
+    "stylePalette": [
+      "the style palette",
+      "the style palette2"
+    ],
+    "basePrice": null,
+    "customizationPrice": null
+  },
+  "visuals": []
+}
+</code></pre></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="swan_designs__design_id__delete"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_delete">delete</span> <span class="parent">/swan/designs</span>/{design_id}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Delete a design</p></div><ul class="nav nav-tabs"><li class="active"><a href="#swan_designs__design_id__delete_request" data-toggle="tab">Request</a></li><li><a href="#swan_designs__design_id__delete_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="swan_designs__design_id__delete_request"><h3>URI Parameters</h3><ul><li><strong>design_id</strong>: <em>required (string)</em></li></ul></div><div class="tab-pane" id="swan_designs__design_id__delete_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>OK</p></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_swan_designs_filter_"><span class="parent">/swan/designs</span>/filter/</a> <span class="methods"><a href="#swan_designs_filter__get"><span class="badge badge_get">get</span></a></span></h4></div><div id="panel_swan_designs_filter_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#swan_designs_filter__get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Retrieves basic necessary info of designs filtered by provided category, section and quantity (if provided).</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="swan_designs_filter__get"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/swan/designs</span>/filter/</h4></div><div class="modal-body"><div class="alert alert-info"><p>Retrieves basic necessary info of designs filtered by provided category, section and quantity (if provided).</p></div><ul class="nav nav-tabs"><li class="active"><a href="#swan_designs_filter__get_request" data-toggle="tab">Request</a></li><li><a href="#swan_designs_filter__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="swan_designs_filter__get_request"><h3>Query Parameters</h3><ul><li><strong>category</strong>: <em>(string)</em><p>category of the dresses to be returned</p><p><strong>Example</strong>:</p><pre>fashion</pre></li><li><strong>section</strong>: <em>(string)</em><p>section, within the category, of the dresses to be returned</p><p><strong>Example</strong>:</p><pre>evening</pre></li><li><strong>quantity</strong>: <em>(string)</em><p>amount of projects to be retrieved</p><p><strong>Example</strong>:</p><pre>4</pre></li><li><strong>last_id</strong>: <em>(string)</em><p>id of the design since which the requested amount should be retrieved.</p><p><strong>Example</strong>:</p><pre>1</pre></li><li><strong>sku</strong>: <em>(string)</em><p>sku of the design to be retrieved</p><p><strong>Example</strong>:</p><pre>w-123-123</pre></li></ul></div><div class="tab-pane" id="swan_designs_filter__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>OK</p><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>[
+  {
+    "id": "62",
+    "createdAt": "2015-05-11 18:29:09 UTC",
+    "updatedAt": "2015-05-11 18:29:09 UTC",
+    "likes": "0",
+    "category": "fashion",
+    "section": "evening",
+    "basePrice": "654",
+    "style": "THE STYLE",
+    "construction": "the construction",
+    "color": "the color",
+    "dressType": null,
+    "richBlurb": "the rich blurb",
+    "title": "the title",
+    "sku": "W12-99-1266",
+    "frontVisual": null,
+    "userLikes": false,
+    "favoriteId": null
+  },
+  {
+    "id": "53",
+    "createdAt": "2015-05-06 15:20:23 UTC",
+    "updatedAt": "2015-05-06 15:20:23 UTC",
+    "likes": "0",
+    "category": "fashion",
+    "section": "evening",
+    "basePrice": "654",
+    "style": "THE STYLE",
+    "construction": "the construction",
+    "color": "the color",
+    "dressType": null,
+    "richBlurb": "the rich blurb",
+    "title": "the title",
+    "sku": "123-123-60",
+    "frontVisual": null,
+    "userLikes": false,
+    "favoriteId": null
+  },
+  {
+    "id": "52",
+    "createdAt": "2015-05-06 15:19:27 UTC",
+    "updatedAt": "2015-05-06 15:19:27 UTC",
+    "likes": "0",
+    "category": "fashion",
+    "section": "evening",
+    "basePrice": "654",
+    "style": "THE STYLE",
+    "construction": "the construction",
+    "color": "the color",
+    "dressType": "the dress type",
+    "richBlurb": "the rich blurb",
+    "title": "the title",
+    "sku": "123-123-59",
+    "frontVisual": null,
+    "userLikes": false,
+    "favoriteId": null
+  },
+  {
+    "id": "59",
+    "createdAt": "2015-05-11 18:26:23 UTC",
+    "updatedAt": "2015-05-11 18:26:23 UTC",
+    "likes": "0",
+    "category": "fashion",
+    "section": "evening",
+    "basePrice": "654",
+    "style": "THE STYLE",
+    "construction": "the construction",
+    "color": "the color",
+    "dressType": null,
+    "richBlurb": "the rich blurb",
+    "title": "the title",
+    "sku": "W12-99-1263",
+    "frontVisual": null,
+    "userLikes": false,
+    "favoriteId": null
+  },
+  {
+    "id": "61",
+    "createdAt": "2015-05-11 18:28:26 UTC",
+    "updatedAt": "2015-05-11 18:28:27 UTC",
+    "likes": "0",
+    "category": "fashion",
+    "section": "evening",
+    "basePrice": "654",
+    "style": "THE STYLE",
+    "construction": "the construction",
+    "color": "the color",
+    "dressType": null,
+    "richBlurb": "the rich blurb",
+    "title": "the title",
+    "sku": "W12-99-1265",
+    "frontVisual": null,
+    "userLikes": false,
+    "favoriteId": null
+  }
+]
+</code></pre></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_swan_projects"><span class="parent">/swan</span>/projects</a> <span class="methods"><a href="#swan_projects_get"><span class="badge badge_get">get</span></a> <a href="#swan_projects_post"><span class="badge badge_post">post</span></a></span></h4></div><div id="panel_swan_projects" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#swan_projects_get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Retrieve all the projects of the current logged user.</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#swan_projects_post'" class="list-group-item"><span class="badge badge_post">post</span><div class="method_description"><p>Create a new project for the current logged user</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="swan_projects_get"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/swan</span>/projects</h4></div><div class="modal-body"><div class="alert alert-info"><p>Retrieve all the projects of the current logged user.</p></div><ul class="nav nav-tabs"><li class="active"><a href="#swan_projects_get_request" data-toggle="tab">Request</a></li><li><a href="#swan_projects_get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="swan_projects_get_request"><h3>Query Parameters</h3><ul><li><strong>quantity</strong>: <em>(string)</em><p>amount of projects to be retrieved</p><p><strong>Example</strong>:</p><pre>4</pre></li><li><strong>last_id</strong>: <em>(string)</em><p>id of the project since which the requested amount should be retrieved.</p><p><strong>Example</strong>:</p><pre>1</pre></li></ul></div><div class="tab-pane" id="swan_projects_get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>OK</p><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>[
+  {
+    "id": 3,
+    "originalDesignId": 62,
+    "createdAt": "2015-06-15 18:05:53 UTC",
+    "sketchOrderId": null,
+    "dressOrderId": null,
+    "approvedSketch": null,
+    "backgroundCover": "the background cover",
+    "title": "Sophie Custom Dress",
+    "eventType": "fashion",
+    "eventDate": "2015-07-08",
+    "privacy": "everyone",
+    "likes": 0,
+    "totalPrice": null,
+    "origin": "product_details",
+    "creator": 1,
+    "state": "design",
+    "pose": null,
+    "design": {
+      "dress": {
+        "notEditableFields": [
+          "fabric",
+          "color",
+          "features",
+          "technique",
+          "details",
+          "coverage",
+          "closure",
+          "train",
+          "monogram",
+          "effect"
+        ],
+        "silhouette": "silhouette-sheath",
+        "length": "silhouette",
+        "neckline": "neckline-dipped",
+        "necklineIllusion": "neckline-plunging",
+        "sleeve": "sleeve-sleeveless",
+        "sleeveIllusion": null,
+        "back": "back-bare",
+        "backIllusion": "back-closed",
+        "train": "train-royal",
+        "fabric": [
+          "fabric-90",
+          "fabric-18243480-6b3b-0cfe-7c24-09433a00fc95"
+        ],
+        "closure": "closure-taffeta",
+        "color": "color-gold",
+        "details": null,
+        "features": [
+          "nice"
+        ],
+        "technique": "technique-beadwork",
+        "effect": "effect-fb2271c9-1f75-a194-ee3f-c5857eb10c65",
+        "pattern": [
+          "the pattern"
+        ],
+        "coverage": "coverage-scattered",
+        "monogram": "monogram-elephant",
+        "stylePalette": [
+          "the style palette",
+          "the style palette2"
+        ],
+        "basePrice": "1600",
+        "customizationPrice": "40"
+      }
+    },
+    "coutureSetting": {
+      "occasion": null,
+      "ageRange": null,
+      "dressType": null,
+      "bodyType": null,
+      "firstRun": true
+    },
+    "uploads": [],
+  },
+  {
+    "id": 4,
+    "originalDesignId": 62,
+    "createdAt": "2015-06-15 18:07:15 UTC",
+    "sketchOrderId": null,
+    "dressOrderId": null,
+    "approvedSketch": null,
+    "backgroundCover": "the background cover",
+    "title": "Sophie Custom Dress",
+    "eventType": "fashion",
+    "eventDate": "2015-07-08",
+    "privacy": "everyone",
+    "likes": 0,
+    "totalPrice": null,
+    "origin": "product_details",
+    "creator": 1,
+    "state": "design",
+    "pose": null,
+    "design": {
+      "dress": {
+        "notEditableFields": [
+          "fabric",
+          "color",
+          "features",
+          "technique",
+          "details",
+          "coverage",
+          "closure",
+          "train",
+          "monogram",
+          "effect"
+        ],
+        "silhouette": "silhouette-sheath",
+        "length": "silhouette",
+        "neckline": "neckline-dipped",
+        "necklineIllusion": "neckline-plunging",
+        "sleeve": "sleeve-sleeveless",
+        "sleeveIllusion": null,
+        "back": "back-bare",
+        "backIllusion": "back-closed",
+        "train": "train-royal",
+        "fabric": [
+          "fabric-90",
+          "fabric-18243480-6b3b-0cfe-7c24-09433a00fc95"
+        ],
+        "closure": "closure-taffeta",
+        "color": "color-gold",
+        "details": null,
+        "features": [
+          "nice"
+        ],
+        "technique": "technique-beadwork",
+        "effect": "effect-fb2271c9-1f75-a194-ee3f-c5857eb10c65",
+        "pattern": [
+          "the pattern"
+        ],
+        "coverage": "coverage-scattered",
+        "monogram": "monogram-elephant",
+        "stylePalette": [
+          "the style palette",
+          "the style palette2"
+        ],
+        "basePrice": "1600",
+        "customizationPrice": "40"
+      }
+    },
+    "coutureSetting": {
+      "occasion": null,
+      "ageRange": null,
+      "dressType": null,
+      "bodyType": null,
+      "firstRun": true
+    },
+    "uploads": [],
+  },
+  {
+    "id": 5,
+    "originalDesignId": 62,
+    "createdAt": "2015-06-15 18:08:27 UTC",
+    "sketchOrderId": null,
+    "dressOrderId": null,
+    "approvedSketch": null,
+    "backgroundCover": "the background cover",
+    "title": "Sophie Custom Dress",
+    "eventType": "fashion",
+    "eventDate": "2015-07-08",
+    "privacy": "everyone",
+    "likes": 0,
+    "totalPrice": null,
+    "origin": "product_details",
+    "creator": 1,
+    "state": "design",
+    "pose": null,
+    "design": {
+      "dress": {
+        "notEditableFields": [
+          "fabric",
+          "color",
+          "features",
+          "technique",
+          "details",
+          "coverage",
+          "closure",
+          "train",
+          "monogram",
+          "effect"
+        ],
+        "silhouette": "silhouette-sheath",
+        "length": "silhouette",
+        "neckline": "neckline-dipped",
+        "necklineIllusion": "neckline-plunging",
+        "sleeve": "sleeve-sleeveless",
+        "sleeveIllusion": null,
+        "back": "back-bare",
+        "backIllusion": "back-closed",
+        "train": "train-royal",
+        "fabric": [
+          "fabric-90",
+          "fabric-18243480-6b3b-0cfe-7c24-09433a00fc95"
+        ],
+        "closure": "closure-taffeta",
+        "color": "color-gold",
+        "details": null,
+        "features": [
+          "nice"
+        ],
+        "technique": "technique-beadwork",
+        "effect": "effect-fb2271c9-1f75-a194-ee3f-c5857eb10c65",
+        "pattern": [
+          "the pattern"
+        ],
+        "coverage": "coverage-scattered",
+        "monogram": "monogram-elephant",
+        "stylePalette": [
+          "the style palette",
+          "the style palette2"
+        ],
+        "basePrice": "1600",
+        "customizationPrice": "40"
+      }
+    },
+    "coutureSetting": {
+      "occasion": null,
+      "ageRange": null,
+      "dressType": null,
+      "bodyType": null,
+      "firstRun": true
+    },
+    "uploads": [],
+    "comments": {
+      "comments": {},
+      "total": 0
+    } 
+  {
+    "id": 6,
+    "originalDesignId": 62,
+    "createdAt": "2015-06-15 18:12:19 UTC",
+    "sketchOrderId": null,
+    "dressOrderId": null,
+    "approvedSketch": null,
+    "backgroundCover": "the background cover",
+    "title": "Sophie Custom Dress",
+    "eventType": "fashion",
+    "eventDate": "2015-07-08",
+    "privacy": "everyone",
+    "likes": 0,
+    "totalPrice": null,
+    "origin": "product_details",
+    "creator": 1,
+    "state": "design",
+    "pose": null,
+    "design": {
+      "dress": {
+        "notEditableFields": [
+          "fabric",
+          "color",
+          "features",
+          "technique",
+          "details",
+          "coverage",
+          "closure",
+          "train",
+          "monogram",
+          "effect"
+        ],
+        "silhouette": "silhouette-sheath",
+        "length": "silhouette",
+        "neckline": "neckline-dipped",
+        "necklineIllusion": "neckline-plunging",
+        "sleeve": "sleeve-sleeveless",
+        "sleeveIllusion": null,
+        "back": "back-bare",
+        "backIllusion": "back-closed",
+        "train": "train-royal",
+        "fabric": [
+          "fabric-90",
+          "fabric-18243480-6b3b-0cfe-7c24-09433a00fc95"
+        ],
+        "closure": "closure-taffeta",
+        "color": "color-gold",
+        "details": null,
+        "features": [
+          "nice"
+        ],
+        "technique": "technique-beadwork",
+        "effect": "effect-fb2271c9-1f75-a194-ee3f-c5857eb10c65",
+        "pattern": [
+          "the pattern"
+        ],
+        "coverage": "coverage-scattered",
+        "monogram": "monogram-elephant",
+        "stylePalette": [
+          "the style palette",
+          "the style palette2"
+        ],
+        "basePrice": "1600",
+        "customizationPrice": "40"
+      }
+    },
+    "coutureSetting": {
+      "occasion": null,
+      "ageRange": null,
+      "dressType": null,
+      "bodyType": null,
+      "firstRun": true
+    },
+    "uploads": [],
+    "comments": {
+      "comments": {},
+      "total": 0
+    }
+  },
+  {
+    "id": 7,
+    "originalDesignId": 62,
+    "createdAt": "2015-06-15 18:13:02 UTC",
+    "sketchOrderId": null,
+    "dressOrderId": null,
+    "approvedSketch": null,
+    "backgroundCover": "the background cover",
+    "title": "Sophie Custom Dress",
+    "eventType": "fashion",
+    "eventDate": "2015-07-08",
+    "privacy": "everyone",
+    "likes": 0,
+    "totalPrice": null,
+    "origin": "product_details",
+    "creator": 1,
+    "state": "design",
+    "pose": null,
+    "design": {
+      "dress": {
+        "notEditableFields": [
+          "fabric",
+          "color",
+          "features",
+          "technique",
+          "details",
+          "coverage",
+          "closure",
+          "train",
+          "monogram",
+          "effect"
+        ],
+        "silhouette": "silhouette-sheath",
+        "length": "silhouette",
+        "neckline": "neckline-dipped",
+        "necklineIllusion": "neckline-plunging",
+        "sleeve": "sleeve-sleeveless",
+        "sleeveIllusion": null,
+        "back": "back-bare",
+        "backIllusion": "back-closed",
+        "train": "train-royal",
+        "fabric": [
+          "fabric-90",
+          "fabric-18243480-6b3b-0cfe-7c24-09433a00fc95"
+        ],
+        "closure": "closure-taffeta",
+        "color": "color-gold",
+        "details": null,
+        "features": [
+          "nice"
+        ],
+        "technique": "technique-beadwork",
+        "effect": "effect-fb2271c9-1f75-a194-ee3f-c5857eb10c65",
+        "pattern": [
+          "the pattern"
+        ],
+        "coverage": "coverage-scattered",
+        "monogram": "monogram-elephant",
+        "stylePalette": [
+          "the style palette",
+          "the style palette2"
+        ],
+        "basePrice": "1600",
+        "customizationPrice": "40"
+      }
+    },
+    "coutureSetting": {
+      "occasion": "the best ocassion",
+      "ageRange": "15-20",
+      "dressType": "beautiful one",
+      "bodyType": "thin",
+      "firstRun": false
+    },
+    "uploads": [],
+    "comments": {
+      "comments": {},
+      "total": 0
+    }
+  },
+  {
+    "id": 8,
+    "originalDesignId": 62,
+    "createdAt": "2015-06-15 18:15:48 UTC",
+    "sketchOrderId": null,
+    "dressOrderId": null,
+    "approvedSketch": null,
+    "backgroundCover": "the background cover",
+    "title": "Sophie Custom Dress",
+    "eventType": "fashion",
+    "eventDate": "2015-07-08",
+    "privacy": "everyone",
+    "likes": 0,
+    "totalPrice": null,
+    "origin": "product_details",
+    "creator": 1,
+    "state": "design",
+    "pose": null,
+    "design": {
+      "dress": {
+        "notEditableFields": [
+          "fabric",
+          "color",
+          "features",
+          "technique",
+          "details",
+          "coverage",
+          "closure",
+          "train",
+          "monogram",
+          "effect"
+        ],
+        "silhouette": "silhouette-sheath",
+        "length": "silhouette",
+        "neckline": "neckline-dipped",
+        "necklineIllusion": "neckline-plunging",
+        "sleeve": "sleeve-sleeveless",
+        "sleeveIllusion": null,
+        "back": "back-bare",
+        "backIllusion": "back-closed",
+        "train": "train-royal",
+        "fabric": [
+          "fabric-90",
+          "fabric-18243480-6b3b-0cfe-7c24-09433a00fc95"
+        ],
+        "closure": "closure-taffeta",
+        "color": "color-gold",
+        "details": null,
+        "features": [
+          "nice"
+        ],
+        "technique": "technique-beadwork",
+        "effect": "effect-fb2271c9-1f75-a194-ee3f-c5857eb10c65",
+        "pattern": [
+          "the pattern"
+        ],
+        "coverage": "coverage-scattered",
+        "monogram": "monogram-elephant",
+        "stylePalette": [
+          "the style palette",
+          "the style palette2"
+        ],
+        "basePrice": "1600",
+        "customizationPrice": "40"
+      }
+    },
+    "coutureSetting": {
+      "occasion": "the best ocassion",
+      "ageRange": "15-20",
+      "dressType": "beautiful one",
+      "bodyType": "thin",
+      "firstRun": false
+    },
+    "uploads": [],
+    "comments": {
+      "comments": {},
+      "total": 0
+    }
+  },
+  {
+    "id": 9,
+    "originalDesignId": 62,
+    "createdAt": "2015-06-15 18:27:59 UTC",
+    "sketchOrderId": null,
+    "dressOrderId": null,
+    "approvedSketch": null,
+    "backgroundCover": "the background cover",
+    "title": "Sophie Custom Dress",
+    "eventType": "fashion",
+    "eventDate": "2015-07-08",
+    "privacy": "everyone",
+    "likes": 0,
+    "totalPrice": null,
+    "origin": "product_details",
+    "creator": 1,
+    "state": "design",
+    "pose": null,
+    "design": {
+      "dress": {
+        "notEditableFields": [
+          "fabric",
+          "color",
+          "features",
+          "technique",
+          "details",
+          "coverage",
+          "closure",
+          "train",
+          "monogram",
+          "effect"
+        ],
+        "silhouette": "silhouette-sheath",
+        "length": "silhouette",
+        "neckline": "neckline-dipped",
+        "necklineIllusion": "neckline-plunging",
+        "sleeve": "sleeve-sleeveless",
+        "sleeveIllusion": null,
+        "back": "back-bare",
+        "backIllusion": "back-closed",
+        "train": "train-royal",
+        "fabric": [
+          "fabric-90",
+          "fabric-18243480-6b3b-0cfe-7c24-09433a00fc95"
+        ],
+        "closure": "closure-taffeta",
+        "color": "color-gold",
+        "details": null,
+        "features": [
+          "nice"
+        ],
+        "technique": "technique-beadwork",
+        "effect": "effect-fb2271c9-1f75-a194-ee3f-c5857eb10c65",
+        "pattern": [
+          "the pattern"
+        ],
+        "coverage": "coverage-scattered",
+        "monogram": "monogram-elephant",
+        "stylePalette": [
+          "the style palette",
+          "the style palette2"
+        ],
+        "basePrice": "1600",
+        "customizationPrice": "40"
+      }
+    },
+    "coutureSetting": {
+      "occasion": "the best ocassion",
+      "ageRange": "15-20",
+      "dressType": "beautiful one",
+      "bodyType": "thin",
+      "firstRun": false
+    },
+    "uploads": [],
+    "comments": {
+      "comments": {},
+      "total": 0
+    }
+  },
+  {
+    "id": 10,
+    "originalDesignId": 62,
+    "createdAt": "2015-06-15 18:34:28 UTC",
+    "sketchOrderId": null,
+    "dressOrderId": null,
+    "approvedSketch": null,
+    "backgroundCover": "the background cover",
+    "title": "Sophie Custom Dress",
+    "eventType": "fashion",
+    "eventDate": "2015-07-08",
+    "privacy": "everyone",
+    "likes": 0,
+    "totalPrice": null,
+    "origin": "product_details",
+    "creator": 1,
+    "state": "design",
+    "pose": null,
+    "design": {
+      "dress": {
+        "notEditableFields": [
+          "fabric",
+          "color",
+          "features",
+          "technique",
+          "details",
+          "coverage",
+          "closure",
+          "train",
+          "monogram",
+          "effect"
+        ],
+        "silhouette": "silhouette-sheath",
+        "length": "silhouette",
+        "neckline": "neckline-dipped",
+        "necklineIllusion": "neckline-plunging",
+        "sleeve": "sleeve-sleeveless",
+        "sleeveIllusion": null,
+        "back": "back-bare",
+        "backIllusion": "back-closed",
+        "train": "train-royal",
+        "fabric": [
+          "fabric-90",
+          "fabric-18243480-6b3b-0cfe-7c24-09433a00fc95"
+        ],
+        "closure": "closure-taffeta",
+        "color": "color-gold",
+        "details": null,
+        "features": [
+          "nice"
+        ],
+        "technique": "technique-beadwork",
+        "effect": "effect-fb2271c9-1f75-a194-ee3f-c5857eb10c65",
+        "pattern": [
+          "the pattern"
+        ],
+        "coverage": "coverage-scattered",
+        "monogram": "monogram-elephant",
+        "stylePalette": [
+          "the style palette",
+          "the style palette2"
+        ],
+        "basePrice": "1600",
+        "customizationPrice": "40"
+      }
+    },
+    "coutureSetting": {
+      "occasion": "the best ocassion",
+      "ageRange": "15-20",
+      "dressType": "beautiful one",
+      "bodyType": "thin",
+      "firstRun": false
+    },
+    "uploads": [],
+    "comments": {
+      "comments": {},
+      "total": 0
+    }
+  },
+  {
+    "id": 11,
+    "originalDesignId": 62,
+    "createdAt": "2015-06-15 18:36:59 UTC",
+    "sketchOrderId": null,
+    "dressOrderId": null,
+    "approvedSketch": null,
+    "backgroundCover": "the background cover",
+    "title": "Sophie Custom Dress",
+    "eventType": "fashion",
+    "eventDate": "2015-07-08",
+    "privacy": "everyone",
+    "likes": 0,
+    "totalPrice": null,
+    "origin": "product_details",
+    "creator": 1,
+    "state": "design",
+    "pose": null,
+    "design": {
+      "dress": {
+        "notEditableFields": [
+          "fabric",
+          "color",
+          "features",
+          "technique",
+          "details",
+          "coverage",
+          "closure",
+          "train",
+          "monogram",
+          "effect"
+        ],
+        "silhouette": "silhouette-sheath",
+        "length": "silhouette",
+        "neckline": "neckline-dipped",
+        "necklineIllusion": "neckline-plunging",
+        "sleeve": "sleeve-sleeveless",
+        "sleeveIllusion": null,
+        "back": "back-bare",
+        "backIllusion": "back-closed",
+        "train": "train-royal",
+        "fabric": [
+          "fabric-90",
+          "fabric-18243480-6b3b-0cfe-7c24-09433a00fc95"
+        ],
+        "closure": "closure-taffeta",
+        "color": "color-gold",
+        "details": null,
+        "features": [
+          "nice"
+        ],
+        "technique": "technique-beadwork",
+        "effect": "effect-fb2271c9-1f75-a194-ee3f-c5857eb10c65",
+        "pattern": [
+          "the pattern"
+        ],
+        "coverage": "coverage-scattered",
+        "monogram": "monogram-elephant",
+        "stylePalette": [
+          "the style palette",
+          "the style palette2"
+        ],
+        "basePrice": "1600",
+        "customizationPrice": "40"
+      }
+    },
+    "coutureSetting": {
+      "occasion": "the best ocassion",
+      "ageRange": "15-20",
+      "dressType": "beautiful one",
+      "bodyType": "thin",
+      "firstRun": false
+    },
+    "uploads": [],
+    "comments": {
+      "comments": {},
+      "total": 0
+    }
+  },
+  {
+    "id": 13,
+    "originalDesignId": 62,
+    "createdAt": "2015-06-15 19:33:03 UTC",
+    "sketchOrderId": null,
+    "dressOrderId": null,
+    "approvedSketch": null,
+    "backgroundCover": "the background cover",
+    "title": "Sophie Custom Dress",
+    "eventType": "fashion",
+    "eventDate": "2015-07-08",
+    "privacy": "everyone",
+    "likes": 0,
+    "totalPrice": null,
+    "origin": "product_details",
+    "creator": 1,
+    "state": "design",
+    "pose": null,
+    "design": {
+      "dress": {
+        "notEditableFields": [
+          "fabric",
+          "color",
+          "features",
+          "technique",
+          "details",
+          "coverage",
+          "closure",
+          "train",
+          "monogram",
+          "effect"
+        ],
+        "silhouette": "silhouette-sheath",
+        "length": "silhouette",
+        "neckline": "neckline-dipped",
+        "necklineIllusion": "neckline-plunging",
+        "sleeve": "sleeve-sleeveless",
+        "sleeveIllusion": null,
+        "back": "back-bare",
+        "backIllusion": "back-closed",
+        "train": "train-royal",
+        "fabric": [
+          "fabric-90",
+          "fabric-18243480-6b3b-0cfe-7c24-09433a00fc95"
+        ],
+        "closure": "closure-taffeta",
+        "color": "color-gold",
+        "details": null,
+        "features": [
+          "nice"
+        ],
+        "technique": "technique-beadwork",
+        "effect": "effect-fb2271c9-1f75-a194-ee3f-c5857eb10c65",
+        "pattern": [
+          "the pattern"
+        ],
+        "coverage": "coverage-scattered",
+        "monogram": "monogram-elephant",
+        "stylePalette": [
+          "the style palette",
+          "the style palette2"
+        ],
+        "basePrice": "1600",
+        "customizationPrice": "40"
+      }
+    },
+    "coutureSetting": {
+      "occasion": "the best ocassion",
+      "ageRange": "15-20",
+      "dressType": "beautiful one",
+      "bodyType": "thin",
+      "firstRun": false
+    },
+    "uploads": [],
+    "comments": {
+      "comments": {},
+      "total": 0
+    }
+  },
+  {
+    "id": 14,
+    "originalDesignId": 62,
+    "createdAt": "2015-06-15 20:39:34 UTC",
+    "sketchOrderId": null,
+    "dressOrderId": null,
+    "approvedSketch": null,
+    "backgroundCover": "the background cover",
+    "title": "Sophie Custom Dress",
+    "eventType": "fashion",
+    "eventDate": "2015-07-08",
+    "privacy": "everyone",
+    "likes": 0,
+    "totalPrice": null,
+    "origin": "product_details",
+    "creator": 1,
+    "state": "design",
+    "pose": null,
+    "design": {
+      "dress": {
+        "notEditableFields": [
+          "fabric",
+          "color",
+          "features",
+          "technique",
+          "details",
+          "coverage",
+          "closure",
+          "train",
+          "monogram",
+          "effect"
+        ],
+        "silhouette": "silhouette-sheath",
+        "length": "silhouette",
+        "neckline": "neckline-dipped",
+        "necklineIllusion": "neckline-plunging",
+        "sleeve": "sleeve-sleeveless",
+        "sleeveIllusion": null,
+        "back": "back-bare",
+        "backIllusion": "back-closed",
+        "train": "train-royal",
+        "fabric": [
+          "fabric-90",
+          "fabric-18243480-6b3b-0cfe-7c24-09433a00fc95"
+        ],
+        "closure": "closure-taffeta",
+        "color": "color-gold",
+        "details": null,
+        "features": [
+          "nice"
+        ],
+        "technique": "technique-beadwork",
+        "effect": "effect-fb2271c9-1f75-a194-ee3f-c5857eb10c65",
+        "pattern": [
+          "the pattern"
+        ],
+        "coverage": "coverage-scattered",
+        "monogram": "monogram-elephant",
+        "stylePalette": [
+          "the style palette",
+          "the style palette2"
+        ],
+        "basePrice": "1600",
+        "customizationPrice": "40"
+      }
+    },
+    "coutureSetting": {
+      "occasion": "the best ocassion",
+      "ageRange": "15-20",
+      "dressType": "beautiful one",
+      "bodyType": "thin",
+      "firstRun": false
+    },
+    "uploads": [],
+    "comments": {
+      "comments": {},
+      "total": 0
+    }
+  },
+  {
+    "id": 15,
+    "originalDesignId": 62,
+    "createdAt": "2015-06-15 20:40:10 UTC",
+    "sketchOrderId": null,
+    "dressOrderId": null,
+    "approvedSketch": null,
+    "backgroundCover": "the background cover",
+    "title": "Sophie Custom Dress",
+    "eventType": "fashion",
+    "eventDate": "2015-07-08",
+    "privacy": "everyone",
+    "likes": 0,
+    "totalPrice": null,
+    "origin": "product_details",
+    "creator": 1,
+    "state": "design",
+    "pose": null,
+    "design": {
+      "dress": {
+        "notEditableFields": [
+          "fabric",
+          "color",
+          "features",
+          "technique",
+          "details",
+          "coverage",
+          "closure",
+          "train",
+          "monogram",
+          "effect"
+        ],
+        "silhouette": "silhouette-sheath",
+        "length": "silhouette",
+        "neckline": "neckline-dipped",
+        "necklineIllusion": "neckline-plunging",
+        "sleeve": "sleeve-sleeveless",
+        "sleeveIllusion": null,
+        "back": "back-bare",
+        "backIllusion": "back-closed",
+        "train": "train-royal",
+        "fabric": [
+          "fabric-90",
+          "fabric-18243480-6b3b-0cfe-7c24-09433a00fc95"
+        ],
+        "closure": "closure-taffeta",
+        "color": "color-gold",
+        "details": null,
+        "features": [
+          "nice"
+        ],
+        "technique": "technique-beadwork",
+        "effect": "effect-fb2271c9-1f75-a194-ee3f-c5857eb10c65",
+        "pattern": [
+          "the pattern"
+        ],
+        "coverage": "coverage-scattered",
+        "monogram": "monogram-elephant",
+        "stylePalette": [
+          "the style palette",
+          "the style palette2"
+        ],
+        "basePrice": "1600",
+        "customizationPrice": "40"
+      }
+    },
+    "coutureSetting": {
+      "occasion": "the best ocassion",
+      "ageRange": "15-20",
+      "dressType": "beautiful one",
+      "bodyType": "thin",
+      "firstRun": false
+    },
+    "uploads": [],
+    "comments": {
+      "comments": {},
+      "total": 0
+    }
+  },
+  {
+    "id": 16,
+    "originalDesignId": 62,
+    "createdAt": "2015-06-15 20:43:42 UTC",
+    "sketchOrderId": null,
+    "dressOrderId": null,
+    "approvedSketch": null,
+    "backgroundCover": "the background cover",
+    "title": "Sophie Custom Dress",
+    "eventType": "fashion",
+    "eventDate": "2015-07-08",
+    "privacy": "everyone",
+    "likes": 0,
+    "totalPrice": null,
+    "origin": "product_details",
+    "creator": 1,
+    "state": "design",
+    "pose": null,
+    "design": {
+      "dress": {
+        "notEditableFields": [
+          "fabric",
+          "color",
+          "features",
+          "technique",
+          "details",
+          "coverage",
+          "closure",
+          "train",
+          "monogram",
+          "effect"
+        ],
+        "silhouette": "silhouette-sheath",
+        "length": "silhouette",
+        "neckline": "neckline-dipped",
+        "necklineIllusion": "neckline-plunging",
+        "sleeve": "sleeve-sleeveless",
+        "sleeveIllusion": null,
+        "back": "back-bare",
+        "backIllusion": "back-closed",
+        "train": "train-royal",
+        "fabric": [
+          "fabric-90",
+          "fabric-18243480-6b3b-0cfe-7c24-09433a00fc95"
+        ],
+        "closure": "closure-taffeta",
+        "color": "color-gold",
+        "details": null,
+        "features": [
+          "nice"
+        ],
+        "technique": "technique-beadwork",
+        "effect": "effect-fb2271c9-1f75-a194-ee3f-c5857eb10c65",
+        "pattern": [
+          "the pattern"
+        ],
+        "coverage": "coverage-scattered",
+        "monogram": "monogram-elephant",
+        "stylePalette": [
+          "the style palette",
+          "the style palette2"
+        ],
+        "basePrice": "1600",
+        "customizationPrice": "40"
+      }
+    },
+    "coutureSetting": {
+      "occasion": "the best ocassion",
+      "ageRange": "15-20",
+      "dressType": "beautiful one",
+      "bodyType": "thin",
+      "firstRun": false
+    },
+    "uploads": [],
+    "comments": {
+      "comments": {},
+      "total": 0
+    }
+  }
+]
+</code></pre></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="swan_projects_post"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_post">post</span> <span class="parent">/swan</span>/projects</h4></div><div class="modal-body"><div class="alert alert-info"><p>Create a new project for the current logged user</p></div><ul class="nav nav-tabs"><li class="active"><a href="#swan_projects_post_request" data-toggle="tab">Request</a></li><li><a href="#swan_projects_post_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="swan_projects_post_request"><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{
+  "title": "Sophie Custom Dress",
+  "origin": "product_details",
+  "coutureSettings": {
+    "occasion": "the best ocassion",
+    "ageRange": "15-20",
+    "dressType": "beautiful one",
+    "bodyType": "thin"
+  },
+  "eventDate": "2015-07-08T19:10:09.483Z",
+  "eventType": "fashion",
+  "totalPrice": "1234",
+  "design": {
+    "id": "62",
+    "dress": {
+      "notEditableFields": [
+        "fabric",
+        "color",
+        "features",
+        "technique",
+        "details",
+        "coverage",
+        "closure",
+        "train",
+        "monogram",
+        "effect"
+      ],
+      "silhouette": "silhouette-sheath",
+      "length": "silhouette",
+      "neckline": "neckline-dipped",
+      "necklineIllusion": "neckline-plunging",
+      "sleeve": "sleeve-sleeveless",
+      "sleeveIllusion": null,
+      "back": "back-bare",
+      "backIllusion": "back-closed",
+      "train": "train-royal",
+      "fabric": [
+        "fabric-90",
+        "fabric-18243480-6b3b-0cfe-7c24-09433a00fc95"
+      ],
+      "closure": "closure-taffeta",
+      "color": "color-gold",
+      "details": [
+        "details-floral-gloves",
+        "details-metallic-embroidery"
+      ],
+      "features": [
+        "nice"
+      ],
+      "technique": "technique-beadwork",
+      "effect": "effect-fb2271c9-1f75-a194-ee3f-c5857eb10c65",
+      "pattern": [
+        "the pattern"
+      ],
+      "coverage": "coverage-scattered",
+      "monogram": "monogram-elephant",
+      "stylePalette": [
+        "the style palette",
+        "the style palette2"
+      ],
+      "basePrice": "1600",
+      "customizationPrice": "40",
+      "visuals": []
+    }
+  }
+}
+</code></pre></div><div class="tab-pane" id="swan_projects_post_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>OK</p><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{
+  "id": 12,
+  "originalDesignId": 62,
+  "createdAt": "2015-06-15 18:38:30 UTC",
+  "sketchOrderId": null,
+  "dressOrderId": null,
+  "approvedSketch": null,
+  "backgroundCover": "the background cover",
+  "title": "Sophie Custom Dress",
+  "eventType": "fashion",
+  "eventDate": "2015-07-08",
+  "privacy": "everyone",
+  "likes": 0,
+  "totalPrice": null,
+  "origin": "product_details",
+  "creator": 1,
+  "state": "design",
+  "pose": null,
+  "design": {
+    "dress": {
+      "notEditableFields": [
+        "fabric",
+        "color",
+        "features",
+        "technique",
+        "details",
+        "coverage",
+        "closure",
+        "train",
+        "monogram",
+        "effect"
+      ],
+      "silhouette": "silhouette-sheath",
+      "length": "silhouette",
+      "neckline": "neckline-dipped",
+      "necklineIllusion": "neckline-plunging",
+      "sleeve": "sleeve-sleeveless",
+      "sleeveIllusion": null,
+      "back": "back-bare",
+      "backIllusion": "back-closed",
+      "train": "train-royal",
+      "fabric": [
+        "fabric-90",
+        "fabric-18243480-6b3b-0cfe-7c24-09433a00fc95"
+      ],
+      "closure": "closure-taffeta",
+      "color": "color-gold",
+      "details": null,
+      "features": [
+        "nice"
+      ],
+      "technique": "technique-beadwork",
+      "effect": "effect-fb2271c9-1f75-a194-ee3f-c5857eb10c65",
+      "pattern": [
+        "the pattern"
+      ],
+      "coverage": "coverage-scattered",
+      "monogram": "monogram-elephant",
+      "stylePalette": [
+        "the style palette",
+        "the style palette2"
+      ],
+      "basePrice": "1600",
+      "customizationPrice": "40"
+    }
+  },
+  "coutureSetting": {
+    "occasion": "the best ocassion",
+    "ageRange": "15-20",
+    "dressType": "beautiful one",
+    "bodyType": "thin",
+    "firstRun": false
+  },
+  "uploads": [],
+  "comments": {}
+}
+</code></pre></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_swan_projects__project_id_"><span class="parent">/swan/projects</span>/{project_id}</a> <span class="methods"><a href="#swan_projects__project_id__get"><span class="badge badge_get">get</span></a> <a href="#swan_projects__project_id__delete"><span class="badge badge_delete">delete</span></a> <a href="#swan_projects__project_id__put"><span class="badge badge_put">put</span></a> <a href="#swan_projects__project_id__patch"><span class="badge badge_patch">patch</span></a></span></h4></div><div id="panel_swan_projects__project_id_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#swan_projects__project_id__get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Retrieve a project with the provided id, for the current logged user.</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#swan_projects__project_id__delete'" class="list-group-item"><span class="badge badge_delete">delete</span><div class="method_description"><p>Allows current logged User to remove a Project from his Lookbook.</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#swan_projects__project_id__put'" class="list-group-item"><span class="badge badge_put">put</span><div class="method_description"><p>Update an existing project of the current logged user ownership.</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#swan_projects__project_id__patch'" class="list-group-item"><span class="badge badge_patch">patch</span><div class="method_description"><p>Patch an existing project of the current logged user ownership.</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="swan_projects__project_id__get"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/swan/projects</span>/{project_id}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Retrieve a project with the provided id, for the current logged user.</p></div><ul class="nav nav-tabs"><li class="active"><a href="#swan_projects__project_id__get_request" data-toggle="tab">Request</a></li><li><a href="#swan_projects__project_id__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="swan_projects__project_id__get_request"><h3>URI Parameters</h3><ul><li><strong>project_id</strong>: <em>required (string)</em></li></ul></div><div class="tab-pane" id="swan_projects__project_id__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>OK</p><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{
+  "id": 26,
+  "originalDesignId": 62,
+  "createdAt": "2015-06-22 19:59:13 UTC",
+  "sketchOrderId": null,
+  "dressOrderId": null,
+  "approvedSketch": null,
+  "title": "Sophie Custom Dress",
+  "eventType": "fashion",
+  "eventDate": "2015-07-08",
+  "privacy": "everyone",
+  "likes": 0,
+  "totalPrice": "1234",
+  "origin": "product_details",
+  "creator": 1,
+  "state": "design",
+  "pose": null,
+  "backgroundCover": {
+    "id": 1,
+    "image": {
+      "url": "https://s3.amazonaws.com/swan-public/uploads/background_covers/3f7b555a-ad94-4714-98ff-30178af2862d.jpeg"
+    }
+  },
+  "silhouette": {
+    "id": 1,
+    "image": {
+      "url": "https://s3.amazonaws.com/swan-public/uploads/silhouettes/c0cdd939-bed8-49a4-9431-ad1428bd40ff.jpeg"
+    }
+  },
+  "design": {
+    "dress": {
+      "notEditableFields": [
+        "fabric",
+        "color",
+        "features",
+        "technique",
+        "details",
+        "coverage",
+        "closure",
+        "train",
+        "monogram",
+        "effect"
+      ],
+      "silhouette": "silhouette-sheath",
+      "length": "silhouette",
+      "neckline": "neckline-dipped",
+      "necklineIllusion": "neckline-plunging",
+      "sleeve": "sleeve-sleeveless",
+      "sleeveIllusion": null,
+      "back": "back-bare",
+      "backIllusion": "back-closed",
+      "train": "train-royal",
+      "fabric": [
+        "fabric-90",
+        "fabric-18243480-6b3b-0cfe-7c24-09433a00fc95"
+      ],
+      "closure": "closure-taffeta",
+      "color": "color-gold",
+      "details": null,
+      "features": [
+        "nice"
+      ],
+      "technique": "technique-beadwork",
+      "effect": "effect-fb2271c9-1f75-a194-ee3f-c5857eb10c65",
+      "pattern": [
+        "the pattern"
+      ],
+      "coverage": "coverage-scattered",
+      "monogram": "monogram-elephant",
+      "stylePalette": [
+        "the style palette",
+        "the style palette2"
+      ],
+      "basePrice": "1600",
+      "customizationPrice": "40"
+    }
+  },
+  "coutureSettings": {
+    "occasion": "the best ocassion",
+    "ageRange": "15-20",
+    "dressType": "beautiful one",
+    "bodyType": "thin",
+    "firstRun": false
+  },
+  "uploads": []
+}
+</code></pre></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="swan_projects__project_id__delete"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_delete">delete</span> <span class="parent">/swan/projects</span>/{project_id}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Allows current logged User to remove a Project from his Lookbook.</p></div><ul class="nav nav-tabs"><li class="active"><a href="#swan_projects__project_id__delete_request" data-toggle="tab">Request</a></li><li><a href="#swan_projects__project_id__delete_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="swan_projects__project_id__delete_request"><h3>URI Parameters</h3><ul><li><strong>project_id</strong>: <em>required (string)</em></li></ul></div><div class="tab-pane" id="swan_projects__project_id__delete_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>OK</p></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="swan_projects__project_id__put"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_put">put</span> <span class="parent">/swan/projects</span>/{project_id}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Update an existing project of the current logged user ownership.</p></div><ul class="nav nav-tabs"><li class="active"><a href="#swan_projects__project_id__put_request" data-toggle="tab">Request</a></li><li><a href="#swan_projects__project_id__put_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="swan_projects__project_id__put_request"><h3>URI Parameters</h3><ul><li><strong>project_id</strong>: <em>required (string)</em></li></ul><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{
+  "title": "Sophie Custom Dress",
+  "origin": "product_details",
+  "uploads": [],
+  "coutureSettings": {
+    "occasion": "the best ocassion",
+    "ageRange": "15-20",
+    "dressType": "beautiful one",
+    "bodyType": "thin"
+  },
+  "eventDate": "2015-07-08T19:10:09.483Z",
+  "eventType": "fashion",
+  "backgroundCover": "the background yeah",
+  "totalPrice": "1234",
+  "design": {
+    "id": "62",
+    "dress": {
+      "notEditableFields": [
+        "fabric",
+        "color",
+        "features",
+        "technique",
+        "details",
+        "coverage",
+        "closure",
+        "train",
+        "monogram",
+        "effect"
+      ],
+      "silhouette": "silhouette-sheath",
+      "length": "silhouette",
+      "neckline": "neckline-dipped",
+      "necklineIllusion": "neckline-plunging",
+      "sleeve": "sleeve-sleeveless",
+      "sleeveIllusion": null,
+      "back": "back-bare",
+      "backIllusion": "back-closed",
+      "train": "train-royal",
+      "fabric": [
+        "fabric-90",
+        "fabric-18243480-6b3b-0cfe-7c24-09433a00fc95"
+      ],
+      "closure": "closure-taffeta",
+      "color": "color-gold",
+      "details": [
+        "details-floral-gloves",
+        "details-metallic-embroidery"
+      ],
+      "features": [
+        "nice"
+      ],
+      "technique": "technique-beadwork",
+      "effect": "effect-fb2271c9-1f75-a194-ee3f-c5857eb10c65",
+      "pattern": [
+        "the pattern"
+      ],
+      "coverage": "coverage-scattered",
+      "monogram": "monogram-elephant",
+      "stylePalette": [
+        "the style palette",
+        "the style palette2"
+      ],
+      "basePrice": "1600",
+      "customizationPrice": "40",
+      "visuals": []
+    }
+  }
+}
+</code></pre></div><div class="tab-pane" id="swan_projects__project_id__put_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>OK</p><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{
+  "id": 13,
+  "originalDesignId": 62,
+  "createdAt": "2015-06-15 19:33:03 UTC",
+  "sketchOrderId": null,
+  "dressOrderId": null,
+  "approvedSketch": null,
+  "backgroundCover": "the background yeah",
+  "title": "Sophie Custom Dress",
+  "eventType": "fashion",
+  "eventDate": "2015-07-08",
+  "privacy": "everyone",
+  "likes": 0,
+  "totalPrice": "1234",
+  "origin": "product_details",
+  "creator": 1,
+  "state": "design",
+  "pose": null,
+  "design": {
+    "dress": {
+      "notEditableFields": [
+        "fabric",
+        "color",
+        "features",
+        "technique",
+        "details",
+        "coverage",
+        "closure",
+        "train",
+        "monogram",
+        "effect"
+      ],
+      "silhouette": "silhouette-sheath",
+      "length": "silhouette",
+      "neckline": "neckline-dipped",
+      "necklineIllusion": "neckline-plunging",
+      "sleeve": "sleeve-sleeveless",
+      "sleeveIllusion": null,
+      "back": "back-bare",
+      "backIllusion": "back-closed",
+      "train": "train-royal",
+      "fabric": [
+        "fabric-90",
+        "fabric-18243480-6b3b-0cfe-7c24-09433a00fc95"
+      ],
+      "closure": "closure-taffeta",
+      "color": "color-gold",
+      "details": null,
+      "features": [
+        "nice"
+      ],
+      "technique": "technique-beadwork",
+      "effect": "effect-fb2271c9-1f75-a194-ee3f-c5857eb10c65",
+      "pattern": [
+        "the pattern"
+      ],
+      "coverage": "coverage-scattered",
+      "monogram": "monogram-elephant",
+      "stylePalette": [
+        "the style palette",
+        "the style palette2"
+      ],
+      "basePrice": "1600",
+      "customizationPrice": "40"
+    }
+  },
+  "coutureSettings": {
+    "occasion": "the best ocassion",
+    "ageRange": "15-20",
+    "dressType": "beautiful one",
+    "bodyType": "thin",
+    "firstRun": false
+  },
+  "uploads": [],
+  "comments": {
+    "comments": {},
+    "total": 0
+  }
+}
+</code></pre></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="swan_projects__project_id__patch"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_patch">patch</span> <span class="parent">/swan/projects</span>/{project_id}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Patch an existing project of the current logged user ownership.</p></div><ul class="nav nav-tabs"><li class="active"><a href="#swan_projects__project_id__patch_request" data-toggle="tab">Request</a></li><li><a href="#swan_projects__project_id__patch_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="swan_projects__project_id__patch_request"><h3>URI Parameters</h3><ul><li><strong>project_id</strong>: <em>required (string)</em></li></ul><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{
+  "approvedSketch": null,
+  "backgroundCover": "the background cover rolbacked",
+  "title": "Sophie Title edited Dress",
+  "eventType": "party",
+  "eventDate": "2015-09-10",
+  "privacy": "everyone",
+  "totalPrice": "999",
+  "origin": "product_details",
+  "state": "design",
+  "design": {
+    "dress": {
+      "silhouette": "silhouette-ball-gown",
+      "length": "tea",
+      "neckline": "neckline-dipped",
+      "necklineIllusion": "neckline-di",
+      "fabric": [
+        "fabric-90",
+        "fabric-92"
+      ],
+      "features": [
+        "nice"
+      ],
+      "technique": "technique-beadwork",
+      "pattern": [
+        "the pattern"
+      ],
+      "coverage": "coverage-scattered",
+      "monogram": "monogram-elephant",
+      "stylePalette": [],
+      "basePrice": "1200",
+      "customizationPrice": "20"
+    }
+  },
+  "coutureSettings": {
+    "occasion": "the best ocassion",
+    "bodyType": "thin edited",
+    "firstRun": false
+  }
+}
+</code></pre></div><div class="tab-pane" id="swan_projects__project_id__patch_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>OK</p><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{
+  "id": 13,
+  "originalDesignId": 62,
+  "createdAt": "2015-06-15 19:33:03 UTC",
+  "sketchOrderId": null,
+  "dressOrderId": null,
+  "approvedSketch": null,
+  "backgroundCover": "the background cover rolbacked",
+  "title": "Sophie Title edited Dress",
+  "eventType": "party",
+  "eventDate": "2015-09-10",
+  "privacy": "everyone",
+  "likes": 0,
+  "totalPrice": "999",
+  "origin": "product_details",
+  "creator": 1,
+  "state": "design",
+  "pose": null,
+  "design": {
+    "dress": {
+      "notEditableFields": [
+        "fabric",
+        "color",
+        "features"
+      ],
+      "silhouette": "silhouette-ball-gown",
+      "length": "tea",
+      "neckline": "neckline-dipped",
+      "necklineIllusion": "neckline-di",
+      "sleeve": "sleeve-sleeveless",
+      "sleeveIllusion": null,
+      "back": "back-bare",
+      "backIllusion": "back-closed",
+      "train": "train-royal",
+      "fabric": [
+        "fabric-90",
+        "fabric-92"
+      ],
+      "closure": "closure-taffeta",
+      "color": "color-blue",
+      "details": null,
+      "features": [
+        "nice"
+      ],
+      "technique": "technique-beadwork",
+      "effect": "effect-fb2271c9-1f75-a194-ee3f-c5857eb10c65",
+      "pattern": [
+        "the pattern"
+      ],
+      "coverage": "coverage-scattered",
+      "monogram": "monogram-elephant",
+      "stylePalette": [],
+      "basePrice": "1200",
+      "customizationPrice": "20"
+    }
+  },
+  "coutureSettings": {
+    "occasion": "the best ocassion",
+    "ageRange": "25-30",
+    "dressType": "beautiful one edited",
+    "bodyType": "thin edited",
+    "firstRun": false
+  },
+  "uploads": [],
+  "comments": {
+    "comments": {},
+    "total": 0
+  }
+}
+</code></pre></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_swan_projects__project_id__comments"><span class="parent">/swan/projects/{project_id}</span>/comments</a> <span class="methods"><a href="#swan_projects__project_id__comments_get"><span class="badge badge_get">get</span></a> <a href="#swan_projects__project_id__comments_post"><span class="badge badge_post">post</span></a></span></h4></div><div id="panel_swan_projects__project_id__comments" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#swan_projects__project_id__comments_get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Retrieve all the comments with the provided project_id.</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#swan_projects__project_id__comments_post'" class="list-group-item"><span class="badge badge_post">post</span><div class="method_description"><p>Allows current logged user to add a comment to a project.</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="swan_projects__project_id__comments_get"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/swan/projects/{project_id}</span>/comments</h4></div><div class="modal-body"><div class="alert alert-info"><p>Retrieve all the comments with the provided project_id.</p></div><ul class="nav nav-tabs"><li class="active"><a href="#swan_projects__project_id__comments_get_request" data-toggle="tab">Request</a></li><li><a href="#swan_projects__project_id__comments_get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="swan_projects__project_id__comments_get_request"><h3>URI Parameters</h3><ul><li><strong>project_id</strong>: <em>required (string)</em></li></ul></div><div class="tab-pane" id="swan_projects__project_id__comments_get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>[
+	{
+		"id":5,
+		"text":"hi",
+		"privacy":"everyone",
+		"wasDeleted":true,
+		"autorId":1,
+		"projectId":33
+	},
+	{
+		"id":6,
+		"text":"Hi",
+		"privacy":"everyone",
+		"wasDeleted":false,
+		"autorId":3,
+		"projectId":33
+	}
+]</code></pre></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="swan_projects__project_id__comments_post"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_post">post</span> <span class="parent">/swan/projects/{project_id}</span>/comments</h4></div><div class="modal-body"><div class="alert alert-info"><p>Allows current logged user to add a comment to a project.</p></div><ul class="nav nav-tabs"><li class="active"><a href="#swan_projects__project_id__comments_post_request" data-toggle="tab">Request</a></li><li><a href="#swan_projects__project_id__comments_post_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="swan_projects__project_id__comments_post_request"><h3>URI Parameters</h3><ul><li><strong>project_id</strong>: <em>required (string)</em></li></ul><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Schema</strong>:</p><pre><code>{
+  "text": { 
+    "description": "The text of the comment. It can be at least 1 char long, and at most 300",
+    "required": true,
+    "type": "string"
+  },
+  "privacy": { 
+    "description": "It can be 'everyone’, ‘only-me’ and ‘invites-only’}",
+    "required": true,
+    "type": "string"
+  }
+}
+</code></pre><p><strong>Example</strong>:</p><pre><code>{ 
+  "text":"This is a comment",
+  "privacy":"everyone"
+}
+</code></pre></div><div class="tab-pane" id="swan_projects__project_id__comments_post_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>OK</p><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{
+	"id":"5",
+	"text":"This is a comment",
+	"authorId":1,
+	"wasDeleted":"false,"
+	"privacy":"everyone",
+	
+}</code></pre></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_swan_projects__project_id__comments__commentId_"><span class="parent">/swan/projects/{project_id}/comments</span>/{commentId}</a> <span class="methods"><a href="#swan_projects__project_id__comments__commentId__put"><span class="badge badge_put">put</span></a> <a href="#swan_projects__project_id__comments__commentId__delete"><span class="badge badge_delete">delete</span></a></span></h4></div><div id="panel_swan_projects__project_id__comments__commentId_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#swan_projects__project_id__comments__commentId__put'" class="list-group-item"><span class="badge badge_put">put</span><div class="method_description"><p>Allows current logged user to update a comment. User can just update their comments.</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#swan_projects__project_id__comments__commentId__delete'" class="list-group-item"><span class="badge badge_delete">delete</span><div class="method_description"><p>Allows current logged user to delete a comment. User can just delete their comments.</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="swan_projects__project_id__comments__commentId__put"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_put">put</span> <span class="parent">/swan/projects/{project_id}/comments</span>/{commentId}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Allows current logged user to update a comment. User can just update their comments.</p></div><ul class="nav nav-tabs"><li class="active"><a href="#swan_projects__project_id__comments__commentId__put_request" data-toggle="tab">Request</a></li><li><a href="#swan_projects__project_id__comments__commentId__put_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="swan_projects__project_id__comments__commentId__put_request"><h3>URI Parameters</h3><ul><li><strong>project_id</strong>: <em>required (string)</em></li><li><strong>commentId</strong>: <em>required (string)</em></li></ul><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Schema</strong>:</p><pre><code>{
+   "text": { 
+      "description": "The text of the comment. It can be at least 1 char long, and at most 300",
+      "required": false,
+      "type": "string"
+    },
+    "privacy": { 
+      "description": "It can be 'everyone’, ‘only-me’ and ‘invites-only’}",
+      "required": false,
+      "type": "string"
+    }
+}
+</code></pre><p><strong>Example</strong>:</p><pre><code>{ 
+  "text":"This is a comment",
+  "privacy":"everyone"
+}
+</code></pre></div><div class="tab-pane" id="swan_projects__project_id__comments__commentId__put_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>OK</p><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{
+	"id":"5",
+	"text":"This is a comment",
+	"authorId":1,
+	"wasDeleted":"false,"
+	"privacy":"everyone",
+	
+}</code></pre></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="swan_projects__project_id__comments__commentId__delete"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_delete">delete</span> <span class="parent">/swan/projects/{project_id}/comments</span>/{commentId}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Allows current logged user to delete a comment. User can just delete their comments.</p></div><ul class="nav nav-tabs"><li class="active"><a href="#swan_projects__project_id__comments__commentId__delete_request" data-toggle="tab">Request</a></li><li><a href="#swan_projects__project_id__comments__commentId__delete_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="swan_projects__project_id__comments__commentId__delete_request"><h3>URI Parameters</h3><ul><li><strong>project_id</strong>: <em>required (string)</em></li><li><strong>commentId</strong>: <em>required (string)</em></li></ul></div><div class="tab-pane" id="swan_projects__project_id__comments__commentId__delete_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>Ok</p></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_swan_projects__project_id__uploads"><span class="parent">/swan/projects/{project_id}</span>/uploads</a> <span class="methods"><a href="#swan_projects__project_id__uploads_post"><span class="badge badge_post">post</span></a></span></h4></div><div id="panel_swan_projects__project_id__uploads" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#swan_projects__project_id__uploads_post'" class="list-group-item"><span class="badge badge_post">post</span><div class="method_description"><p>Create a new upload for an already existing project</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="swan_projects__project_id__uploads_post"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_post">post</span> <span class="parent">/swan/projects/{project_id}</span>/uploads</h4></div><div class="modal-body"><div class="alert alert-info"><p>Create a new upload for an already existing project</p></div><ul class="nav nav-tabs"><li class="active"><a href="#swan_projects__project_id__uploads_post_request" data-toggle="tab">Request</a></li><li><a href="#swan_projects__project_id__uploads_post_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="swan_projects__project_id__uploads_post_request"><h3>URI Parameters</h3><ul><li><strong>project_id</strong>: <em>required (string)</em></li></ul><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{
+  "description": "the description",
+  "image": "data:image/png;base64,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"
+}
+</code></pre></div><div class="tab-pane" id="swan_projects__project_id__uploads_post_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>OK</p><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{
+  "id": 1,
+  "image": {
+    "url": "https://s3.amazonaws.com/swan-public/uploads/swan/image/upload/image/1/753dddd7-46ae-4183-8414-0ed5f625d344.jpeg"
+  },
+  "description": "the description",
+  "projectId": 13,
+  "createdAt": "2015-06-22 18:28:57 UTC",
+  "updatedAt": "2015-06-22 18:29:00 UTC"
+}
+</code></pre></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_swan_projects__project_id__silhouette_images"><span class="parent">/swan/projects/{project_id}</span>/silhouette_images</a> <span class="methods"><a href="#swan_projects__project_id__silhouette_images_post"><span class="badge badge_post">post</span></a></span></h4></div><div id="panel_swan_projects__project_id__silhouette_images" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#swan_projects__project_id__silhouette_images_post'" class="list-group-item"><span class="badge badge_post">post</span><div class="method_description"><p>Create a new silhouette image for an already existing project</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="swan_projects__project_id__silhouette_images_post"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_post">post</span> <span class="parent">/swan/projects/{project_id}</span>/silhouette_images</h4></div><div class="modal-body"><div class="alert alert-info"><p>Create a new silhouette image for an already existing project</p></div><ul class="nav nav-tabs"><li class="active"><a href="#swan_projects__project_id__silhouette_images_post_request" data-toggle="tab">Request</a></li><li><a href="#swan_projects__project_id__silhouette_images_post_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="swan_projects__project_id__silhouette_images_post_request"><h3>URI Parameters</h3><ul><li><strong>project_id</strong>: <em>required (string)</em></li></ul><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{
+  "image": "data:image/png;base64,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"
+}
+</code></pre></div><div class="tab-pane" id="swan_projects__project_id__silhouette_images_post_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>OK</p><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{
+  "id": 1,
+  "image": {
+    "url": "https://s3.amazonaws.com/swan-public/uploads/silhouettes/c0cdd939-bed8-49a4-9431-ad1428bd40ff.jpeg"
+  },
+  "projectId": 26,
+  "createdAt": "2015-06-22 20:45:02 UTC",
+  "updatedAt": "2015-06-22 20:45:09 UTC"
+}
+</code></pre></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_swan_projects__project_id__silhouette_images__silhouette_image_id_"><span class="parent">/swan/projects/{project_id}/silhouette_images</span>/{silhouette_image_id}</a> <span class="methods"><a href="#swan_projects__project_id__silhouette_images__silhouette_image_id__put"><span class="badge badge_put">put</span></a> <a href="#swan_projects__project_id__silhouette_images__silhouette_image_id__delete"><span class="badge badge_delete">delete</span></a></span></h4></div><div id="panel_swan_projects__project_id__silhouette_images__silhouette_image_id_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#swan_projects__project_id__silhouette_images__silhouette_image_id__put'" class="list-group-item"><span class="badge badge_put">put</span><div class="method_description"><p>Update an existing silhouette_image</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#swan_projects__project_id__silhouette_images__silhouette_image_id__delete'" class="list-group-item"><span class="badge badge_delete">delete</span><div class="method_description"><p>Delete a silhouette image</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="swan_projects__project_id__silhouette_images__silhouette_image_id__put"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_put">put</span> <span class="parent">/swan/projects/{project_id}/silhouette_images</span>/{silhouette_image_id}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Update an existing silhouette_image</p></div><ul class="nav nav-tabs"><li class="active"><a href="#swan_projects__project_id__silhouette_images__silhouette_image_id__put_request" data-toggle="tab">Request</a></li><li><a href="#swan_projects__project_id__silhouette_images__silhouette_image_id__put_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="swan_projects__project_id__silhouette_images__silhouette_image_id__put_request"><h3>URI Parameters</h3><ul><li><strong>project_id</strong>: <em>required (string)</em></li><li><strong>silhouette_image_id</strong>: <em>required (string)</em></li></ul><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{
+  "image": "data:image/png;base64,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"
+}
+</code></pre></div><div class="tab-pane" id="swan_projects__project_id__silhouette_images__silhouette_image_id__put_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>OK</p><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{
+  "id": 1,
+  "image": {
+    "url": "https://s3.amazonaws.com/swan-public/uploads/silhouettes/c0cdd939-bed8-49a4-9431-ad1428bd40ff.jpeg"
+  },
+  "projectId": 26,
+  "createdAt": "2015-06-22 20:45:02 UTC",
+  "updatedAt": "2015-06-22 20:45:09 UTC"
+}
+</code></pre></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="swan_projects__project_id__silhouette_images__silhouette_image_id__delete"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_delete">delete</span> <span class="parent">/swan/projects/{project_id}/silhouette_images</span>/{silhouette_image_id}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Delete a silhouette image</p></div><ul class="nav nav-tabs"><li class="active"><a href="#swan_projects__project_id__silhouette_images__silhouette_image_id__delete_request" data-toggle="tab">Request</a></li><li><a href="#swan_projects__project_id__silhouette_images__silhouette_image_id__delete_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="swan_projects__project_id__silhouette_images__silhouette_image_id__delete_request"><h3>URI Parameters</h3><ul><li><strong>project_id</strong>: <em>required (string)</em></li><li><strong>silhouette_image_id</strong>: <em>required (string)</em></li></ul></div><div class="tab-pane" id="swan_projects__project_id__silhouette_images__silhouette_image_id__delete_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>OK</p></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_swan_projects__project_id__background_images"><span class="parent">/swan/projects/{project_id}</span>/background_images</a> <span class="methods"><a href="#swan_projects__project_id__background_images_post"><span class="badge badge_post">post</span></a></span></h4></div><div id="panel_swan_projects__project_id__background_images" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#swan_projects__project_id__background_images_post'" class="list-group-item"><span class="badge badge_post">post</span><div class="method_description"><p>Create a new background_image for an already existing project</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="swan_projects__project_id__background_images_post"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_post">post</span> <span class="parent">/swan/projects/{project_id}</span>/background_images</h4></div><div class="modal-body"><div class="alert alert-info"><p>Create a new background_image for an already existing project</p></div><ul class="nav nav-tabs"><li class="active"><a href="#swan_projects__project_id__background_images_post_request" data-toggle="tab">Request</a></li><li><a href="#swan_projects__project_id__background_images_post_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="swan_projects__project_id__background_images_post_request"><h3>URI Parameters</h3><ul><li><strong>project_id</strong>: <em>required (string)</em></li></ul><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{
+  "image": "data:image/png;base64,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"
+}
+</code></pre></div><div class="tab-pane" id="swan_projects__project_id__background_images_post_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>OK</p><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{
+  "id": 1,
+  "image": {
+    "url": "https://s3.amazonaws.com/swan-public/uploads/background_covers/3f7b555a-ad94-4714-98ff-30178af2862d.jpeg"
+  },
+  "projectId": 26,
+  "createdAt": "2015-06-22 20:36:12 UTC",
+  "updatedAt": "2015-06-22 20:36:14 UTC"
+}
+</code></pre></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_swan_projects__project_id__background_images__background_image_id_"><span class="parent">/swan/projects/{project_id}/background_images</span>/{background_image_id}</a> <span class="methods"><a href="#swan_projects__project_id__background_images__background_image_id__delete"><span class="badge badge_delete">delete</span></a> <a href="#swan_projects__project_id__background_images__background_image_id__put"><span class="badge badge_put">put</span></a></span></h4></div><div id="panel_swan_projects__project_id__background_images__background_image_id_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#swan_projects__project_id__background_images__background_image_id__delete'" class="list-group-item"><span class="badge badge_delete">delete</span><div class="method_description"><p>Delete a background_image</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#swan_projects__project_id__background_images__background_image_id__put'" class="list-group-item"><span class="badge badge_put">put</span><div class="method_description"><p>Update an existing background_image</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="swan_projects__project_id__background_images__background_image_id__delete"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_delete">delete</span> <span class="parent">/swan/projects/{project_id}/background_images</span>/{background_image_id}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Delete a background_image</p></div><ul class="nav nav-tabs"><li class="active"><a href="#swan_projects__project_id__background_images__background_image_id__delete_request" data-toggle="tab">Request</a></li><li><a href="#swan_projects__project_id__background_images__background_image_id__delete_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="swan_projects__project_id__background_images__background_image_id__delete_request"><h3>URI Parameters</h3><ul><li><strong>project_id</strong>: <em>required (string)</em></li><li><strong>background_image_id</strong>: <em>required (string)</em></li></ul></div><div class="tab-pane" id="swan_projects__project_id__background_images__background_image_id__delete_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>OK</p></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="swan_projects__project_id__background_images__background_image_id__put"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_put">put</span> <span class="parent">/swan/projects/{project_id}/background_images</span>/{background_image_id}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Update an existing background_image</p></div><ul class="nav nav-tabs"><li class="active"><a href="#swan_projects__project_id__background_images__background_image_id__put_request" data-toggle="tab">Request</a></li><li><a href="#swan_projects__project_id__background_images__background_image_id__put_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="swan_projects__project_id__background_images__background_image_id__put_request"><h3>URI Parameters</h3><ul><li><strong>project_id</strong>: <em>required (string)</em></li><li><strong>background_image_id</strong>: <em>required (string)</em></li></ul><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{
+  "image": "data:image/png;base64,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"
+}
+</code></pre></div><div class="tab-pane" id="swan_projects__project_id__background_images__background_image_id__put_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>OK</p><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{
+  "id": 1,
+  "image": {
+    "url": "https://s3.amazonaws.com/swan-public/uploads/background_covers/3f7b555a-ad94-4714-98ff-30178af2862d.jpeg"
+  },
+  "projectId": 26,
+  "createdAt": "2015-06-22 20:36:12 UTC",
+  "updatedAt": "2015-06-22 20:36:14 UTC"
+}
+</code></pre></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_swan_projects_set_privacy__project_id_"><span class="parent">/swan/projects</span>/set_privacy/{project_id}</a> <span class="methods"><a href="#swan_projects_set_privacy__project_id__post"><span class="badge badge_post">post</span></a></span></h4></div><div id="panel_swan_projects_set_privacy__project_id_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#swan_projects_set_privacy__project_id__post'" class="list-group-item"><span class="badge badge_post">post</span><div class="method_description"><p>Sets or updates Project’s privacy.<br>Valid privacies. "only-me" / "invites-only" / "everyone"<br></p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="swan_projects_set_privacy__project_id__post"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_post">post</span> <span class="parent">/swan/projects</span>/set_privacy/{project_id}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Sets or updates Project’s privacy.<br>Valid privacies. "only-me" / "invites-only" / "everyone"<br></p></div><ul class="nav nav-tabs"><li class="active"><a href="#swan_projects_set_privacy__project_id__post_request" data-toggle="tab">Request</a></li><li><a href="#swan_projects_set_privacy__project_id__post_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="swan_projects_set_privacy__project_id__post_request"><h3>URI Parameters</h3><ul><li><strong>project_id</strong>: <em>required (string)</em></li></ul></div><div class="tab-pane" id="swan_projects_set_privacy__project_id__post_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>OK.</p><h3>Body</h3><p><strong>Type: application/json</strong></p><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><p>ERROR.</p><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{"errors":"INVALID_PRIVACY"}</code></pre></div></div></div></div></div></div></div></div></div></div></div><div class="col-md-3"><div id="sidebar" class="hidden-print affix" role="complementary"><ul class="nav nav-pills nav-stacked"><li><a href="#swan">/swan</a></li></ul></div></div></div></div></body></html>

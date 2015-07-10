@@ -1,0 +1,66 @@
+{
+  "title": "Sophie Custom Dress",
+  "origin": "product_details",
+  "coutureSettings": {
+    "occasion": "the best ocassion",
+    "ageRange": "15-20",
+    "dressType": "beautiful one",
+    "bodyType": "thin"
+  },
+  "eventDate": "2015-07-08T19:10:09.483Z",
+  "eventType": "fashion",
+  "totalPrice": "1234",
+  "design": {
+    "id": "62",
+    "dress": {
+      "notEditableFields": [
+        "fabric",
+        "color",
+        "features",
+        "technique",
+        "details",
+        "coverage",
+        "closure",
+        "train",
+        "monogram",
+        "effect"
+      ],
+      "silhouette": "silhouette-sheath",
+      "length": "silhouette",
+      "neckline": "neckline-dipped",
+      "necklineIllusion": "neckline-plunging",
+      "sleeve": "sleeve-sleeveless",
+      "sleeveIllusion": null,
+      "back": "back-bare",
+      "backIllusion": "back-closed",
+      "train": "train-royal",
+      "fabric": [
+        "fabric-90",
+        "fabric-18243480-6b3b-0cfe-7c24-09433a00fc95"
+      ],
+      "closure": "closure-taffeta",
+      "color": "color-gold",
+      "details": [
+        "details-floral-gloves",
+        "details-metallic-embroidery"
+      ],
+      "features": [
+        "nice"
+      ],
+      "technique": "technique-beadwork",
+      "effect": "effect-fb2271c9-1f75-a194-ee3f-c5857eb10c65",
+      "pattern": [
+        "the pattern"
+      ],
+      "coverage": "coverage-scattered",
+      "monogram": "monogram-elephant",
+      "stylePalette": [
+        "the style palette",
+        "the style palette2"
+      ],
+      "basePrice": "1600",
+      "customizationPrice": "40",
+      "visuals": []
+    }
+  }
+}

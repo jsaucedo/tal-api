@@ -1,0 +1,57 @@
+{
+  "id": 67,
+  "createdAt": "2015-06-12 20:46:28 UTC",
+  "ownerId": 1,
+  "richBlurb": "the rich blurb",
+  "title": "the title",
+  "sku": "W12-99-1304",
+  "likes": 0,
+  "section": null,
+  "category": null,
+  "style": null,
+  "dressType": null,
+  "construction": null,
+  "overview": null,
+  "features": [
+    "designs features",
+    "designs features1"
+  ],
+  "dress": {
+    "notEditableFields": [
+      "silhouette"
+    ],
+    "silhouette": null,
+    "length": "again length",
+    "neckline": "the best neckline",
+    "necklineIlussion": "the neclkine illusion",
+    "sleeve": "the best sleeve",
+    "sleeveIllusion": "the best sleeve illusion ever",
+    "back": null,
+    "backIlussion": "the best backIlusion",
+    "train": null,
+    "fabric": [
+      "fabricsss"
+    ],
+    "closure": null,
+    "color": null,
+    "details": null,
+    "features": [
+      "the features",
+      "the features1"
+    ],
+    "technique": null,
+    "effect": null,
+    "pattern": [
+      "the pattern"
+    ],
+    "coverage": null,
+    "monogram": null,
+    "stylePalette": [
+      "the style palette",
+      "the style palette2"
+    ],
+    "basePrice": null,
+    "customizationPrice": null
+  },
+  "visuals": []
+}

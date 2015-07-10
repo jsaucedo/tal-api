@@ -1,0 +1,18 @@
+{
+  "richBlurb": "the rich blurb",
+  "title": "the title",
+  "sku": "W12-99-1304",
+  "section": null,
+  "category": null,
+  "style": null,
+  "dressType": null,
+  "construction": null,
+  "overview": null,
+  "features": [
+    "designs features",
+    "designs features1"
+  ],
+  "dress": {
+    "length": "again length"
+  }
+}

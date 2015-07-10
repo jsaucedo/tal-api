@@ -1,0 +1,9 @@
+{
+  "id": 1,
+  "image": {
+    "url": "https://s3.amazonaws.com/swan-public/uploads/silhouettes/c0cdd939-bed8-49a4-9431-ad1428bd40ff.jpeg"
+  },
+  "projectId": 26,
+  "createdAt": "2015-06-22 20:45:02 UTC",
+  "updatedAt": "2015-06-22 20:45:09 UTC"
+}

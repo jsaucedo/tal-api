@@ -1,0 +1,69 @@
+{
+  "id": 13,
+  "originalDesignId": 62,
+  "createdAt": "2015-06-15 19:33:03 UTC",
+  "sketchOrderId": null,
+  "dressOrderId": null,
+  "approvedSketch": null,
+  "backgroundCover": "the background cover rolbacked",
+  "title": "Sophie Title edited Dress",
+  "eventType": "party",
+  "eventDate": "2015-09-10",
+  "privacy": "everyone",
+  "likes": 0,
+  "totalPrice": "999",
+  "origin": "product_details",
+  "creator": 1,
+  "state": "design",
+  "pose": null,
+  "design": {
+    "dress": {
+      "notEditableFields": [
+        "fabric",
+        "color",
+        "features"
+      ],
+      "silhouette": "silhouette-ball-gown",
+      "length": "tea",
+      "neckline": "neckline-dipped",
+      "necklineIllusion": "neckline-di",
+      "sleeve": "sleeve-sleeveless",
+      "sleeveIllusion": null,
+      "back": "back-bare",
+      "backIllusion": "back-closed",
+      "train": "train-royal",
+      "fabric": [
+        "fabric-90",
+        "fabric-92"
+      ],
+      "closure": "closure-taffeta",
+      "color": "color-blue",
+      "details": null,
+      "features": [
+        "nice"
+      ],
+      "technique": "technique-beadwork",
+      "effect": "effect-fb2271c9-1f75-a194-ee3f-c5857eb10c65",
+      "pattern": [
+        "the pattern"
+      ],
+      "coverage": "coverage-scattered",
+      "monogram": "monogram-elephant",
+      "stylePalette": [],
+      "basePrice": "1200",
+      "customizationPrice": "20"
+    }
+  },
+  "coutureSettings": {
+    "occasion": "the best ocassion",
+    "ageRange": "25-30",
+    "dressType": "beautiful one edited",
+    "bodyType": "thin edited",
+    "firstRun": false
+  },
+  "uploads": [],
+  "comments": {
+    "comments": {},
+    "total": 0
+  }
+}
