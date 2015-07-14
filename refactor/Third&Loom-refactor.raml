@@ -72,7 +72,38 @@ version: refactor
         responses:
           200:
             description: OK
-      
+
+      /visuals:
+        post:
+          description: Create a new visual for an already existing design
+          body:
+            application/json:
+              example: !include dress_designs_id_post_visual_req.txt
+          responses:
+            200:
+              description: OK
+              body:
+                application/json:
+                  example: !include dress_designs_id_post_visual_res.txt
+
+        /{visual_id}:
+          put:
+            description: Update an existing visual
+            body:
+              application/json:
+                example: !include dress_designs_id_put_visual_req.txt
+            responses:
+              200:
+                description: OK
+                body:
+                  application/json:
+                    example: !include dress_designs_id_put_visual_res.txt
+          
+          delete:
+            description: Delete a visual
+            responses:
+              200:
+                description: OK
       
     
     /filter/:
