@@ -727,7 +727,7 @@
     "visuals": []
   }
 ]
-</code></pre></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel__swan_designs_filter_"><span class="parent">/swan/designs</span>/filter/</a> <span class="methods"><a href="#_swan_designs_filter__get"><span class="badge badge_get">get</span></a></span></h4></div><div id="panel__swan_designs_filter_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#_swan_designs_filter__get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Retrieves basic necessary info of designs filtered by provided category, section and quantity (if provided).</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="_swan_designs_filter__get"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/swan/designs</span>/filter/</h4></div><div class="modal-body"><div class="alert alert-info"><p>Retrieves basic necessary info of designs filtered by provided category, section and quantity (if provided).</p></div><ul class="nav nav-tabs"><li class="active"><a href="#_swan_designs_filter__get_request" data-toggle="tab">Request</a></li><li><a href="#_swan_designs_filter__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="_swan_designs_filter__get_request"><h3>Query Parameters</h3><ul><li><strong>category</strong>: <em>(string )</em><p>category of the dresses to be returned</p><p><strong>Example</strong>:</p><pre>fashion</pre></li><li><strong>section</strong>: <em>(string )</em><p>section, within the category, of the dresses to be returned</p><p><strong>Example</strong>:</p><pre>evening</pre></li><li><strong>quantity</strong>: <em>(string )</em><p>amount of projects to be retrieved</p><p><strong>Example</strong>:</p><pre>4</pre></li><li><strong>last_id</strong>: <em>(string )</em><p>id of the design since which the requested amount should be retrieved.</p><p><strong>Example</strong>:</p><pre>1</pre></li><li><strong>sku</strong>: <em>(string )</em><p>sku of the design to be retrieved</p><p><strong>Example</strong>:</p><pre>w-123-123</pre></li></ul></div><div class="tab-pane" id="_swan_designs_filter__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>OK</p><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>[
+</code></pre></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel__swan_designs_filter_"><span class="parent">/swan/designs</span>/filter/</a> <span class="methods"><a href="#_swan_designs_filter__get"><span class="badge badge_get">get</span></a></span></h4></div><div id="panel__swan_designs_filter_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#_swan_designs_filter__get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Retrieves basic necessary info of designs filtered by provided category, section and quantity (if provided).</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="_swan_designs_filter__get"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/swan/designs</span>/filter/</h4></div><div class="modal-body"><div class="alert alert-info"><p>Retrieves basic necessary info of designs filtered by provided category, section and quantity (if provided).</p></div><ul class="nav nav-tabs"><li class="active"><a href="#_swan_designs_filter__get_request" data-toggle="tab">Request</a></li><li><a href="#_swan_designs_filter__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="_swan_designs_filter__get_request"><h3>Query Parameters</h3><ul><li><strong>category</strong>: <em>(string )</em><p>category of the dresses to be returned</p><p><strong>Example</strong>:</p><pre>fashion</pre></li><li><strong>section</strong>: <em>(string )</em><p>section, within the category, of the dresses to be returned</p><p><strong>Example</strong>:</p><pre>evening</pre></li><li><strong>quantity</strong>: <em>(string )</em><p>amount of designs to be retrieved</p><p><strong>Example</strong>:</p><pre>4</pre></li><li><strong>last_id</strong>: <em>(string )</em><p>id of the design since which the requested amount should be retrieved.</p><p><strong>Example</strong>:</p><pre>1</pre></li><li><strong>sku</strong>: <em>(string )</em><p>sku of the design to be retrieved</p><p><strong>Example</strong>:</p><pre>w-123-123</pre></li></ul></div><div class="tab-pane" id="_swan_designs_filter__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>OK</p><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>[
   {
     "id": "62",
     "createdAt": "2015-05-11 18:29:09 UTC",
@@ -2693,4 +2693,120 @@
   "createdAt": "2015-06-22 20:36:12 UTC",
   "updatedAt": "2015-06-22 20:36:14 UTC"
 }
-</code></pre></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel__swan_projects_set_privacy__project_id_"><span class="parent">/swan/projects</span>/set_privacy/{project_id}</a> <span class="methods"><a href="#_swan_projects_set_privacy__project_id__post"><span class="badge badge_post">post</span></a></span></h4></div><div id="panel__swan_projects_set_privacy__project_id_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#_swan_projects_set_privacy__project_id__post'" class="list-group-item"><span class="badge badge_post">post</span><div class="method_description"><p>Sets or updates Project’s privacy.<br>Valid privacies. "only-me" / "invites-only" / "everyone"<br></p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="_swan_projects_set_privacy__project_id__post"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_post">post</span> <span class="parent">/swan/projects</span>/set_privacy/{project_id}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Sets or updates Project’s privacy.<br>Valid privacies. "only-me" / "invites-only" / "everyone"<br></p></div><ul class="nav nav-tabs"><li class="active"><a href="#_swan_projects_set_privacy__project_id__post_request" data-toggle="tab">Request</a></li><li><a href="#_swan_projects_set_privacy__project_id__post_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="_swan_projects_set_privacy__project_id__post_request"><h3>URI Parameters</h3><ul><li><strong>project_id</strong>: <em>required (string )</em></li></ul></div><div class="tab-pane" id="_swan_projects_set_privacy__project_id__post_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>OK.</p><h3>Body</h3><p><strong>Type: application/json</strong></p><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><p>ERROR.</p><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{"errors":"INVALID_PRIVACY"}</code></pre></div></div></div></div></div></div></div></div></div></div></div><div class="col-md-3"><div id="sidebar" class="hidden-print affix" role="complementary"><ul class="nav nav-pills nav-stacked"><li><a href="#_swan">/swan</a></li></ul></div></div></div></div></body></html>
+</code></pre></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel__swan_projects_set_privacy__project_id_"><span class="parent">/swan/projects</span>/set_privacy/{project_id}</a> <span class="methods"><a href="#_swan_projects_set_privacy__project_id__post"><span class="badge badge_post">post</span></a></span></h4></div><div id="panel__swan_projects_set_privacy__project_id_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#_swan_projects_set_privacy__project_id__post'" class="list-group-item"><span class="badge badge_post">post</span><div class="method_description"><p>Sets or updates Project’s privacy.<br>Valid privacies. "only-me" / "invites-only" / "everyone"<br></p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="_swan_projects_set_privacy__project_id__post"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_post">post</span> <span class="parent">/swan/projects</span>/set_privacy/{project_id}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Sets or updates Project’s privacy.<br>Valid privacies. "only-me" / "invites-only" / "everyone"<br></p></div><ul class="nav nav-tabs"><li class="active"><a href="#_swan_projects_set_privacy__project_id__post_request" data-toggle="tab">Request</a></li><li><a href="#_swan_projects_set_privacy__project_id__post_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="_swan_projects_set_privacy__project_id__post_request"><h3>URI Parameters</h3><ul><li><strong>project_id</strong>: <em>required (string )</em></li></ul></div><div class="tab-pane" id="_swan_projects_set_privacy__project_id__post_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>OK.</p><h3>Body</h3><p><strong>Type: application/json</strong></p><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><p>ERROR.</p><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{"errors":"INVALID_PRIVACY"}</code></pre></div></div></div></div></div></div></div></div></div></div><div class="panel panel-default"><div class="panel-heading"><h3 id="_lookbook" class="panel-title">/lookbook</h3></div><div class="panel-body"><div class="panel-group"><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel__lookbook_projects"><span class="parent">/lookbook</span>/projects</a> <span class="methods"><a href="#_lookbook_projects_get"><span class="badge badge_get">get</span></a></span></h4></div><div id="panel__lookbook_projects" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#_lookbook_projects_get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Retrieves basic necessary project info for every project of user with provided id. It allows pagination.<br>The project cards are returned showing the newest project first, and the oldest last.</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="_lookbook_projects_get"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/lookbook</span>/projects</h4></div><div class="modal-body"><div class="alert alert-info"><p>Retrieves basic necessary project info for every project of user with provided id. It allows pagination.<br>The project cards are returned showing the newest project first, and the oldest last.</p></div><ul class="nav nav-tabs"><li class="active"><a href="#_lookbook_projects_get_request" data-toggle="tab">Request</a></li><li><a href="#_lookbook_projects_get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="_lookbook_projects_get_request"><h3>Query Parameters</h3><ul><li><strong>user_id</strong>: <em>(integer )</em><p>id of the user whose lookbook&#39;s projects are required.</p><p><strong>Example</strong>:</p><pre><code>1</code></pre></li><li><strong>first</strong>: <em>(integer )</em><p>id of the project since which the requested amount should be retrieved.</p><p><strong>Example</strong>:</p><pre><code>2</code></pre></li><li><strong>limit</strong>: <em>(integer )</em><p>amount of projects to be retrieved</p><p><strong>Example</strong>:</p><pre><code>2</code></pre></li></ul></div><div class="tab-pane" id="_lookbook_projects_get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>OK</p><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>[
+  {
+    "id": "50",
+    "createdAt": "2015-07-08 20:15:17 UTC",
+    "eventDate": "2015-07-08",
+    "eventType": "fashion",
+    "likes": "1",
+    "ownerId": "1",
+    "origin": "product_details",
+    "title": "Sophie Custom Dress",
+    "state": "design",
+    "privacy": "everyone",
+    "productImage": "https://cdn.thirdandloom.com/assets/static/images/lookbook/lookbook-pattern.png",
+    "backgroundImage": null,
+    "commentsCount": "0",
+    "sleeve": "sleeve-sleeveless",
+    "neckline": "neckline-dipped",
+    "silhouette": "silhouette-sheath",
+    "userLikes": true
+  },
+  {
+    "id": "54",
+    "createdAt": "2015-07-10 15:27:03 UTC",
+    "eventDate": "2015-07-08",
+    "eventType": "fashion",
+    "likes": "0",
+    "ownerId": "1",
+    "origin": "product_details",
+    "title": "Sophie Custom Dress",
+    "state": "design",
+    "privacy": "invites-only",
+    "productImage": "https://cdn.thirdandloom.com/assets/static/images/lookbook/lookbook-pattern.png",
+    "backgroundImage": null,
+    "commentsCount": "0",
+    "sleeve": "sleeve-sleeveless",
+    "neckline": "neckline-dipped",
+    "silhouette": "silhouette-sheath",
+    "userLikes": false
+  },
+  {
+    "id": "56",
+    "createdAt": "2015-07-13 20:08:41 UTC",
+    "eventDate": "2015-07-08",
+    "eventType": "fashion",
+    "likes": "0",
+    "ownerId": "1",
+    "origin": "product_details",
+    "title": "Sophie Custom Dress",
+    "state": "checkout",
+    "privacy": "invites-only",
+    "productImage": "https://cdn.thirdandloom.com/assets/static/images/lookbook/lookbook-pattern.png",
+    "backgroundImage": null,
+    "commentsCount": "0",
+    "sleeve": "sleeve-sleeveless",
+    "neckline": "neckline-dipped",
+    "silhouette": "silhouette-sheath",
+    "userLikes": false
+  },
+  {
+    "id": "55",
+    "createdAt": "2015-07-10 20:50:10 UTC",
+    "eventDate": "2015-07-08",
+    "eventType": "fashion",
+    "likes": "0",
+    "ownerId": "1",
+    "origin": "bespoke",
+    "title": "Sophie Custom Dress",
+    "state": "checkout",
+    "privacy": "invites-only",
+    "productImage": "https://cdn.thirdandloom.com/assets/static/images/lookbook/lookbook-pattern.png",
+    "backgroundImage": null,
+    "commentsCount": "0",
+    "sleeve": "sleeve-sleeveless",
+    "neckline": "neckline-dipped",
+    "silhouette": "silhouette-sheath",
+    "userLikes": false
+  },
+  {
+    "id": "52",
+    "createdAt": "2015-07-08 20:18:22 UTC",
+    "eventDate": "2015-07-08",
+    "eventType": "fashion",
+    "likes": "0",
+    "ownerId": "1",
+    "origin": "product_details",
+    "title": "Sophie Custom Dress",
+    "state": "design",
+    "privacy": "invites-only",
+    "productImage": "https://cdn.thirdandloom.com/assets/static/images/lookbook/lookbook-pattern.png",
+    "backgroundImage": null,
+    "commentsCount": null,
+    "sleeve": "sleeve-sleeveless",
+    "neckline": "neckline-dipped",
+    "silhouette": "silhouette-sheath",
+    "userLikes": false
+  },
+  {
+    "id": "51",
+    "createdAt": "2015-07-08 20:17:30 UTC",
+    "eventDate": "2015-07-08",
+    "eventType": "the type updated",
+    "likes": "0",
+    "ownerId": "1",
+    "origin": "product_details",
+    "title": "Sophie Custom Dress pdated",
+    "state": "design",
+    "privacy": "invites-only",
+    "productImage": "https://cdn.thirdandloom.com/assets/static/images/lookbook/lookbook-pattern.png",
+    "backgroundImage": null,
+    "commentsCount": "0",
+    "sleeve": "sleeve-sleeveless",
+    "neckline": "neckline-dipped",
+    "silhouette": "silhouette-sheath",
+    "userLikes": false
+  }
+]
+</code></pre><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><p>Not Found, user with provided id does not exist.</p><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{"errors":"RECORD NOT FOUND"}</code></pre></div></div></div></div></div></div></div></div></div></div></div><div class="col-md-3"><div id="sidebar" class="hidden-print affix" role="complementary"><ul class="nav nav-pills nav-stacked"><li><a href="#_swan">/swan</a></li><li><a href="#_lookbook">/lookbook</a></li></ul></div></div></div></div></body></html>

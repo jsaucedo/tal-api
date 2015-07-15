@@ -57,7 +57,7 @@ version: refactor
           quantity:
             displayName: quantity
             type: string
-            description: amount of projects to be retrieved
+            description: amount of designs to be retrieved
             example: 4
             required: false
           last_id:
@@ -397,21 +397,42 @@ version: refactor
               application/json:
                 example: '{"errors":"INVALID_PRIVACY"}'
 
-#/lookbook:
 
-# /projects/?user_id={user_id}&first={first}&limit={limit}:
-#  get:
-#    description: Retrieves basic necessary project info for every project (that is not a story) of user with provided id. It allows pagination. <br>
-#                 The project cards are returned showing the newest project first, and the oldest last. <br>
-#                 swan/lookbook#projects
-#    responses:
-#      200:
-#        description: OK
-#        body:
- #         application/json:
-  #          example: !include lookbook_projects.txt
-  #    404:
-  #      description: Not Found, user with provided id does not exist
-  #      body:
-  #        application/json:
-  #          example: '{"errors":"RECORD NOT FOUND"}'
+
+/lookbook:
+
+  /projects:
+    get:
+      description: Retrieves basic necessary project info for every project of user with provided id. It allows pagination. <br>
+                   The project cards are returned showing the newest project first, and the oldest last.
+      queryParameters:
+          user_id:
+            displayName: user_id
+            type: integer
+            description: id of the user whose lookbook's projects are required.
+            example: 1
+            required: false
+          first:
+            displayName: first
+            type: integer
+            description: id of the project since which the requested amount should be retrieved.
+            example: 2
+            required: false
+          limit:
+            displayName: limit
+            type: integer
+            description: amount of projects to be retrieved
+            example: 2
+            required: false    
+
+      responses:
+        200:
+          description: OK
+          body:
+            application/json:
+              example: !include lookbook_projects_get.txt
+        404:
+          description: Not Found, user with provided id does not exist.
+          body:
+            application/json:
+              example: '{"errors":"RECORD NOT FOUND"}'
