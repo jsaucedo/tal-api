@@ -6,18 +6,25 @@ version: refactor
 
 /swan:
   
-
-
-
   /designs:
     get:
-      description: Retrieve all the available designs.
+      description: Retrieves basic necessary info of all the available designs.
       responses:
         200:
           description: OK
           body:
             application/json:
-              example: !include dress_designs_index.txt
+              example: !include dress_designs_index_summary.txt
+
+    /?all=true:
+      get:
+        description: Retrieve full information of all the available designs.
+        responses:
+          200:
+            description: OK
+            body:
+              application/json:
+                example: !include dress_designs_index.txt
 
     post:
       description: Create a new design
@@ -30,6 +37,49 @@ version: refactor
           body:
             application/json:
               example: !include dress_designs_post_res.txt
+
+    /filter/:
+      get:
+        description: Retrieves basic necessary info of designs filtered by provided category, section and quantity (if provided).
+        queryParameters:
+          category:
+            displayName: category
+            type: string
+            description: category of the dresses to be returned
+            example: fashion
+            required: false
+          section:
+            displayName: section
+            type: string
+            description: section, within the category, of the dresses to be returned
+            example: evening
+            required: false
+          quantity:
+            displayName: quantity
+            type: string
+            description: amount of projects to be retrieved
+            example: 4
+            required: false
+          last_id:
+            displayName: last_id
+            type: string
+            description: id of the design since which the requested amount should be retrieved.
+            example: 1
+            required: false
+          sku:
+            displayName: sku
+            type: string
+            description: sku of the design to be retrieved
+            example: w-123-123
+            required: false
+
+
+        responses:
+          200:
+            description: OK
+            body:
+              application/json:
+                example: !include dress_designs_filter.txt
     
 
     /{design_id}:
@@ -104,50 +154,6 @@ version: refactor
             responses:
               200:
                 description: OK
-      
-    
-    /filter/:
-      get:
-        description: Retrieves basic necessary info of designs filtered by provided category, section and quantity (if provided).
-        queryParameters:
-          category:
-            displayName: category
-            type: string
-            description: category of the dresses to be returned
-            example: fashion
-            required: false
-          section:
-            displayName: section
-            type: string
-            description: section, within the category, of the dresses to be returned
-            example: evening
-            required: false
-          quantity:
-            displayName: quantity
-            type: string
-            description: amount of projects to be retrieved
-            example: 4
-            required: false
-          last_id:
-            displayName: last_id
-            type: string
-            description: id of the design since which the requested amount should be retrieved.
-            example: 1
-            required: false
-          sku:
-            displayName: sku
-            type: string
-            description: sku of the design to be retrieved
-            example: w-123-123
-            required: false
-
-
-        responses:
-          200:
-            description: OK
-            body:
-              application/json:
-                example: !include dress_designs_filter.txt
 
   /projects:
     get:
