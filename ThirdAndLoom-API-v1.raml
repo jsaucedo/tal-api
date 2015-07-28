@@ -440,12 +440,7 @@ version: v1
           responses: 
             200:
               description: Ok
-           
-            
-
-
-
-
+      
 /swan_user:
   /{userId}:
     get:
@@ -511,6 +506,74 @@ version: v1
            body:
              application/json:
                example: !include swan_user_id_stories_get.txt
+
+    /activate:
+      post:
+        description: Allows an user who received an invitation email to complete its registration process.
+
+        body:
+          application/json:
+            schema: |
+              {
+                "type": "object",
+                "$schema": "http://json-schema.org/draft-03/schema",
+                "id": "http://jsonschema.net",
+                "required": true,
+                "properties": {
+                  "token": {
+                    "description": "token to validate activation process",
+                    "type": "string",
+                    "required": true
+
+                  },
+                  "username": {
+                    "description": "username for the user account",
+                    "type": "string",
+                    "required": false
+                  },
+                  "password": {
+                    "type": "string",
+                    "required": true
+                  },
+                  "passwordConfirmation": {
+                    "type": "string",
+                    "required": true
+                  },
+                  "firstName": {
+                    "description": "first name for the user account",
+                    "type": "string",
+                    "required": false
+                  },
+                  "lastName": {
+                    "description": "last name for the user account",
+                    "type": "string",
+                    "required": false
+                  },
+                  "skipConfirmation": {
+                    "description": "with this boolean we evaluate whether to send a confirmation email to the user or not.",
+                    "type": "boolean",
+                    "required": false
+                  }
+
+                }
+              }
+            example: |
+              {
+                "token": "m0rkWiMrCR0",
+                "username": "the_user_name",
+                "firstName": "the_first_name",
+                "lastName": "the_last_name",
+                "password": "987654321",
+                "passwordConfirmation": "987654321",
+                "skipConfirmation": "true"
+              }
+
+        responses:
+         200:
+           description: OK
+           body:
+             application/json:
+               example: !include swan_user_activate_post.txt
 
 
   /reset_password:
