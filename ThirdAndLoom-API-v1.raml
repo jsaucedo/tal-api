@@ -91,7 +91,13 @@ version: v1
                             "description":"format base64",
                             "required": false,
                             "type": "string"
+                          },
+                          "size": {
+                            "description":"size of the image being uploaded. This is a string size, client gives meaning to the content.",
+                            "required": false,
+                            "type": "string"
                           }
+
                       },
                       "required": true,
                       "type": "object"
@@ -105,7 +111,8 @@ version: v1
                     "description": "test story"
                   },
                   "custom_story": {
-                    "storyType": "image", 
+                    "storyType": "image",
+                    "size": "123x456", 
                     "image": "data:image/jpg;base64,/9j/4UWO...qCWGL/AHL9OmZZV//Z"
                   }
                 }
@@ -223,6 +230,11 @@ version: v1
                             "description":"format base64",
                             "required": false,
                             "type": "string"
+                          },
+                          "size": {
+                            "description":"size of the image being uploaded. This is a string size, client gives meaning to the content.",
+                            "required": false,
+                            "type": "string"
                           }
                       },
                       "required": true,
@@ -237,7 +249,9 @@ version: v1
                     "description": "test story"
                   },
                   "custom_story": {
-                    "storyType": "text"
+                    "storyType": "image",
+                    "size": "987x654",
+                    "image": "base64 image"
                   }
                 }
         responses:

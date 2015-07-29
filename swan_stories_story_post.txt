@@ -1,24 +1,26 @@
 {
-  "createdAt": "2015-02-27T14:20:13+00:00",
-  "updatedAt": "2015-03-04T18:46:41+00:00",
-  "id": "e81cb763-bd87-4400-bba6-eefef6c189d6",
-  "ownerId": 2,
-  "description": "this is my story",
+  "createdAt": "2015-07-29T20:11:37+00:00",
+  "updatedAt": "2015-07-29T20:11:37+00:00",
+  "id": "ff5d3222-6af5-4c2f-a106-9313f59f4a10",
+  "ownerId": 437,
+  "description": "A test image story",
   "origin": "custom",
-  "customStoryId": "537d0107-a7ef-4cb2-a343-0c8832cb2323",
+  "customStoryId": "b1f86a08-a3bb-4563-9053-6e77e90c3646",
   "commentsIds": null,
   "favoritesIds": null,
   "likes": 0,
   "custom": {
     "storyType": "image",
     "image": {
-      "url": "https://s3.amazonaws.com/swan-public/uploads/swan/custom_story/image/537d0107-a7ef-4cb2-a343-0c8832cb2323/8992974f-787b-4fed-878e-56e9b8493c91.jpeg",
+      "url": "https://s3.amazonaws.com/swan-public/uploads/swan/custom_story/image/b1f86a08-a3bb-4563-9053-6e77e90c3646/5372ea8a-b1e5-4ee8-9fdf-d0af5c28d27a.jpeg",
+      "size": "123x456",
       "collapsed": {
-        "url": "https://s3.amazonaws.com/swan-public/uploads/swan/custom_story/image/537d0107-a7ef-4cb2-a343-0c8832cb2323/collapsed_8992974f-787b-4fed-878e-56e9b8493c91.jpeg"
+        "url": "https://s3.amazonaws.com/swan-public/uploads/swan/custom_story/image/b1f86a08-a3bb-4563-9053-6e77e90c3646/collapsed_5372ea8a-b1e5-4ee8-9fdf-d0af5c28d27a.jpeg"
       },
       "expanded": {
-        "url": "https://s3.amazonaws.com/swan-public/uploads/swan/custom_story/image/537d0107-a7ef-4cb2-a343-0c8832cb2323/expanded_8992974f-787b-4fed-878e-56e9b8493c91.jpeg"
+        "url": "https://s3.amazonaws.com/swan-public/uploads/swan/custom_story/image/b1f86a08-a3bb-4563-9053-6e77e90c3646/expanded_5372ea8a-b1e5-4ee8-9fdf-d0af5c28d27a.jpeg"
       }
-    }
+    },
+    "eventDate": "2015-07-17T14:56:43+00:00"
   }
 }

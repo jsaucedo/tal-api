@@ -9,7 +9,16 @@
   "commentsIds": null,
   "favoritesIds": null,
   "custom": {
-    "storyType": "text",
-    "image": null
+    "storyType": "image",
+    "image": {
+      "url": "https://s3.amazonaws.com/swan-public/uploads/swan/custom_story/image/b1f86a08-a3bb-4563-9053-6e77e90c3646/5372ea8a-b1e5-4ee8-9fdf-d0af5c28d27a.jpeg",
+      "size": "987x654",
+      "collapsed": {
+        "url": "https://s3.amazonaws.com/swan-public/uploads/swan/custom_story/image/b1f86a08-a3bb-4563-9053-6e77e90c3646/collapsed_5372ea8a-b1e5-4ee8-9fdf-d0af5c28d27a.jpeg"
+      },
+      "expanded": {
+        "url": "https://s3.amazonaws.com/swan-public/uploads/swan/custom_story/image/b1f86a08-a3bb-4563-9053-6e77e90c3646/expanded_5372ea8a-b1e5-4ee8-9fdf-d0af5c28d27a.jpeg"
+      }
+    }
   }
 }

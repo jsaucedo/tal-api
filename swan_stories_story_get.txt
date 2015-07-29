@@ -1,81 +1,89 @@
 {
   "mainPeriodStories": {
-    "periodName": "2015",
-    "periodStories": [
-      {
-        "id": "3a88b494-b68f-4582-831d-f0ed3bc4ff8c",
-        "ownerId": 156,
-        "ownerName": "laura",
-        "ownerAvatar": {
-          "url": "https://s3.amazonaws.com/swan-public/uploads/swan_user/profile_image/156/019fad78-022e-4c80-b5f6-0c4b1211b65d.jpeg"
-        },
-        "createdDate": "2015-02-27T14:32:47.484+00:00",
-        "description": "my image story",
-        "origin": "custom",
-        "projectId": null,
-        "comments": [],
-        "likes": 0,
-        "type": "image",
-        "image": {
-          "url": "https://s3.amazonaws.com/swan-public/uploads/swan/custom_story/image/ca95bd4e-e866-4712-b75d-2db88557cb23/78a8ccef-c878-41ec-a771-80f83e955e5a.jpeg",
-          "expanded": {
-            "url": "https://s3.amazonaws.com/swan-public/uploads/swan/custom_story/image/ca95bd4e-e866-4712-b75d-2db88557cb23/expanded_78a8ccef-c878-41ec-a771-80f83e955e5a.jpeg"
-          }
-        }
-      }
-    ]
+    "periodName": "2015/6",
+    "periodStories": []
   },
   "forwardPeriodStories": [
     {
-      "periodName": "2016",
+      "periodName": "2015/7",
       "periodStories": [
         {
-          "id": "4c893522-a771-4b42-95c0-996c78622c61",
-          "ownerId": 2,
+          "id": "ff5d3222-6af5-4c2f-a106-9313f59f4a10",
+          "ownerId": 437,
           "ownerAvatar": {
-            "url": "https://s3.amazonaws.com/swan-public/uploads/swan_user/profile_image/2/e2575ed3-5040-428e-b52d-00a528a70710.jpeg"
+            "url": null
           },
-          "createdDate": "2015-02-27T14:22:27.100+00:00",
-          "description": "my test text story",
-          "type": "text",
-          "image": null
+          "createdDate": "2015-07-29T20:11:37.000+00:00",
+          "description": "A test image story",
+          "type": "image",
+          "image": {
+            "url": "https://s3.amazonaws.com/swan-public/uploads/swan/custom_story/image/b1f86a08-a3bb-4563-9053-6e77e90c3646/5372ea8a-b1e5-4ee8-9fdf-d0af5c28d27a.jpeg",
+            "size": "123x456",
+            "collapsed": {
+              "url": "https://s3.amazonaws.com/swan-public/uploads/swan/custom_story/image/b1f86a08-a3bb-4563-9053-6e77e90c3646/collapsed_5372ea8a-b1e5-4ee8-9fdf-d0af5c28d27a.jpeg"
+            }
+          }
         },
         {
-          "id": "b52b2164-3a7d-4aa0-9f0f-7033f9d1e55c",
-          "ownerId": 2,
+          "id": "8bb5698b-5b97-447d-b227-94ca56518a82",
+          "ownerId": 437,
           "ownerAvatar": {
-            "url": "https://s3.amazonaws.com/swan-public/uploads/swan_user/profile_image/2/e2575ed3-5040-428e-b52d-00a528a70710.jpeg"
+            "url": null
           },
-          "createdDate": "2015-02-27T14:21:36.474+00:00",
-          "description": "this is a text story",
-          "type": "text",
-          "image": null
-        }
-      ]
-    },
-    {
-      "periodName": "2017",
-      "periodStories": [
-        {
-          "id": "4c893522-a771-4b42-95c0-996c78622c61",
-          "ownerId": 2,
-          "ownerAvatar": {
-            "url": "https://s3.amazonaws.com/swan-public/uploads/swan_user/profile_image/2/e2575ed3-5040-428e-b52d-00a528a70710.jpeg"
-          },
-          "createdDate": "2015-02-27T14:22:27.100+00:00",
-          "description": "my test text story",
-          "type": "text",
-          "image": null
+          "createdDate": "2015-07-29T20:08:29.000+00:00",
+          "description": "A test image story",
+          "type": "image",
+          "image": {
+            "url": "https://s3.amazonaws.com/swan-public/uploads/swan/custom_story/image/c466526f-56db-45f4-80cc-8d239719af7a/0e806370-ae49-4d39-9b96-60395b6058a6.jpeg",
+            "size": "123x456",
+            "collapsed": {
+              "url": "https://s3.amazonaws.com/swan-public/uploads/swan/custom_story/image/c466526f-56db-45f4-80cc-8d239719af7a/collapsed_0e806370-ae49-4d39-9b96-60395b6058a6.jpeg"
+            }
+          }
         },
         {
-          "id": "b52b2164-3a7d-4aa0-9f0f-7033f9d1e55c",
-          "ownerId": 2,
+          "id": "4feb4098-62dc-4572-a01d-4e3e2d5bd360",
+          "ownerId": 437,
           "ownerAvatar": {
-            "url": "https://s3.amazonaws.com/swan-public/uploads/swan_user/profile_image/2/e2575ed3-5040-428e-b52d-00a528a70710.jpeg"
+            "url": null
           },
-          "createdDate": "2015-02-27T14:21:36.474+00:00",
-          "description": "this is a text story",
-          "type": "text",
+          "createdDate": "2015-07-29T19:56:52.000+00:00",
+          "description": "A test image story",
+          "type": "image",
+          "image": {
+            "url": "https://s3.amazonaws.com/swan-public/uploads/swan/custom_story/image/6b8b4f03-1e93-4ff1-a307-47c2f40ce677/f736cb8b-c11f-4b25-8513-f96b3424fb80.jpeg",
+            "size": "123x456",
+            "collapsed": {
+              "url": "https://s3.amazonaws.com/swan-public/uploads/swan/custom_story/image/6b8b4f03-1e93-4ff1-a307-47c2f40ce677/collapsed_f736cb8b-c11f-4b25-8513-f96b3424fb80.jpeg"
+            }
+          }
+        },
+        {
+          "id": "93e92abc-2d6e-472c-bd84-5e59b48fc999",
+          "ownerId": 437,
+          "ownerAvatar": {
+            "url": null
+          },
+          "createdDate": "2015-07-29T19:51:25.000+00:00",
+          "description": "A test image story",
+          "type": "image",
+          "image": {
+            "url": "https://s3.amazonaws.com/swan-public/uploads/swan/custom_story/image/c9b5d132-1ec7-46f7-b61b-10ed4ab73210/d23be1b0-468e-4da2-a6ab-efe2ec0db571.jpeg",
+            "size": null,
+            "collapsed": {
+              "url": "https://s3.amazonaws.com/swan-public/uploads/swan/custom_story/image/c9b5d132-1ec7-46f7-b61b-10ed4ab73210/collapsed_d23be1b0-468e-4da2-a6ab-efe2ec0db571.jpeg"
+            }
+          }
+        },
+        {
+          "id": "2e305c15-3c7b-4c5b-a7a5-8429fc005142",
+          "ownerId": 437,
+          "ownerAvatar": {
+            "url": null
+          },
+          "createdDate": "2015-07-29T19:41:25.000+00:00",
+          "description": "A test image story",
+          "type": "image",
           "image": null
         }
       ]
@@ -83,58 +91,8 @@
   ],
   "backwardPeriodStories": [
     {
-      "periodName": "2014",
-      "periodStories": [
-        {
-          "id": "4c893522-a771-4b42-95c0-996c78622c61",
-          "ownerId": 2,
-          "ownerAvatar": {
-            "url": "https://s3.amazonaws.com/swan-public/uploads/swan_user/profile_image/2/e2575ed3-5040-428e-b52d-00a528a70710.jpeg"
-          },
-          "createdDate": "2015-02-27T14:22:27.100+00:00",
-          "description": "my test text story",
-          "type": "text",
-          "image": null
-        },
-        {
-          "id": "b52b2164-3a7d-4aa0-9f0f-7033f9d1e55c",
-          "ownerId": 2,
-          "ownerAvatar": {
-            "url": "https://s3.amazonaws.com/swan-public/uploads/swan_user/profile_image/2/e2575ed3-5040-428e-b52d-00a528a70710.jpeg"
-          },
-          "createdDate": "2015-02-27T14:21:36.474+00:00",
-          "description": "this is a text story",
-          "type": "text",
-          "image": null
-        }
-      ]
-    },
-    {
-      "periodName": "2013",
-      "periodStories": [
-        {
-          "id": "4c893522-a771-4b42-95c0-996c78622c61",
-          "ownerId": 2,
-          "ownerAvatar": {
-            "url": "https://s3.amazonaws.com/swan-public/uploads/swan_user/profile_image/2/e2575ed3-5040-428e-b52d-00a528a70710.jpeg"
-          },
-          "createdDate": "2015-02-27T14:22:27.100+00:00",
-          "description": "my test text story",
-          "type": "text",
-          "image": null
-        },
-        {
-          "id": "b52b2164-3a7d-4aa0-9f0f-7033f9d1e55c",
-          "ownerId": 2,
-          "ownerAvatar": {
-            "url": "https://s3.amazonaws.com/swan-public/uploads/swan_user/profile_image/2/e2575ed3-5040-428e-b52d-00a528a70710.jpeg"
-          },
-          "createdDate": "2015-02-27T14:21:36.474+00:00",
-          "description": "this is a text story",
-          "type": "text",
-          "image": null
-        }
-      ]
+      "periodName": "2015/5",
+      "periodStories": []
     }
   ],
   "canComment": true,
