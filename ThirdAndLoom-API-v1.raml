@@ -455,104 +455,153 @@ version: v1
             200:
               description: Ok
 
-  /stories_comments:
+    /stories_comments:
+        post:
+          description: Allows current logged user to add a comment to a story.
+          body:
+            application/json:
+              schema: |
+                    {
+                      "story_id": { 
+                        "description": "id of the story", 
+                        "required": true,
+                        "type": "string"
+                      },
+                      "text": { 
+                        "description": "The text of the comment. It can be at least 1 char long, and at most 300",
+                        "required": true,
+                        "type": "string"
+                      },
+                      "privacy": { 
+                        "description": "It can be 'everyone’, ‘only-me’ and ‘invites-only’}",
+                        "required": true,
+                        "type": "string"
+                      }
+                    }
+              example: |
+                  { "story_id":"ad91b10d-3441-48be-8c23-b89fdc63d13e"
+                    "text":"This is a comment",
+                    "privacy":"everyone"
+                  }
+          responses:
+            200:
+              description: OK
+              body:
+                application/json:
+                  example: !include swan_story_comments_post_response.txt
+        /seen:
+          post:
+            description: Allows to update to seen the status of the specific comments  
+            body:
+              application/json:
+                schema: |
+                    {
+                      "comments_id": { 
+                        "description": "Array with the ids of the comments", 
+                        "required": true,
+                        "type": "array"
+                      }
+
+                    }
+                example: |
+                  { 
+                    "comments_id":["86ef022f-211b-47b9-84a6-1b393a1f137b","9f73f54a-ff11-4014-90e6-aa5dd5bc3e18"]
+                  }
+            responses:
+              200:
+                description: OK
+                body:
+                  application/json:
+                    example: !include swan_comments_seen_post_response.txt
+        /{commentId}:
+          put:
+            description: Allows current logged user to update a comment. User can just update their comments.
+            body:
+              application/json:
+                schema: |
+                  {
+                      "update_action": { 
+                        "description": " to update the content or the privacy layer of a comment, this value must be set to update_content", 
+                        "required": true,
+                        "type": "string"
+                      },
+                      "text": { 
+                        "description": "The text of the comment. It can be at least 1 char long, and at most 300",
+                        "required": true,
+                        "type": "string"
+                      },
+                      "privacy": { 
+                        "description": "It can be 'everyone’, ‘only-me’ and ‘invites-only’}",
+                        "required": true,
+                        "type": "string"
+                      }
+                    }
+                example: |
+                  { "update_action":"update_content",
+                    "text":"This is a comment",
+                    "privacy":"everyone"
+                  }
+            responses:
+              200:
+                description: OK
+                body:
+                  application/json:
+                    example: !include swan_story_comments_put_response.txt
+          delete:
+            description: Allows current logged user to delete a comment. User can just delete their comments or if he's the owner of the story. 
+            responses: 
+              200:
+                description: Ok
+
+
+  /like:
+    /likes:
       post:
-        description: Allows current logged user to add a comment to a story.
+        description: Allows an user to like an item. For now, the only items capable of being liked are Stories and Designs. User can like each item just once.
         body:
           application/json:
             schema: |
-                  {
-                    "story_id": { 
-                      "description": "id of the story", 
-                      "required": true,
-                      "type": "string"
-                    },
-                    "text": { 
-                      "description": "The text of the comment. It can be at least 1 char long, and at most 300",
-                      "required": true,
-                      "type": "string"
-                    },
-                    "privacy": { 
-                      "description": "It can be 'everyone’, ‘only-me’ and ‘invites-only’}",
-                      "required": true,
-                      "type": "string"
-                    }
-                  }
+                    {
+                        "id": { 
+                          "description": "id of the item to be liked", 
+                          "required": true,
+                          "type": "string"
+                        },
+                        "type": { 
+                          "description": "Type of the item to be liked. This is required in order to avoid searching for the object with provided id among all the items of all the likeable collections",
+                          "required": true,
+                          "type": "string"
+                        }
+                      }
             example: |
-                { "story_id":"ad91b10d-3441-48be-8c23-b89fdc63d13e"
-                  "text":"This is a comment",
-                  "privacy":"everyone"
-                }
+                    { "id":"4b428a66-12ce-4f92-8208-f87d069b9c4c",
+                      "type":"story"
+                    }
         responses:
-          200:
-            description: OK
-            body:
-              application/json:
-                example: !include swan_story_comments_post_response.txt
-      /seen:
-        post:
-          description: Allows to update to seen the status of the specific comments  
-          body:
-            application/json:
-              schema: |
-                  {
-                    "comments_id": { 
-                      "description": "Array with the ids of the comments", 
-                      "required": true,
-                      "type": "array"
-                    }
+         200:
+           description: OK
 
-                  }
-              example: |
-                { 
-                  "comments_id":["86ef022f-211b-47b9-84a6-1b393a1f137b","9f73f54a-ff11-4014-90e6-aa5dd5bc3e18"]
-                }
-          responses:
-            200:
-              description: OK
-              body:
-                application/json:
-                  example: !include swan_comments_seen_post_response.txt
-      /{commentId}:
-        put:
-          description: Allows current logged user to update a comment. User can just update their comments.
+      /{item_id}:
+        delete:
+          description: Allows an user to unlike a previously liked item. For now, the only items capable of being unliked are User Stories and Designs.
           body:
             application/json:
               schema: |
-                {
-                    "update_action": { 
-                      "description": " to update the content or the privacy layer of a comment, this value must be set to update_content", 
-                      "required": true,
-                      "type": "string"
-                    },
-                    "text": { 
-                      "description": "The text of the comment. It can be at least 1 char long, and at most 300",
-                      "required": true,
-                      "type": "string"
-                    },
-                    "privacy": { 
-                      "description": "It can be 'everyone’, ‘only-me’ and ‘invites-only’}",
-                      "required": true,
-                      "type": "string"
-                    }
-                  }
+                      {
+                          "type": { 
+                            "description": "Type of the item to be unliked. This is required in order to avoid searching for the object with provided id among all the items of all the likeable collections.",
+                            "required": true,
+                            "type": "string"
+                          }
+                        }
               example: |
-                { "update_action":"update_content",
-                  "text":"This is a comment",
-                  "privacy":"everyone"
-                }
+                      { 
+                        "type":"story"
+                      }
           responses:
-            200:
-              description: OK
-              body:
-                application/json:
-                  example: !include swan_story_comments_put_response.txt
-        delete:
-          description: Allows current logged user to delete a comment. User can just delete their comments or if he's the owner of the story. 
-          responses: 
-            200:
-              description: Ok
-      
+           200:
+             description: OK
+     
 /swan_user:
   /{userId}:
     get:
